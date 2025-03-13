@@ -34,7 +34,7 @@ const CtaSection: React.FC = () => {
             </div>
             <div className="flex items-center">
               <CheckCircle className="h-5 w-5 text-insiderBlue-light mr-2" />
-              <span className="text-white">Access to the top 1% of digital visionaries</span>
+              <span className="text-white">Top 1% of digital visionaries</span>
             </div>
           </div>
           
