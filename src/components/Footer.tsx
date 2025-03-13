@@ -10,9 +10,13 @@ const Footer: React.FC = () => {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           <div>
-            <h3 className="text-xl font-bold font-orbitron mb-4">
-              <span className="text-insiderBlue">INSIDER</span><span className="text-white">LIFE</span>
-            </h3>
+            <Link to="/" className="block mb-4">
+              <img 
+                src="/lovable-uploads/0dde12d6-3b84-4c12-b9b6-6ebf84d8ac71.png" 
+                alt="InsiderLife Logo" 
+                className="h-6"
+              />
+            </Link>
             <p className="text-white/70 max-w-xs">
               Empowering entrepreneurs and creators with AI-driven strategies for the digital economy.
             </p>

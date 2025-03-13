@@ -11,7 +11,7 @@ const Navbar: React.FC = () => {
         <div className="flex items-center">
           <Link to="/">
             <img 
-              src="/lovable-uploads/567b2d9a-c6b3-4294-ae0c-e912ea1c90b6.png" 
+              src="/lovable-uploads/0dde12d6-3b84-4c12-b9b6-6ebf84d8ac71.png" 
               alt="InsiderLife Logo" 
               className="h-5 md:h-7"
             />
