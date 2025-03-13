@@ -9,12 +9,7 @@ import Footer from '@/components/Footer';
 
 const Index: React.FC = () => {
   return (
-    <div className="min-h-screen bg-insiderDark">
-      <div className="fixed inset-0 pointer-events-none z-0">
-        {/* Fixed background elements that stay in place during scroll */}
-        <div className="absolute top-0 left-0 w-full h-full bg-futuristic-grid opacity-5"></div>
-      </div>
-      
+    <div className="min-h-screen bg-background">
       <Navbar />
       <HeroSection />
       <AboutSection />
