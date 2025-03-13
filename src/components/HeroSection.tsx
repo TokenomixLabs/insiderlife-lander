@@ -1,86 +1,58 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import { Button } from '@/components/ui/button';
-import { ArrowRight } from 'lucide-react';
 import { Input } from '@/components/ui/input';
-import { useToast } from '@/hooks/use-toast';
+import { cn } from '@/lib/utils';
+import { ArrowRight } from 'lucide-react';
 
 const HeroSection: React.FC = () => {
-  const [email, setEmail] = useState('');
-  const { toast } = useToast();
-
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email || !email.includes('@')) {
-      toast({
-        title: "Invalid email",
-        description: "Please enter a valid email address",
-        variant: "destructive"
-      });
-      return;
-    }
-    
-    toast({
-      title: "Success!",
-      description: "Thank you for joining InsiderLife. We'll be in touch soon!",
-    });
-    
-    setEmail('');
+    console.log('Subscription form submitted');
+    // You would add actual form handling logic here
   };
 
   return (
-    <section className="relative pt-40 pb-20 overflow-hidden min-h-screen flex items-center bg-gradient-to-br from-insiderDark-DEFAULT to-insiderDark-light">
-      {/* Background elements */}
-      <div className="absolute inset-0 bg-futuristic-grid opacity-30"></div>
-      <div className="absolute -top-24 -right-24 w-96 h-96 bg-insiderBlue-DEFAULT/20 rounded-full blur-3xl"></div>
-      <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-insiderPurple-DEFAULT/20 rounded-full blur-3xl"></div>
+    <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
+      {/* Background Animation Elements */}
+      <div className="absolute inset-0 bg-grid-pattern opacity-10 z-0"></div>
+      <div className="absolute top-40 -left-20 w-72 h-72 bg-insiderBlue/20 rounded-full filter blur-3xl opacity-30 animate-pulse-glow"></div>
+      <div className="absolute bottom-20 -right-20 w-80 h-80 bg-insiderPurple/20 rounded-full filter blur-3xl opacity-30 animate-pulse-glow animation-delay-2000"></div>
       
-      {/* Content */}
       <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-3xl mx-auto text-center">
-          <div className="inline-block mb-3 px-4 py-1.5 bg-insiderPurple-DEFAULT/10 backdrop-blur-sm border border-insiderPurple-DEFAULT/20 rounded-full">
-            <span className="text-insiderPurple-light font-medium text-sm">Welcome to the future</span>
-          </div>
-          
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight bg-gradient-to-r from-white via-insiderBlue-light to-insiderPurple-light bg-clip-text text-transparent animate-gradient-shift">
-            Unlock the Future of AI, Business & Digital Monetization
-          </h1>
-          
-          <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed">
-            InsiderLife is the gateway to the next evolution of success—AI-driven business, powerful strategies, and limitless potential.
-          </p>
-          
-          <form onSubmit={handleSubmit} className="mb-12">
-            <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-              <Input
-                type="email"
-                placeholder="Enter your email"
-                className="h-12 bg-white/5 border-white/10 text-white placeholder:text-white/50"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-              <Button 
-                type="submit"
-                className="h-12 px-6 bg-gradient-to-r from-insiderPurple-DEFAULT to-insiderBlue-DEFAULT hover:from-insiderPurple-light hover:to-insiderBlue-light text-white shadow-lg shadow-insiderPurple-DEFAULT/20"
-              >
-                Join Now
-              </Button>
-            </div>
-          </form>
-          
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button 
-              className="text-lg px-8 py-6 h-auto bg-gradient-to-r from-insiderPurple-DEFAULT to-insiderBlue-DEFAULT hover:from-insiderPurple-light hover:to-insiderBlue-light text-white shadow-lg shadow-insiderPurple-DEFAULT/20"
-              size="lg"
-            >
-              Join the Movement <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
+        <div className="max-w-4xl mx-auto">
+          <div className="flex flex-col items-center text-center mb-12 animate-slide-up">
+            <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-4">
+              Unlock the Future of 
+              <span className="block text-gradient mt-2">AI, Business & Digital Monetization</span>
+            </h1>
+            <p className="mt-6 text-xl text-white/80 max-w-2xl">
+              InsiderLife empowers entrepreneurs, creators, and visionaries with AI-driven strategies, cutting-edge education, and scalable digital business models.
+            </p>
+            
+            <form onSubmit={handleSubscribe} className="mt-10 w-full max-w-md">
+              <div className="flex flex-col sm:flex-row gap-2">
+                <Input 
+                  type="email" 
+                  placeholder="Enter your email address" 
+                  className="bg-white/10 border-white/20 text-white placeholder:text-white/50 h-12"
+                  required
+                />
+                <Button 
+                  type="submit"
+                  className={cn(
+                    "bg-gradient-to-r from-insiderPurple to-insiderBlue",
+                    "hover:from-insiderPurple-light hover:to-insiderBlue-light",
+                    "text-white font-medium h-12 px-6"
+                  )}
+                >
+                  Join the Movement <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
-      
-      {/* Animated elements */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 w-2/3 h-px bg-gradient-to-r from-transparent via-insiderBlue-light to-transparent opacity-50"></div>
     </section>
   );
 };
