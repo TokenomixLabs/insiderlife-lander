@@ -1,4 +1,6 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Raleway:wght@400;500;600;700;800;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -52,16 +54,44 @@
   }
 
   body {
-    @apply bg-insiderDark text-foreground;
+    @apply bg-insiderDark text-foreground font-sans;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-bold tracking-tight;
   }
 }
 
 @layer components {
   .text-gradient {
-    @apply bg-gradient-to-r from-insiderBlue to-insiderPurple bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-insiderBlue via-insiderPurple-glow to-insiderPurple bg-clip-text text-transparent;
+  }
+  
+  .headline-gradient {
+    @apply bg-gradient-to-r from-white via-white to-white/80 bg-clip-text text-transparent;
   }
   
   .glass-card {
     @apply bg-insiderDark-light/40 backdrop-blur-lg border border-white/10 rounded-xl shadow-lg;
+  }
+  
+  .elite-card {
+    @apply bg-insiderDark-lighter/70 backdrop-blur-xl border border-insiderPurple-glow/20 rounded-xl shadow-xl;
+  }
+  
+  .glow-effect {
+    @apply relative after:absolute after:inset-0 after:bg-insiderPurple-glow/20 after:rounded-lg after:filter after:blur-xl after:opacity-50 after:-z-10;
+  }
+  
+  .energy-line {
+    @apply absolute h-[1px] w-full bg-gradient-to-r from-transparent via-insiderPurple-glow/50 to-transparent overflow-hidden;
+  }
+  
+  .button-glow {
+    @apply relative z-10 animate-glow-pulse transition-all duration-300 shadow-[0_0_15px_rgba(144,97,249,0.5)];
+  }
+  
+  .light-streak {
+    @apply absolute h-[1px] w-full bg-gradient-to-r from-transparent via-insiderBlue-light/70 to-transparent animate-streak-right;
   }
 }
