@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { cn } from '@/lib/utils';
-import { Instagram, Linkedin, Mail, Youtube, Twitter, Facebook } from 'lucide-react';
+import { Instagram, Linkedin, Mail, Youtube, Twitter, Facebook, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Footer: React.FC = () => {
@@ -34,6 +34,9 @@ const Footer: React.FC = () => {
           
           <div>
             <h4 className="text-lg font-semibold mb-4 font-orbitron">Contact Us</h4>
+            <p className="flex items-center text-white/70 mb-2">
+              <Phone className="h-5 w-5 mr-2" /> (720) 734-8877
+            </p>
             <p className="flex items-center text-white/70 mb-2">
               <Mail className="h-5 w-5 mr-2" /> hello@insiderlife.com
             </p>
