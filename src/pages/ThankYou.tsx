@@ -13,7 +13,7 @@ const ThankYou: React.FC = () => {
             <img 
               src="/lovable-uploads/23046376-dfa1-42fa-b4e6-17e8ade6cb2b.png" 
               alt="InsiderLife Logo" 
-              className="h-6 mb-8"
+              className="h-10 mb-8"
             />
           </Link>
           
