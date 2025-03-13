@@ -65,7 +65,7 @@ const Footer: React.FC = () => {
         </div>
         
         <div className="mt-10 pt-8 border-t border-white/10 text-center text-white/50 text-sm">
-          <p>© {new Date().getFullYear()} InsiderLife. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} InsiderLife LLC. All rights reserved.</p>
         </div>
       </div>
     </footer>
