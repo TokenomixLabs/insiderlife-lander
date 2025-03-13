@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { cn } from '@/lib/utils';
 import { Instagram, Linkedin, Mail, Youtube, Twitter, Facebook } from 'lucide-react';
@@ -13,7 +14,7 @@ const Footer: React.FC = () => {
               <img 
                 src="/lovable-uploads/23046376-dfa1-42fa-b4e6-17e8ade6cb2b.png" 
                 alt="InsiderLife Logo" 
-                className="h-9"
+                className="h-14"
               />
             </Link>
             <p className="text-white/70 max-w-xs">
