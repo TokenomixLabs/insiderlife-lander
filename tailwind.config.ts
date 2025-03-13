@@ -19,6 +19,9 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				'orbitron': ['Orbitron', 'sans-serif'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -84,6 +87,11 @@ export default {
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)'
 			},
+			boxShadow: {
+				'glow': '0 0 15px rgba(122, 122, 255, 0.5)',
+				'glow-blue': '0 0 15px rgba(58, 134, 255, 0.5)',
+				'glow-purple': '0 0 15px rgba(114, 9, 183, 0.5)',
+			},
 			keyframes: {
 				'accordion-down': {
 					from: {
@@ -108,11 +116,13 @@ export default {
 				'pulse-glow': {
 					'0%, 100%': { 
 						opacity: '1',
-						transform: 'scale(1)'
+						transform: 'scale(1)',
+						filter: 'brightness(1)'
 					},
 					'50%': { 
 						opacity: '0.85',
-						transform: 'scale(1.05)'
+						transform: 'scale(1.05)',
+						filter: 'brightness(1.2)'
 					}
 				},
 				'slide-up': {

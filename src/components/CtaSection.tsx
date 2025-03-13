@@ -2,7 +2,7 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Globe, CheckCircle } from 'lucide-react';
 
 const CtaSection: React.FC = () => {
   return (
@@ -13,21 +13,39 @@ const CtaSection: React.FC = () => {
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="glass-card p-10 md:p-16 text-center max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gradient">
-            Ready to Transform Your Digital Future?
-          </h2>
+          <div className="inline-flex items-center justify-center mb-6">
+            <Globe className="h-8 w-8 text-insiderBlue-light mr-3 animate-pulse" />
+            <h2 className="text-3xl md:text-4xl font-bold text-gradient font-orbitron">
+              Your Future is Calling. Will You Answer?
+            </h2>
+          </div>
           <p className="text-lg text-white/80 mb-10 max-w-2xl mx-auto">
-            Join InsiderLife today and gain access to our exclusive platform of AI-powered tools, business strategies, and a community of forward-thinking entrepreneurs.
+            This isn't just a membership—it's your passport to the next level of digital wealth, freedom, and influence.
           </p>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
+            <div className="flex items-center">
+              <CheckCircle className="h-5 w-5 text-insiderBlue-light mr-2" />
+              <span className="text-white">Insider strategies</span>
+            </div>
+            <div className="flex items-center">
+              <CheckCircle className="h-5 w-5 text-insiderBlue-light mr-2" />
+              <span className="text-white">AI-driven automation</span>
+            </div>
+            <div className="flex items-center">
+              <CheckCircle className="h-5 w-5 text-insiderBlue-light mr-2" />
+              <span className="text-white">Access to the top 1% of digital visionaries</span>
+            </div>
+          </div>
           
           <Button 
             className={cn(
               "bg-gradient-to-r from-insiderPurple to-insiderBlue",
               "hover:from-insiderPurple-light hover:to-insiderBlue-light",
-              "text-white font-medium text-lg px-8 py-6 h-auto"
+              "text-white font-medium text-lg px-8 py-6 h-auto shadow-glow transition-all duration-300 hover:scale-105"
             )}
           >
-            Join the Movement <ArrowRight className="ml-2 h-5 w-5" />
+            🔥 Join the Movement Now <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
         </div>
       </div>

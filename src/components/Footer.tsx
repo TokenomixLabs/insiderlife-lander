@@ -9,8 +9,8 @@ const Footer: React.FC = () => {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           <div>
-            <h3 className="text-xl font-bold bg-gradient-to-r from-insiderBlue to-insiderPurple bg-clip-text text-transparent mb-4">
-              InsiderLife
+            <h3 className="text-xl font-bold font-orbitron mb-4">
+              <span className="text-insiderBlue">INSIDER</span><span className="text-white">LIFE</span>
             </h3>
             <p className="text-white/70 max-w-xs">
               Empowering entrepreneurs and creators with AI-driven strategies for the digital economy.
@@ -18,7 +18,7 @@ const Footer: React.FC = () => {
           </div>
           
           <div>
-            <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
+            <h4 className="text-lg font-semibold mb-4 font-orbitron">Quick Links</h4>
             <ul className="space-y-2">
               <li><a href="#about" className="text-white/70 hover:text-white transition-colors">About</a></li>
               <li><a href="#offerings" className="text-white/70 hover:text-white transition-colors">What We Offer</a></li>
@@ -28,27 +28,27 @@ const Footer: React.FC = () => {
           </div>
           
           <div>
-            <h4 className="text-lg font-semibold mb-4">Contact Us</h4>
+            <h4 className="text-lg font-semibold mb-4 font-orbitron">Contact Us</h4>
             <p className="flex items-center text-white/70 mb-2">
               <Mail className="h-5 w-5 mr-2" /> hello@insiderlife.com
             </p>
             
             <div className="mt-4">
-              <h5 className="text-sm font-medium mb-2">Follow Us</h5>
+              <h5 className="text-sm font-medium mb-2 font-orbitron">Follow Us</h5>
               <div className="flex space-x-4">
-                <a href="#" className="text-white/70 hover:text-insiderBlue transition-colors">
+                <a href="#" className="text-white/70 hover:text-insiderBlue transition-colors transform hover:scale-110">
                   <Instagram className="h-5 w-5" />
                 </a>
-                <a href="#" className="text-white/70 hover:text-insiderBlue transition-colors">
+                <a href="#" className="text-white/70 hover:text-insiderBlue transition-colors transform hover:scale-110">
                   <Linkedin className="h-5 w-5" />
                 </a>
-                <a href="#" className="text-white/70 hover:text-insiderBlue transition-colors">
+                <a href="#" className="text-white/70 hover:text-insiderBlue transition-colors transform hover:scale-110">
                   <Youtube className="h-5 w-5" />
                 </a>
-                <a href="#" className="text-white/70 hover:text-insiderBlue transition-colors">
+                <a href="#" className="text-white/70 hover:text-insiderBlue transition-colors transform hover:scale-110">
                   <Twitter className="h-5 w-5" />
                 </a>
-                <a href="#" className="text-white/70 hover:text-insiderBlue transition-colors">
+                <a href="#" className="text-white/70 hover:text-insiderBlue transition-colors transform hover:scale-110">
                   <Facebook className="h-5 w-5" />
                 </a>
               </div>

@@ -3,7 +3,7 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { cn } from '@/lib/utils';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Rocket } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
 const HeroSection: React.FC = () => {
@@ -29,12 +29,13 @@ const HeroSection: React.FC = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto">
           <div className="flex flex-col items-center text-center mb-12 animate-slide-up">
-            <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-4">
-              Unlock the Future of 
-              <span className="block text-gradient mt-2">AI, Business & Digital Monetization</span>
+            <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-4 font-orbitron">
+              <Rocket className="inline-block mr-2 h-8 w-8 text-insiderBlue animate-float" />
+              Unlock the <span className="text-insiderBlue">Insider</span> Advantage:
+              <span className="block text-gradient mt-2">AI-Powered Wealth, Influence & Freedom</span>
             </h1>
             <p className="mt-6 text-xl text-white/80 max-w-2xl">
-              InsiderLife empowers entrepreneurs, creators, and visionaries with AI-driven strategies, cutting-edge education, and scalable digital business models.
+              Dominate the digital economy with next-level AI automation, high-impact monetization systems, and elite community access.
             </p>
             
             <form onSubmit={handleSubscribe} className="mt-10 w-full max-w-md">
@@ -50,7 +51,7 @@ const HeroSection: React.FC = () => {
                   className={cn(
                     "bg-gradient-to-r from-insiderPurple to-insiderBlue",
                     "hover:from-insiderPurple-light hover:to-insiderBlue-light",
-                    "text-white font-medium h-12 px-6"
+                    "text-white font-medium h-12 px-6 shadow-glow transition-all duration-300 hover:scale-105"
                   )}
                 >
                   Join the Movement <ArrowRight className="ml-2 h-4 w-4" />
