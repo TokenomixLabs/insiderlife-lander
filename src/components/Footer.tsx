@@ -30,7 +30,7 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4">Contact Us</h4>
             <p className="flex items-center text-white/70 mb-2">
-              <Mail className="h-5 w-5 mr-2" /> admin@insiderlife.com
+              <Mail className="h-5 w-5 mr-2" /> hello@insiderlife.com
             </p>
             
             <div className="mt-4">

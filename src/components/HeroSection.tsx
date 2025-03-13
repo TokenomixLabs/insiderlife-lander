@@ -4,11 +4,18 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { cn } from '@/lib/utils';
 import { ArrowRight } from 'lucide-react';
+import { useToast } from '@/hooks/use-toast';
 
 const HeroSection: React.FC = () => {
+  const { toast } = useToast();
+  
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
     console.log('Subscription form submitted');
+    toast({
+      title: "Success!",
+      description: "You're now subscribed to InsiderLife updates.",
+    });
     // You would add actual form handling logic here
   };
 
