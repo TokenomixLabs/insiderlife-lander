@@ -8,9 +8,12 @@ const Navbar: React.FC = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 py-4 bg-insiderDark/80 backdrop-blur-md border-b border-white/10">
       <div className="container mx-auto flex items-center justify-between">
         <div className="flex items-center">
-          <h1 className="text-xl font-orbitron font-bold">
-            <span className="text-insiderBlue">INSIDER</span><span className="text-white">LIFE</span>
-          </h1>
+          <img 
+            src="/lovable-uploads/567b2d9a-c6b3-4294-ae0c-e912ea1c90b6.png" 
+            alt="InsiderLife Logo" 
+            className="h-10 md:h-12"
+          />
+          <span className="text-xl font-orbitron font-bold text-white ml-2">LIFE</span>
         </div>
         
         <div className="hidden md:flex space-x-8 text-sm">
