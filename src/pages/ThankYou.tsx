@@ -11,7 +11,7 @@ const ThankYou: React.FC = () => {
         <div className="flex flex-col items-center">
           <Link to="/">
             <img 
-              src="/lovable-uploads/0dde12d6-3b84-4c12-b9b6-6ebf84d8ac71.png" 
+              src="/lovable-uploads/23046376-dfa1-42fa-b4e6-17e8ade6cb2b.png" 
               alt="InsiderLife Logo" 
               className="h-6 mb-8"
             />
