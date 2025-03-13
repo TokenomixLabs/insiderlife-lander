@@ -88,10 +88,117 @@
   }
   
   .button-glow {
-    @apply relative z-10 animate-glow-pulse transition-all duration-300 shadow-[0_0_15px_rgba(144,97,249,0.5)];
+    @apply relative z-10 shadow-[0_0_15px_rgba(144,97,249,0.5)];
   }
   
   .light-streak {
-    @apply absolute h-[1px] w-full bg-gradient-to-r from-transparent via-insiderBlue-light/70 to-transparent animate-streak-right;
+    @apply absolute h-[1px] w-full bg-gradient-to-r from-transparent via-insiderBlue-light/70 to-transparent;
   }
+}
+
+/* Animation keyframes */
+@keyframes glow-pulse {
+  0%, 100% { 
+    filter: drop-shadow(0 0 0.5rem rgba(144, 97, 249, 0.5));
+  }
+  50% { 
+    filter: drop-shadow(0 0 1rem rgba(144, 97, 249, 0.8));
+  }
+}
+
+@keyframes streak-right {
+  0% { 
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  10%, 90% { 
+    opacity: 0.3;
+  }
+  100% { 
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes energy-pulse {
+  0%, 100% { 
+    opacity: 0.8;
+    filter: blur(8px);
+  }
+  50% { 
+    opacity: 1;
+    filter: blur(12px);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes float-subtle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+@keyframes slide-up {
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Animation classes */
+.animate-glow-pulse {
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
+.animate-streak-right {
+  animation: streak-right 8s ease-out infinite;
+}
+
+.animate-energy-pulse {
+  animation: energy-pulse 5s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-subtle {
+  animation: float-subtle 4s ease-in-out infinite;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.7s ease-out;
+}
+
+.animation-delay-300 {
+  animation-delay: 300ms;
+}
+
+.animation-delay-600 {
+  animation-delay: 600ms;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2000ms;
+}
+
+/* Remove App.css conflicts */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+#root {
+  max-width: 100%;
+  padding: 0;
 }

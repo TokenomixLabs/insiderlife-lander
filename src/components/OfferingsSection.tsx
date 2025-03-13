@@ -56,10 +56,9 @@ const OfferingsSection: React.FC = () => {
               className={cn(
                 "bg-insiderDark-lighter/40 border border-insiderPurple-glow/20 backdrop-blur-sm",
                 "transform transition-all duration-500 hover:scale-105 hover:shadow-xl",
-                "hover:shadow-insiderPurple-glow/10 group",
-                "opacity-0 animate-fade-in" 
+                "hover:shadow-insiderPurple-glow/10 group"
               )}
-              style={{ animationDelay: offering.delay, animationFillMode: 'forwards' }}
+              style={{ animationDelay: offering.delay }}
             >
               <CardHeader>
                 <div className={cn(
