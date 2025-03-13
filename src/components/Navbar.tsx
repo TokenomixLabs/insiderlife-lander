@@ -11,9 +11,8 @@ const Navbar: React.FC = () => {
           <img 
             src="/lovable-uploads/567b2d9a-c6b3-4294-ae0c-e912ea1c90b6.png" 
             alt="InsiderLife Logo" 
-            className="h-10 md:h-12"
+            className="h-6 md:h-8"
           />
-          <span className="text-xl font-orbitron font-bold text-white ml-2">LIFE</span>
         </div>
         
         <div className="hidden md:flex space-x-8 text-sm">
