@@ -2,17 +2,20 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import { Link } from 'react-router-dom';
 
 const Navbar: React.FC = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 py-4 bg-insiderDark/80 backdrop-blur-md border-b border-white/10">
       <div className="container mx-auto flex items-center justify-between">
         <div className="flex items-center">
-          <img 
-            src="/lovable-uploads/567b2d9a-c6b3-4294-ae0c-e912ea1c90b6.png" 
-            alt="InsiderLife Logo" 
-            className="h-6 md:h-8"
-          />
+          <Link to="/">
+            <img 
+              src="/lovable-uploads/567b2d9a-c6b3-4294-ae0c-e912ea1c90b6.png" 
+              alt="InsiderLife Logo" 
+              className="h-5 md:h-7"
+            />
+          </Link>
         </div>
         
         <div className="hidden md:flex space-x-8 text-sm">
