@@ -1,9 +1,33 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
+import { Input } from '@/components/ui/input';
+import { useToast } from '@/hooks/use-toast';
 
 const HeroSection: React.FC = () => {
+  const [email, setEmail] = useState('');
+  const { toast } = useToast();
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email || !email.includes('@')) {
+      toast({
+        title: "Invalid email",
+        description: "Please enter a valid email address",
+        variant: "destructive"
+      });
+      return;
+    }
+    
+    toast({
+      title: "Success!",
+      description: "Thank you for joining InsiderLife. We'll be in touch soon!",
+    });
+    
+    setEmail('');
+  };
+
   return (
     <section className="relative pt-40 pb-20 overflow-hidden min-h-screen flex items-center bg-gradient-to-br from-insiderDark-DEFAULT to-insiderDark-light">
       {/* Background elements */}
@@ -25,6 +49,24 @@ const HeroSection: React.FC = () => {
           <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed">
             InsiderLife is the gateway to the next evolution of success—AI-driven business, powerful strategies, and limitless potential.
           </p>
+          
+          <form onSubmit={handleSubmit} className="mb-12">
+            <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+              <Input
+                type="email"
+                placeholder="Enter your email"
+                className="h-12 bg-white/5 border-white/10 text-white placeholder:text-white/50"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <Button 
+                type="submit"
+                className="h-12 px-6 bg-gradient-to-r from-insiderPurple-DEFAULT to-insiderBlue-DEFAULT hover:from-insiderPurple-light hover:to-insiderBlue-light text-white shadow-lg shadow-insiderPurple-DEFAULT/20"
+              >
+                Join Now
+              </Button>
+            </div>
+          </form>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button 

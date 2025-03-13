@@ -6,6 +6,7 @@ import AboutSection from '@/components/AboutSection';
 import OfferingsSection from '@/components/OfferingsSection';
 import CtaSection from '@/components/CtaSection';
 import Footer from '@/components/Footer';
+import { Toaster } from '@/components/ui/toaster';
 
 const Index: React.FC = () => {
   return (
@@ -16,6 +17,7 @@ const Index: React.FC = () => {
       <OfferingsSection />
       <CtaSection />
       <Footer />
+      <Toaster />
     </div>
   );
 };
