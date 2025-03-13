@@ -33,10 +33,10 @@ const OfferingsSection: React.FC = () => {
       
       {/* Animated light streaks */}
       <div className="absolute top-1/4 left-0 w-full">
-        <div className="light-streak" style={{ animationDelay: '1s' }}></div>
+        <div className="light-streak animate-streak-right" style={{ animationDelay: '1s' }}></div>
       </div>
       <div className="absolute bottom-1/4 left-0 w-full">
-        <div className="light-streak" style={{ animationDelay: '5s' }}></div>
+        <div className="light-streak animate-streak-right" style={{ animationDelay: '5s' }}></div>
       </div>
       
       <div className="container mx-auto px-4 relative z-10">
@@ -58,7 +58,6 @@ const OfferingsSection: React.FC = () => {
                 "transform transition-all duration-500 hover:scale-105 hover:shadow-xl",
                 "hover:shadow-insiderPurple-glow/10 group"
               )}
-              style={{ animationDelay: offering.delay }}
             >
               <CardHeader>
                 <div className={cn(
