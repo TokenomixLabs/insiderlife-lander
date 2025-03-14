@@ -1,10 +1,13 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { ArrowRight, Globe, CheckCircle } from 'lucide-react';
+import WaitlistDialog from './WaitlistDialog';
 
 const CtaSection: React.FC = () => {
+  const [waitlistOpen, setWaitlistOpen] = useState(false);
+  
   return (
     <section className="py-20 relative overflow-hidden">
       <div className="absolute inset-0 bg-cta-gradient opacity-10 z-0"></div>
@@ -44,11 +47,14 @@ const CtaSection: React.FC = () => {
               "hover:from-insiderPurple-light hover:to-insiderBlue-light",
               "text-white font-medium text-lg px-8 py-6 h-auto shadow-glow transition-all duration-300 hover:scale-105"
             )}
+            onClick={() => setWaitlistOpen(true)}
           >
             🔥 Join the Movement Now <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
         </div>
       </div>
+      
+      <WaitlistDialog open={waitlistOpen} onOpenChange={setWaitlistOpen} />
     </section>
   );
 };
