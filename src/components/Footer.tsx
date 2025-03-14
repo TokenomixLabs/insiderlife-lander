@@ -14,7 +14,7 @@ const Footer: React.FC = () => {
               <img 
                 src="/lovable-uploads/fe4a3c75-e706-4c9e-9a22-d0dd85c0f199.png" 
                 alt="InsiderLife Logo" 
-                className="h-14"
+                className="h-10"
               />
             </Link>
             <p className="text-white/70 max-w-xs">

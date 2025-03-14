@@ -16,7 +16,7 @@ const Navbar: React.FC = () => {
             <img 
               src="/lovable-uploads/fe4a3c75-e706-4c9e-9a22-d0dd85c0f199.png" 
               alt="InsiderLife Logo" 
-              className="h-12 md:h-16" 
+              className="h-8 md:h-10" 
             />
           </Link>
         </div>
