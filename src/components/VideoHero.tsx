@@ -49,13 +49,13 @@ const VideoHero: React.FC = () => {
   }, [isLoaded, isMuted]);
 
   return (
-    <section className="relative h-screen w-full overflow-hidden">
-      {/* Video Background */}
-      <div className="absolute inset-0 w-full h-full">
+    <div className="relative w-full h-screen">
+      <div className="absolute inset-0 overflow-hidden">
         <iframe
           ref={iframeRef}
           src="https://player.vimeo.com/video/1066410334?background=1&autoplay=1&loop=1&byline=0&title=0"
-          className="w-full h-full object-cover"
+          className="w-full h-full"
+          style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover' }}
           frameBorder="0"
           allow="autoplay; fullscreen; picture-in-picture"
           allowFullScreen
@@ -80,7 +80,7 @@ const VideoHero: React.FC = () => {
           <Volume2 className="w-6 h-6" />
         )}
       </button>
-    </section>
+    </div>
   );
 };
 
