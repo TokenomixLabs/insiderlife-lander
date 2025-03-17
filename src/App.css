@@ -38,22 +38,22 @@ body, html {
 
 /* Video element styles */
 .video-element {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  min-width: 100%;
-  min-height: 100%;
-  width: 177.77777778vh; /* 16:9 aspect ratio */
-  height: 56.25vw; /* 16:9 aspect ratio */
-  transform: translate(-50%, -50%);
-  object-fit: cover;
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  transform: translate(-50%, -50%) !important;
+  min-width: 177.77777778vh !important; /* 16:9 aspect ratio */
+  min-height: 56.25vw !important; /* 16:9 aspect ratio */
+  object-fit: cover !important;
 }
 
 /* Make sure iframe spans full width/height properly */
 @media (max-aspect-ratio: 16/9) {
   .video-element {
-    width: 100%;
-    height: 100vh;
+    width: 100vw !important;
+    height: 100vh !important;
   }
 }
 

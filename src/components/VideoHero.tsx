@@ -47,7 +47,11 @@ const VideoHero: React.FC = () => {
     try {
       if (iframeRef.current && window.Vimeo) {
         console.log('Initializing Vimeo player');
-        vimeoPlayer.current = new window.Vimeo.Player(iframeRef.current);
+        vimeoPlayer.current = new window.Vimeo.Player(iframeRef.current, {
+          background: true,
+          muted: true,
+          loop: true
+        });
         
         vimeoPlayer.current.on('loaded', () => {
           console.log('Vimeo player loaded');
@@ -96,6 +100,16 @@ const VideoHero: React.FC = () => {
             allow="autoplay; fullscreen; picture-in-picture"
             className="video-element"
             title="Background Video"
+            style={{
+              position: 'absolute',
+              top: '50%',
+              left: '50%',
+              width: '100vw',
+              height: '100vh',
+              transform: 'translate(-50%, -50%)',
+              minWidth: '100%',
+              minHeight: '100%'
+            }}
           ></iframe>
           {isLoading && (
             <div className="video-fallback">
