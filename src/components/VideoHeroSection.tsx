@@ -131,9 +131,9 @@ const VideoHeroSection: React.FC = () => {
         <VideoPlayer />
       </div>
       
-      <div className="relative z-20 container mx-auto px-4 py-6 flex flex-col items-center text-center">
+      <div className="relative z-20 container mx-auto px-4 py-0 flex flex-col items-center text-center">
         <div className="max-w-4xl mx-auto animate-slide-up">
-          <form onSubmit={handleSubscribe} className="w-full max-w-md mx-auto mb-8">
+          <form onSubmit={handleSubscribe} className="w-full max-w-md mx-auto mb-4 -mt-2">
             <div className="flex flex-col sm:flex-row gap-2">
               <Input 
                 type="email" 
