@@ -49,7 +49,7 @@ const VideoHero: React.FC = () => {
   }, [isLoaded, isMuted]);
 
   return (
-    <div className="fixed top-0 left-0 w-full h-full overflow-hidden">
+    <div className="fixed top-0 left-0 w-full h-full z-0">
       <iframe
         ref={videoRef}
         src="https://player.vimeo.com/video/1066410334?background=1&autoplay=1&loop=1&byline=0&title=0"
@@ -59,7 +59,8 @@ const VideoHero: React.FC = () => {
           left: 0,
           width: '100vw',
           height: '100vh',
-          objectFit: 'cover'
+          objectFit: 'cover',
+          zIndex: 0
         }}
         frameBorder="0"
         allow="autoplay; fullscreen; picture-in-picture"
