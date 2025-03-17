@@ -30,11 +30,11 @@ const OfferingsSection: React.FC = () => {
       <div className="container mx-auto px-4 relative z-10 pt-16 pb-16">
         <div className="text-center mb-10">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-gradient font-orbitron">
-            Awaken Power, Freedom & Mastery
+            Activate Power, Freedom & Mastery
           </h2>
           <p className="max-w-4xl mx-auto text-lg md:text-xl text-white/80">
-            InsiderLife delivers the strategies, tools, and AI-driven systems to dominate life, business,<br />
-            and the new economy—while building true sovereignty and an unstoppable mindset.
+            Unlock the AI-driven frameworks and elite strategies to dominate life, business,<br />
+            and the new economy—while building sovereignty, wealth, and unstoppable momentum.
           </p>
         </div>
         
