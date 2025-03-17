@@ -24,21 +24,21 @@ const VideoHero: React.FC = () => {
   };
 
   return (
-    <div className="video-background">
+    <div className="fixed inset-0 w-full h-full overflow-hidden -z-10">
       <video
         ref={videoRef}
         autoPlay
         loop
-        muted
+        muted={isMuted}
         playsInline
-        className="fullscreen-video"
+        className="absolute top-0 left-0 w-full h-full object-cover"
       >
         <source src="/video-background.mp4" type="video/mp4" />
       </video>
 
       {/* Dark overlay for better text visibility */}
-      <div className="video-overlay"></div>
-
+      <div className="absolute inset-0 bg-black/50"></div>
+      
       {/* Mute Toggle Button */}
       <button
         onClick={toggleMute}
