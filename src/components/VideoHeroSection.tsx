@@ -76,7 +76,7 @@ const VideoPlayer = () => {
         variant="ghost"
         size="icon"
         onClick={() => setIsMuted(!isMuted)}
-        className="absolute z-50 top-4 right-4 bg-black/20 hover:bg-black/40 backdrop-blur-sm rounded-full w-12 h-12 flex items-center justify-center"
+        className="absolute z-50 bottom-4 right-4 bg-black/20 hover:bg-black/40 backdrop-blur-sm rounded-full w-12 h-12 flex items-center justify-center"
         aria-label={isMuted ? "Unmute video" : "Mute video"}
       >
         {isMuted ? <VolumeX size={24} /> : <Volume2 size={24} />}
