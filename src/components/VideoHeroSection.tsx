@@ -1,4 +1,3 @@
-
 import React, { useState, useRef, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -15,7 +14,6 @@ const VideoPlayer = () => {
   const isMobile = useIsMobile();
 
   useEffect(() => {
-    // Initialize Vimeo player
     if (!playerRef.current) return;
 
     const script = document.querySelector('script[src="https://player.vimeo.com/api/player.js"]');
@@ -77,7 +75,6 @@ const VideoPlayer = () => {
         <div ref={playerRef} className="w-full h-full"></div>
       </div>
       
-      {/* Dark overlay */}
       <div className="absolute inset-0 bg-insiderDark/70 z-10"></div>
       
       <Button
@@ -105,10 +102,8 @@ const VideoHeroSection: React.FC = () => {
     setIsSubmitting(true);
     
     try {
-      // Here you would typically send the email to your backend or email service
       console.log('Subscription form submitted with email:', email);
       
-      // Simulate API call with timeout
       await new Promise(resolve => setTimeout(resolve, 1000));
       
       toast({
@@ -116,7 +111,6 @@ const VideoHeroSection: React.FC = () => {
         description: "You're now subscribed to InsiderLife updates.",
       });
       
-      // Redirect to thank you page
       navigate('/thank-you');
     } catch (error) {
       console.error('Subscription error:', error);
@@ -131,13 +125,11 @@ const VideoHeroSection: React.FC = () => {
   };
 
   return (
-    <section className="relative w-full flex flex-col">
-      {/* Video section with fixed height */}
+    <section className="relative w-full flex flex-col pt-16">
       <div className="relative w-full h-[60vh] md:h-[70vh]">
         <VideoPlayer />
       </div>
       
-      {/* Email form section below the video */}
       <div className="relative z-20 container mx-auto px-4 py-12 flex flex-col items-center text-center">
         <div className="max-w-4xl mx-auto animate-slide-up">
           <form onSubmit={handleSubscribe} className="w-full max-w-md mx-auto mb-8">
@@ -172,7 +164,6 @@ const VideoHeroSection: React.FC = () => {
   );
 };
 
-// Add this declaration to handle the Vimeo Player API
 declare global {
   interface Window {
     Vimeo: any;
