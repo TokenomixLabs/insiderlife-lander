@@ -1,3 +1,4 @@
+
 import React, { useState, useRef, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -71,7 +72,7 @@ const VideoPlayer = () => {
   };
 
   return (
-    <div className="absolute inset-0 w-full h-full overflow-hidden">
+    <div className="relative w-full h-full overflow-hidden">
       <div className="w-full h-full">
         <div ref={playerRef} className="w-full h-full"></div>
       </div>
@@ -83,7 +84,7 @@ const VideoPlayer = () => {
         variant="ghost"
         size="icon"
         onClick={() => setIsMuted(!isMuted)}
-        className="absolute z-50 bg-black/20 hover:bg-black/40 backdrop-blur-sm rounded-full w-12 h-12 flex items-center justify-center bottom-8 right-8"
+        className="absolute z-50 top-4 right-4 bg-black/20 hover:bg-black/40 backdrop-blur-sm rounded-full w-12 h-12 flex items-center justify-center"
         aria-label={isMuted ? "Unmute video" : "Mute video"}
       >
         {isMuted ? <VolumeX size={24} /> : <Volume2 size={24} />}
@@ -130,14 +131,16 @@ const VideoHeroSection: React.FC = () => {
   };
 
   return (
-    <section className="relative w-full min-h-[70vh] md:min-h-[80vh] flex items-center">
-      {/* Video Background */}
-      <VideoPlayer />
-
-      {/* Content */}
-      <div className="relative z-20 container mx-auto px-4 py-24 md:py-36 flex flex-col items-center text-center">
+    <section className="relative w-full flex flex-col">
+      {/* Video section with fixed height */}
+      <div className="relative w-full h-[60vh] md:h-[70vh]">
+        <VideoPlayer />
+      </div>
+      
+      {/* Email form section below the video */}
+      <div className="relative z-20 container mx-auto px-4 py-12 flex flex-col items-center text-center">
         <div className="max-w-4xl mx-auto animate-slide-up">
-          <form onSubmit={handleSubscribe} className="mt-10 w-full max-w-md mx-auto">
+          <form onSubmit={handleSubscribe} className="w-full max-w-md mx-auto mb-8">
             <div className="flex flex-col sm:flex-row gap-2">
               <Input 
                 type="email" 
