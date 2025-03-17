@@ -1,3 +1,4 @@
+
 import React, { useState, useRef, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -75,7 +76,7 @@ const VideoPlayer = () => {
         <div ref={playerRef} className="w-full h-full"></div>
       </div>
       
-      <div className="absolute inset-0 bg-insiderDark/70 z-10"></div>
+      {/* Removed the dark overlay div that was here */}
       
       <Button
         variant="ghost"
@@ -130,7 +131,7 @@ const VideoHeroSection: React.FC = () => {
         <VideoPlayer />
       </div>
       
-      <div className="relative z-20 container mx-auto px-4 py-12 flex flex-col items-center text-center">
+      <div className="relative z-20 container mx-auto px-4 py-6 flex flex-col items-center text-center">
         <div className="max-w-4xl mx-auto animate-slide-up">
           <form onSubmit={handleSubscribe} className="w-full max-w-md mx-auto mb-8">
             <div className="flex flex-col sm:flex-row gap-2">
