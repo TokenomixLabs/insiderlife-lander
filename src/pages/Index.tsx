@@ -9,7 +9,7 @@ import Footer from '@/components/Footer';
 
 const Index: React.FC = () => {
   return (
-    <div className="min-h-screen bg-insiderDark overflow-x-hidden">
+    <div className="min-h-screen bg-insiderDark overflow-hidden">
       <Navbar />
       <VideoHero />
       <AboutSection />
