@@ -1,8 +1,7 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Volume2, VolumeX } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import { Volume2, VolumeX } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
 
 const VideoPlayer = () => {
@@ -89,7 +88,7 @@ const VideoPlayer = () => {
 const VideoHeroSection: React.FC = () => {
   return (
     <section className="relative w-full flex flex-col pt-16">
-      <div className="relative w-full h-[60vh] md:h-[70vh] mb-0">
+      <div className="relative w-full h-[60vh] md:h-[70vh]">
         <VideoPlayer />
       </div>
     </section>

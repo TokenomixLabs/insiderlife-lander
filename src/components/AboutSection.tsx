@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { cn } from '@/lib/utils';
 import { CheckCircle, Lightbulb, Zap, Users, ArrowRight } from 'lucide-react';
@@ -40,8 +41,8 @@ const AboutSection: React.FC = () => {
   };
 
   return (
-    <section id="about" className="py-12 relative">
-      <div className="w-full max-w-md mx-auto my-12">
+    <section id="about" className="pt-0 pb-12 relative">
+      <div className="w-full max-w-md mx-auto mt-2 mb-6">
         <form onSubmit={handleSubscribe} className="w-full">
           <div className="flex flex-col sm:flex-row gap-2">
             <Input 
