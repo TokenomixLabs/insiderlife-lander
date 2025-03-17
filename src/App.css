@@ -19,15 +19,13 @@ body, html {
 .hero-section {
   position: relative;
   width: 100%;
-  display: flex;
-  flex-direction: column;
 }
 
 /* Video hero container */
 .hero-video-wrapper {
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 60vh;
   overflow: hidden;
 }
 
@@ -96,6 +94,7 @@ body, html {
   align-items: center;
   z-index: 2;
   padding: 0 1rem;
+  background-color: rgba(10, 10, 20, 0.3);
 }
 
 /* Hero text styles */
@@ -106,36 +105,37 @@ body, html {
 }
 
 .hero-title {
-  font-size: 5rem;
+  font-size: 3.5rem;
   font-weight: 700;
   line-height: 1;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   font-family: 'Orbitron', sans-serif;
 }
 
 .hero-subtitle {
-  display: block;
-  background: linear-gradient(to right, #4C6EF5, #9B5DE5);
-  -webkit-background-clip: text;
-  color: transparent;
-  margin-top: 0.5rem;
-  font-size: 4rem;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-top: 0.25rem;
+  margin-bottom: 1rem;
+  color: white;
 }
 
 .hero-description {
   font-size: 1.25rem;
   max-width: 800px;
-  margin: 1.5rem auto 0;
-  opacity: 0.8;
+  margin: 1rem auto 0;
+  opacity: 0.9;
+}
+
+/* Form section */
+.form-section {
+  background-color: #0a0a14;
+  width: 100%;
 }
 
 /* Hero form container */
 .hero-form-container {
-  background-color: #0a0a14;
   padding: 2rem 1rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 100%;
 }
 
@@ -164,9 +164,9 @@ body, html {
   color: rgba(255, 255, 255, 0.5);
 }
 
-/* Hero button styles */
-.hero-button {
-  background: linear-gradient(to right, #9B5DE5, #4C6EF5);
+/* Join button styles */
+.join-button {
+  background: linear-gradient(to right, #4CC9F0, #3A86FF);
   color: white;
   font-weight: 500;
   height: 3.5rem;
@@ -180,9 +180,9 @@ body, html {
   flex-shrink: 0;
 }
 
-.hero-button:hover {
+.join-button:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 20px rgba(155, 93, 229, 0.4);
+  box-shadow: 0 0 20px rgba(58, 134, 255, 0.4);
 }
 
 /* Text gradient for headings */
@@ -195,11 +195,11 @@ body, html {
 /* Responsive styles */
 @media (max-width: 768px) {
   .hero-title {
-    font-size: 3.5rem;
+    font-size: 2.5rem;
   }
   
   .hero-subtitle {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
   
   .hero-form {
@@ -207,17 +207,17 @@ body, html {
   }
   
   .hero-video-wrapper {
-    height: 90vh;
+    height: 50vh;
   }
 }
 
 @media (max-width: 480px) {
   .hero-title {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
   
   .hero-subtitle {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
   
   .hero-description {

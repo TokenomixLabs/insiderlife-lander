@@ -125,8 +125,8 @@ const VideoHero: React.FC = () => {
         <div className="hero-text">
           <h1 className="hero-title">
             <span className="text-insiderBlue">Insider</span> Advantage
-            <span className="hero-subtitle">AI-Powered Wealth <span className="text-insiderPurple">&</span> Freedom</span>
           </h1>
+          <h2 className="hero-subtitle">AI-Powered Wealth <span className="text-insiderPurple">&</span> Freedom</h2>
           <p className="hero-description">
             Dominate the digital economy with next-level AI automation, high-impact monetization systems, and elite community access.
           </p>

@@ -1,9 +1,7 @@
 
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { cn } from '@/lib/utils';
 import { ArrowRight } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
@@ -55,15 +53,15 @@ const HeroForm: React.FC = () => {
           onChange={(e) => setEmail(e.target.value)}
           disabled={isSubmitting}
         />
-        <Button 
+        <button 
           type="submit"
-          className="hero-button"
+          className="join-button"
           disabled={isSubmitting}
         >
           {isSubmitting ? "Submitting..." : (
             <>Join the Movement <ArrowRight className="ml-2 h-4 w-4" /></>
           )}
-        </Button>
+        </button>
       </form>
     </div>
   );

@@ -15,6 +15,9 @@ const Index: React.FC = () => {
       
       <div className="hero-section">
         <VideoHero />
+      </div>
+      
+      <div className="form-section">
         <HeroForm />
       </div>
       
