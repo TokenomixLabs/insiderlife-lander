@@ -1,3 +1,4 @@
+
 import React, { useState, useRef, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Volume2, VolumeX, ArrowRight } from 'lucide-react';
@@ -155,12 +156,14 @@ const VideoHeroSection: React.FC = () => {
   const isMobile = useIsMobile();
   
   return (
-    <section className="relative w-full">
-      <div className="w-full" style={{ height: isMobile ? '85vh' : 'calc(100vh - 80px)' }}>
+    <section className="relative w-full flex flex-col">
+      {/* Video container - reduced height on mobile */}
+      <div className="w-full" style={{ height: isMobile ? '50vh' : 'calc(100vh - 80px)' }}>
         <VideoPlayer />
       </div>
       
-      <div className="w-full bg-insiderDark py-6">
+      {/* Email form section - directly attached to the video with no gap */}
+      <div className="w-full bg-insiderDark py-6 px-4 flex-grow">
         <EmailSubscriptionForm />
       </div>
     </section>
