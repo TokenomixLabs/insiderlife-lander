@@ -9,16 +9,16 @@ import AboutSection from '@/components/AboutSection';
 
 const Index: React.FC = () => {
   return (
-    <div className="min-h-screen bg-insiderDark overflow-x-hidden flex flex-col">
+    <div className="min-h-screen bg-insiderDark flex flex-col">
       <Navbar />
-      <main className="flex flex-col overflow-hidden">
-        <div className="flex flex-col" style={{ overflow: 'visible' }}>
+      <div className="flex-grow flex flex-col">
+        <div className="relative">
           <VideoHeroSection />
           <OfferingsSection />
         </div>
         <AboutSection />
         <CtaSection />
-      </main>
+      </div>
       <Footer />
     </div>
   );

@@ -89,10 +89,8 @@ const VideoHeroSection: React.FC = () => {
   const isMobile = useIsMobile();
   
   return (
-    <section className="relative w-full h-auto" style={{ marginTop: '80px', marginBottom: '0' }}>
-      <div className="w-full" style={{ height: isMobile ? '70vh' : 'calc(100vh - 80px)' }}>
-        <VideoPlayer />
-      </div>
+    <section className="relative w-full overflow-hidden" style={{ marginTop: '80px', height: isMobile ? '70vh' : 'calc(100vh - 80px)' }}>
+      <VideoPlayer />
     </section>
   );
 };

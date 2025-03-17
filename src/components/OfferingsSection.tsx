@@ -24,10 +24,10 @@ const OfferingsSection: React.FC = () => {
   ];
 
   return (
-    <section id="offerings" className="relative" style={{ marginTop: '-3px' }}>
+    <section id="offerings" className="relative bg-insiderDark">
       <div className="absolute top-0 left-0 w-full h-full bg-grid-pattern opacity-5 z-0"></div>
       
-      <div className="container mx-auto px-4 relative z-10 pt-16 pb-16">
+      <div className="container mx-auto px-4 relative z-10 py-16">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gradient font-orbitron">
             💎 Inside the InsiderLife Ecosystem
