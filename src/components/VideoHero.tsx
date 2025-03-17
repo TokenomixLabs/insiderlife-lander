@@ -100,16 +100,6 @@ const VideoHero: React.FC = () => {
             allow="autoplay; fullscreen; picture-in-picture"
             className="video-element"
             title="Background Video"
-            style={{
-              position: 'absolute',
-              top: '50%',
-              left: '50%',
-              width: '100vw',
-              height: '100vh',
-              transform: 'translate(-50%, -50%)',
-              minWidth: '100%',
-              minHeight: '100%'
-            }}
           ></iframe>
           {isLoading && (
             <div className="video-fallback">
@@ -120,8 +110,6 @@ const VideoHero: React.FC = () => {
           )}
         </div>
       )}
-
-      <div className="video-overlay"></div>
       
       {!isLoading && !hasError && (
         <button
