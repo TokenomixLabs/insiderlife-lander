@@ -41,9 +41,9 @@ const AboutSection: React.FC = () => {
   };
 
   return (
-    <section id="about" className="pt-0 pb-12 relative">
-      <div className="w-full max-w-md mx-auto mt-2 mb-6">
-        <form onSubmit={handleSubscribe} className="w-full">
+    <section id="about" className="pt-0 relative bg-insiderDark">
+      <div className="w-full max-w-md mx-auto">
+        <form onSubmit={handleSubscribe} className="w-full py-4 px-4">
           <div className="flex flex-col sm:flex-row gap-2">
             <Input 
               type="email" 
@@ -71,7 +71,7 @@ const AboutSection: React.FC = () => {
         </form>
       </div>
 
-      <div className="glass-card p-8 md:p-12 max-w-3xl mx-auto">
+      <div className="glass-card p-8 md:p-12 max-w-3xl mx-auto mb-8">
         <div className="flex items-center justify-center mb-6">
           <Lightbulb className="h-8 w-8 text-insiderBlue-light mr-3 animate-pulse-glow" />
           <h2 className="text-3xl md:text-4xl font-bold text-center text-gradient font-orbitron">
