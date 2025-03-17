@@ -85,7 +85,7 @@ const VideoHero: React.FC = () => {
   };
 
   return (
-    <div className="video-container">
+    <div className="video-hero-container">
       {hasError ? (
         <div className="video-fallback">
           <VideoOff size={48} className="text-gray-500 mb-2" />
