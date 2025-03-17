@@ -12,10 +12,8 @@ const Index: React.FC = () => {
     <div className="min-h-screen bg-insiderDark flex flex-col">
       <Navbar />
       <div className="flex-grow flex flex-col">
-        <div className="relative">
-          <VideoHeroSection />
-          <OfferingsSection />
-        </div>
+        <VideoHeroSection />
+        <OfferingsSection />
         <AboutSection />
         <CtaSection />
       </div>
