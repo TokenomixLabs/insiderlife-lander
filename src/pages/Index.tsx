@@ -11,7 +11,10 @@ import Footer from '@/components/Footer';
 const Index: React.FC = () => {
   return (
     <div className="relative min-h-screen bg-insiderDark">
+      {/* Video background */}
       <VideoHero />
+      
+      {/* Content overlaid on video */}
       <div className="relative z-10">
         <Navbar />
         <HeroSection />
