@@ -11,11 +11,11 @@ import Footer from '@/components/Footer';
 const Index: React.FC = () => {
   return (
     <>
-      {/* Video Hero (Fullscreen) */}
+      {/* Video background (fixed position) */}
       <VideoHero />
       
       {/* Content that overlays the video */}
-      <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 10 }}>
+      <div style={{ position: 'relative', width: '100%', minHeight: '100vh', zIndex: 10 }}>
         <Navbar />
         <main>
           <HeroSection />
