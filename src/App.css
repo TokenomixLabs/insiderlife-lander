@@ -1,23 +1,61 @@
-#root {
-  width: 100%;
-  text-align: center;
-}
 
-/* Remove fixed width/padding that might interfere with full-screen layout */
+/* Reset and base styles */
 body, html {
   margin: 0;
   padding: 0;
+  width: 100%;
+  height: 100%;
   overflow-x: hidden;
 }
 
-/* Keep all other existing styles below */
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  width: 100%;
+  height: 100%;
 }
 
+/* Video background setup */
+.app-container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.video-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.fullscreen-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Content container */
+.content-container {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* Keep all other existing styles below */
 .logo {
   height: 6em;
   padding: 1.5em;

@@ -1,11 +1,20 @@
 
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Volume2, VolumeX } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const VideoHero: React.FC = () => {
   const [isMuted, setIsMuted] = useState(true);
   const videoRef = useRef<HTMLVideoElement>(null);
+  
+  // Ensure video plays on mount
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.play().catch(error => {
+        console.error("Video playback failed:", error);
+      });
+    }
+  }, []);
 
   const toggleMute = () => {
     if (videoRef.current) {
@@ -15,23 +24,20 @@ const VideoHero: React.FC = () => {
   };
 
   return (
-    <>
-      {/* Video container that fills the entire viewport */}
-      <div className="fixed inset-0 w-full h-full overflow-hidden">
-        <video
-          ref={videoRef}
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="w-full h-full object-cover"
-        >
-          <source src="/video-background.mp4" type="video/mp4" />
-        </video>
+    <div className="video-background">
+      <video
+        ref={videoRef}
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="fullscreen-video"
+      >
+        <source src="/video-background.mp4" type="video/mp4" />
+      </video>
 
-        {/* Dark overlay for better text visibility */}
-        <div className="absolute inset-0 bg-black/50"></div>
-      </div>
+      {/* Dark overlay for better text visibility */}
+      <div className="video-overlay"></div>
 
       {/* Mute Toggle Button */}
       <button
@@ -50,7 +56,7 @@ const VideoHero: React.FC = () => {
           <Volume2 className="w-6 h-6" />
         )}
       </button>
-    </>
+    </div>
   );
 };
 

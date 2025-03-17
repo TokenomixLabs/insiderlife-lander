@@ -10,12 +10,12 @@ import Footer from '@/components/Footer';
 
 const Index: React.FC = () => {
   return (
-    <>
+    <div className="app-container">
       {/* Video background */}
       <VideoHero />
       
       {/* All page content */}
-      <div className="relative z-10 min-h-screen">
+      <div className="content-container">
         <Navbar />
         <main>
           <HeroSection />
@@ -25,7 +25,7 @@ const Index: React.FC = () => {
         </main>
         <Footer />
       </div>
-    </>
+    </div>
   );
 };
 
