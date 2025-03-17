@@ -1,10 +1,8 @@
+
 import React, { useState, useRef, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
 import { ArrowRight, Volume2, VolumeX } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { useNavigate } from 'react-router-dom';
-import { useToast } from '@/hooks/use-toast';
 import { useIsMobile } from '@/hooks/use-mobile';
 
 const VideoPlayer = () => {
@@ -89,38 +87,6 @@ const VideoPlayer = () => {
 };
 
 const VideoHeroSection: React.FC = () => {
-  const { toast } = useToast();
-  const navigate = useNavigate();
-  const [email, setEmail] = React.useState('');
-  const [isSubmitting, setIsSubmitting] = React.useState(false);
-
-  const handleSubscribe = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
-    try {
-      console.log('Subscription form submitted with email:', email);
-      
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      toast({
-        title: "Success!",
-        description: "You're now subscribed to InsiderLife updates.",
-      });
-      
-      navigate('/thank-you');
-    } catch (error) {
-      console.error('Subscription error:', error);
-      toast({
-        title: "Something went wrong",
-        description: "Please try again later.",
-        variant: "destructive",
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
   return (
     <section className="relative w-full flex flex-col pt-16">
       <div className="relative w-full h-[60vh] md:h-[70vh] mb-0">
