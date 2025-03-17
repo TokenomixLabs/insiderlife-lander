@@ -55,12 +55,11 @@ const VideoHero: React.FC = () => {
         <iframe
           ref={iframeRef}
           src="https://player.vimeo.com/video/1066410334?background=1&autoplay=1&loop=1&byline=0&title=0"
-          className="absolute top-0 left-0 w-full h-full"
+          className="w-full h-full object-cover"
           frameBorder="0"
           allow="autoplay; fullscreen; picture-in-picture"
           allowFullScreen
           title="Background Video"
-          style={{ width: '100%', height: '100%', position: 'absolute', top: 0, left: 0 }}
         ></iframe>
       </div>
 
