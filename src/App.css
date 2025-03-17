@@ -15,12 +15,19 @@ body, html {
   position: relative;
 }
 
-/* Video hero container */
-.video-hero-container {
+/* Hero section styles */
+.hero-section {
   position: relative;
   width: 100%;
-  height: 0;
-  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Video hero container */
+.hero-video-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100vh;
   overflow: hidden;
 }
 
@@ -79,12 +86,103 @@ body, html {
   justify-content: center;
 }
 
-/* Hero form section */
-.hero-form-section {
+/* Hero content overlay */
+.hero-content-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  padding: 0 1rem;
+}
+
+/* Hero text styles */
+.hero-text {
+  text-align: center;
+  max-width: 1200px;
+  color: #fff;
+}
+
+.hero-title {
+  font-size: 5rem;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 1rem;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.hero-subtitle {
+  display: block;
+  background: linear-gradient(to right, #4C6EF5, #9B5DE5);
+  -webkit-background-clip: text;
+  color: transparent;
+  margin-top: 0.5rem;
+  font-size: 4rem;
+}
+
+.hero-description {
+  font-size: 1.25rem;
+  max-width: 800px;
+  margin: 1.5rem auto 0;
+  opacity: 0.8;
+}
+
+/* Hero form container */
+.hero-form-container {
   background-color: #0a0a14;
-  position: relative;
+  padding: 2rem 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  z-index: 10;
+}
+
+/* Hero form styles */
+.hero-form {
+  display: flex;
+  gap: 1rem;
+  max-width: 750px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Hero input styles */
+.hero-input {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  height: 3.5rem;
+  border-radius: 0.5rem;
+  flex-grow: 1;
+  font-size: 1rem;
+  padding: 0 1.5rem;
+}
+
+.hero-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Hero button styles */
+.hero-button {
+  background: linear-gradient(to right, #9B5DE5, #4C6EF5);
+  color: white;
+  font-weight: 500;
+  height: 3.5rem;
+  padding: 0 1.5rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.hero-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(155, 93, 229, 0.4);
 }
 
 /* Text gradient for headings */
@@ -92,6 +190,39 @@ body, html {
   background: linear-gradient(to right, #9b87f5, #33C3F0);
   -webkit-background-clip: text;
   color: transparent;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 3.5rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 2.5rem;
+  }
+  
+  .hero-form {
+    flex-direction: column;
+  }
+  
+  .hero-video-wrapper {
+    height: 90vh;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 2rem;
+  }
+  
+  .hero-description {
+    font-size: 1rem;
+  }
 }
 
 /* Keep all other existing styles below */

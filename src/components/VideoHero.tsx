@@ -85,7 +85,7 @@ const VideoHero: React.FC = () => {
   };
 
   return (
-    <div className="video-hero-container">
+    <div className="hero-video-wrapper">
       {hasError ? (
         <div className="video-fallback">
           <VideoOff size={48} className="text-gray-500 mb-2" />
@@ -120,6 +120,18 @@ const VideoHero: React.FC = () => {
           {isMuted ? <VolumeX size={20} /> : <Volume2 size={20} />}
         </button>
       )}
+      
+      <div className="hero-content-overlay">
+        <div className="hero-text">
+          <h1 className="hero-title">
+            <span className="text-insiderBlue">Insider</span> Advantage
+            <span className="hero-subtitle">AI-Powered Wealth <span className="text-insiderPurple">&</span> Freedom</span>
+          </h1>
+          <p className="hero-description">
+            Dominate the digital economy with next-level AI automation, high-impact monetization systems, and elite community access.
+          </p>
+        </div>
+      </div>
     </div>
   );
 };
