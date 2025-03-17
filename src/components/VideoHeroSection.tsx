@@ -1,10 +1,9 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { Volume2, VolumeX } from 'lucide-react';
+import { Volume2, VolumeX, ArrowRight } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { Input } from '@/components/ui/input';
-import { ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useNavigate } from 'react-router-dom';
 import { useToast } from '@/hooks/use-toast';
@@ -124,12 +123,12 @@ const EmailSubscriptionForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubscribe} className="w-full px-4">
-      <div className="flex flex-col sm:flex-row gap-2">
+    <form onSubmit={handleSubscribe} className="w-full px-4 max-w-md mx-auto">
+      <div className="flex flex-col gap-3">
         <Input 
           type="email" 
           placeholder="Enter your email address" 
-          className="bg-white/10 border-white/20 text-white placeholder:text-white/50 h-12"
+          className="bg-black/30 border border-white/20 text-white placeholder:text-white/60 h-14 text-lg rounded-xl"
           required
           value={email}
           onChange={(e) => setEmail(e.target.value)}
@@ -140,12 +139,12 @@ const EmailSubscriptionForm = () => {
           className={cn(
             "bg-gradient-to-r from-insiderPurple to-insiderBlue",
             "hover:from-insiderPurple-light hover:to-insiderBlue-light",
-            "text-white font-medium h-12 px-6 shadow-glow transition-all duration-300 hover:scale-105"
+            "text-white font-medium h-14 px-6 text-lg rounded-xl shadow-glow transition-all duration-300"
           )}
           disabled={isSubmitting}
         >
           {isSubmitting ? "Submitting..." : (
-            <>Join the Movement <ArrowRight className="ml-2 h-4 w-4" /></>
+            <>Join the Movement <ArrowRight className="ml-2 h-5 w-5" /></>
           )}
         </Button>
       </div>
@@ -154,15 +153,24 @@ const EmailSubscriptionForm = () => {
 };
 
 const VideoHeroSection: React.FC = () => {
+  const isMobile = useIsMobile();
+  
   return (
-    <section className="relative w-full flex flex-col">
-      <div className="relative w-full h-[calc(100vh-80px)]">
+    <section className="relative w-full">
+      <div className="relative w-full" style={{ height: isMobile ? '70vh' : 'calc(100vh - 80px)' }}>
         <VideoPlayer />
-        <div className="absolute bottom-0 left-0 right-0 pb-8">
-          <div className="w-full max-w-md mx-auto">
-            <EmailSubscriptionForm />
+        
+        <div className="absolute inset-0 flex flex-col items-center justify-center">
+          <div className="text-center mb-auto mt-16 sm:mt-24 px-4">
+            <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-wide mb-4 font-orbitron text-white">
+              TRANSCEND THE MATRIX
+            </h1>
           </div>
         </div>
+      </div>
+      
+      <div className="w-full bg-insiderDark py-6">
+        <EmailSubscriptionForm />
       </div>
     </section>
   );
