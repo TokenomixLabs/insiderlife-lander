@@ -10,7 +10,7 @@ import Footer from '@/components/Footer';
 
 const Index: React.FC = () => {
   return (
-    <div className="min-h-screen">
+    <>
       {/* Video background */}
       <VideoHero />
       
@@ -25,7 +25,7 @@ const Index: React.FC = () => {
         </main>
         <Footer />
       </div>
-    </div>
+    </>
   );
 };
 

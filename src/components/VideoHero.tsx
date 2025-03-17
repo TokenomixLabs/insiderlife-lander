@@ -7,13 +7,42 @@ const VideoHero: React.FC = () => {
   const [isMuted, setIsMuted] = useState(true);
   const videoRef = useRef<HTMLVideoElement>(null);
   
-  // Ensure video plays on mount
+  // Ensure video plays on mount with more robust error handling
   useEffect(() => {
     if (videoRef.current) {
-      videoRef.current.play().catch(error => {
-        console.error("Video playback failed:", error);
-      });
+      const playVideo = async () => {
+        try {
+          await videoRef.current?.play();
+          console.log("Video started playing successfully");
+        } catch (error) {
+          console.error("Video playback failed:", error);
+          // Try again with a slight delay (sometimes helps with browser issues)
+          setTimeout(() => {
+            videoRef.current?.play().catch(e => 
+              console.error("Second attempt to play video failed:", e)
+            );
+          }, 1000);
+        }
+      };
+      
+      playVideo();
     }
+    
+    // Add event listeners to debug video issues
+    const video = videoRef.current;
+    if (video) {
+      video.addEventListener('error', (e) => console.error('Video error:', e));
+      video.addEventListener('canplay', () => console.log('Video can play'));
+      video.addEventListener('playing', () => console.log('Video is playing'));
+    }
+    
+    return () => {
+      if (video) {
+        video.removeEventListener('error', (e) => console.error('Video error:', e));
+        video.removeEventListener('canplay', () => console.log('Video can play'));
+        video.removeEventListener('playing', () => console.log('Video is playing'));
+      }
+    };
   }, []);
 
   const toggleMute = () => {
@@ -31,9 +60,11 @@ const VideoHero: React.FC = () => {
         loop
         muted={isMuted}
         playsInline
-        className="absolute top-0 left-0 w-full h-full object-cover"
+        className="absolute top-0 left-0 min-w-full min-h-full w-auto h-auto object-cover"
+        preload="auto"
       >
         <source src="/video-background.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
       </video>
 
       {/* Dark overlay for better text visibility */}
