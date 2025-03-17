@@ -157,19 +157,14 @@ const VideoHeroSection: React.FC = () => {
   
   return (
     <section className="relative w-full">
-      <div className="relative w-full" style={{ height: isMobile ? '70vh' : 'calc(100vh - 80px)' }}>
+      <div className="w-full" style={{ height: isMobile ? '50vh' : 'calc(100vh - 200px)' }}>
         <VideoPlayer />
-        
-        <div className="absolute inset-0 flex flex-col items-center justify-center">
-          <div className="text-center mb-auto mt-16 sm:mt-24 px-4">
-            <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-wide mb-4 font-orbitron text-white">
-              TRANSCEND THE MATRIX
-            </h1>
-          </div>
-        </div>
       </div>
       
-      <div className="w-full bg-insiderDark py-6">
+      <div className="w-full bg-insiderDark py-8">
+        <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-wide mb-8 font-orbitron text-white text-center px-4">
+          TRANSCEND THE MATRIX
+        </h1>
         <EmailSubscriptionForm />
       </div>
     </section>
