@@ -89,7 +89,7 @@ const VideoHeroSection: React.FC = () => {
   const isMobile = useIsMobile();
   
   return (
-    <section className="relative w-full" style={{ marginTop: '80px' }}>
+    <section className="relative w-full" style={{ marginTop: '80px', marginBottom: 0 }}>
       {/* Video container directly touching the navbar */}
       <div className="w-full" style={{ height: isMobile ? '70vh' : 'calc(100vh - 80px)' }}>
         <VideoPlayer />
