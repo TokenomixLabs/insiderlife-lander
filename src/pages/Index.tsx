@@ -11,7 +11,7 @@ const Index: React.FC = () => {
   return (
     <div className="min-h-screen bg-insiderDark overflow-x-hidden flex flex-col">
       <Navbar />
-      <main className="flex flex-col">
+      <main className="flex flex-col" style={{ overflow: 'hidden' }}>
         <VideoHeroSection />
         <OfferingsSection />
         <AboutSection />

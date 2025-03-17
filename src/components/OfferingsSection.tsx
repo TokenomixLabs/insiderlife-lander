@@ -24,7 +24,7 @@ const OfferingsSection: React.FC = () => {
   ];
 
   return (
-    <section id="offerings" className="py-16 relative" style={{ marginTop: 0, paddingTop: 0 }}>
+    <section id="offerings" className="py-16 relative" style={{ marginTop: '-1px', paddingTop: '16px' }}>
       <div className="absolute top-0 left-0 w-full h-full bg-grid-pattern opacity-5 z-0"></div>
       
       <div className="container mx-auto px-4 relative z-10">
