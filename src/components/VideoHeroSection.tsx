@@ -89,10 +89,10 @@ const VideoHeroSection: React.FC = () => {
   const isMobile = useIsMobile();
   
   return (
-    <section className="relative w-full" style={{ 
+    <section className="relative w-full overflow-hidden" style={{ 
       marginTop: '80px', 
       height: isMobile ? '70vh' : 'calc(100vh - 80px)',
-      marginBottom: '-120px' // Add negative margin to pull the next section up
+      marginBottom: '-200px' // Much more aggressive negative margin
     }}>
       <div className="w-full h-full">
         <VideoPlayer />
