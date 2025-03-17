@@ -91,7 +91,7 @@ const VideoHero: React.FC = () => {
         <div className="vimeo-wrapper">
           <iframe
             ref={iframeRef}
-            src="https://player.vimeo.com/video/1066410334?background=1&autoplay=1&loop=1&byline=0&title=0"
+            src="https://player.vimeo.com/video/1066410334?background=1&autoplay=1&loop=1&byline=0&title=0&muted=1"
             frameBorder="0"
             allow="autoplay; fullscreen; picture-in-picture"
             className="video-element"
@@ -107,10 +107,8 @@ const VideoHero: React.FC = () => {
         </div>
       )}
 
-      {/* Dark overlay for better text visibility */}
       <div className="video-overlay"></div>
       
-      {/* Mute Toggle Button (only show if video is loaded and not in error state) */}
       {!isLoading && !hasError && (
         <button
           onClick={toggleMute}
