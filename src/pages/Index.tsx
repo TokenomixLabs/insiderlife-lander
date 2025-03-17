@@ -2,6 +2,7 @@
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import VideoHero from '@/components/VideoHero';
+import HeroSection from '@/components/HeroSection';
 import AboutSection from '@/components/AboutSection';
 import OfferingsSection from '@/components/OfferingsSection';
 import CtaSection from '@/components/CtaSection';
@@ -13,7 +14,7 @@ const Index: React.FC = () => {
       <VideoHero />
       <div className="relative z-10">
         <Navbar />
-        <div className="h-screen"></div> {/* Spacer for hero section */}
+        <HeroSection />
         <AboutSection />
         <OfferingsSection />
         <CtaSection />
