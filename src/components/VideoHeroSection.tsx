@@ -156,9 +156,9 @@ const VideoHeroSection: React.FC = () => {
   const isMobile = useIsMobile();
   
   return (
-    <section className="relative w-full flex flex-col">
-      {/* Video container - reduced height on mobile */}
-      <div className="w-full" style={{ height: isMobile ? '50vh' : 'calc(100vh - 80px)' }}>
+    <section className="relative w-full flex flex-col" style={{ marginTop: '80px' }}>
+      {/* Video container with fixed height and no top gap */}
+      <div className="w-full" style={{ height: isMobile ? '40vh' : 'calc(100vh - 80px)' }}>
         <VideoPlayer />
       </div>
       
