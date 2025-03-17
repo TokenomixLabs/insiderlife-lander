@@ -1,7 +1,7 @@
 
 import React from 'react';
 import Navbar from '@/components/Navbar';
-import HeroSection from '@/components/HeroSection';
+import VideoHeroSection from '@/components/VideoHeroSection';
 import AboutSection from '@/components/AboutSection';
 import OfferingsSection from '@/components/OfferingsSection';
 import CtaSection from '@/components/CtaSection';
@@ -11,7 +11,7 @@ const Index: React.FC = () => {
   return (
     <div className="min-h-screen bg-insiderDark overflow-x-hidden">
       <Navbar />
-      <HeroSection />
+      <VideoHeroSection />
       <AboutSection />
       <OfferingsSection />
       <CtaSection />
