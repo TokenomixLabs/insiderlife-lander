@@ -1,4 +1,3 @@
-
 import React, { useState, useRef, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Volume2, VolumeX, ArrowRight } from 'lucide-react';
@@ -123,7 +122,7 @@ const EmailSubscriptionForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubscribe} className="w-full px-4 max-w-md mx-auto">
+    <form onSubmit={handleSubscribe} className="w-full max-w-md mx-auto">
       <div className="flex flex-col gap-3">
         <Input 
           type="email" 
@@ -157,14 +156,11 @@ const VideoHeroSection: React.FC = () => {
   
   return (
     <section className="relative w-full">
-      <div className="w-full" style={{ height: isMobile ? '70vh' : 'calc(100vh - 80px)' }}>
+      <div className="w-full" style={{ height: isMobile ? '85vh' : 'calc(100vh - 80px)' }}>
         <VideoPlayer />
       </div>
       
-      <div className="w-full bg-insiderDark py-8 px-4">
-        <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-wide mb-8 font-orbitron text-white text-center">
-          TRANSCEND THE MATRIX
-        </h1>
+      <div className="w-full bg-insiderDark py-6">
         <EmailSubscriptionForm />
       </div>
     </section>
