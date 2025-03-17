@@ -87,7 +87,7 @@ const VideoPlayer = () => {
 
 const VideoHeroSection: React.FC = () => {
   return (
-    <section className="relative w-full flex flex-col pt-16">
+    <section className="relative w-full flex flex-col pt-16 mb-0">
       <div className="relative w-full h-[60vh] md:h-[70vh]">
         <VideoPlayer />
       </div>
