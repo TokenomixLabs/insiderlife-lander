@@ -5,16 +5,16 @@ import VideoHeroSection from '@/components/VideoHeroSection';
 import OfferingsSection from '@/components/OfferingsSection';
 import CtaSection from '@/components/CtaSection';
 import Footer from '@/components/Footer';
+import AboutSection from '@/components/AboutSection';
 
 const Index: React.FC = () => {
   return (
     <div className="min-h-screen bg-insiderDark overflow-x-hidden">
       <Navbar />
-      <div className="flex flex-col">
-        <VideoHeroSection />
-        <OfferingsSection />
-        <CtaSection />
-      </div>
+      <VideoHeroSection />
+      <OfferingsSection />
+      <AboutSection />
+      <CtaSection />
       <Footer />
     </div>
   );

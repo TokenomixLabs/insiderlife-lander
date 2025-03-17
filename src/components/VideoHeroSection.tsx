@@ -156,11 +156,13 @@ const EmailSubscriptionForm = () => {
 const VideoHeroSection: React.FC = () => {
   return (
     <section className="relative w-full flex flex-col">
-      <div className="relative w-full h-[60vh] md:h-[70vh]">
+      <div className="relative w-full h-[calc(100vh-80px)]">
         <VideoPlayer />
-      </div>
-      <div className="bg-insiderDark py-6 w-full max-w-md mx-auto -mt-2">
-        <EmailSubscriptionForm />
+        <div className="absolute bottom-0 left-0 right-0 pb-8">
+          <div className="w-full max-w-md mx-auto">
+            <EmailSubscriptionForm />
+          </div>
+        </div>
       </div>
     </section>
   );
