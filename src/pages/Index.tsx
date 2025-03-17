@@ -11,7 +11,7 @@ const Index: React.FC = () => {
   return (
     <div className="min-h-screen bg-insiderDark overflow-x-hidden flex flex-col">
       <Navbar />
-      <main className="mt-[80px]"> {/* Fixed margin to account for navbar height */}
+      <main> {/* Removed the margin-top */}
         <VideoHeroSection />
         <OfferingsSection />
         <AboutSection />
