@@ -11,10 +11,12 @@ const Index: React.FC = () => {
   return (
     <div className="min-h-screen bg-insiderDark overflow-x-hidden flex flex-col">
       <Navbar />
-      <VideoHeroSection />
-      <OfferingsSection />
-      <AboutSection />
-      <CtaSection />
+      <main className="mt-[80px]"> {/* Fixed margin to account for navbar height */}
+        <VideoHeroSection />
+        <OfferingsSection />
+        <AboutSection />
+        <CtaSection />
+      </main>
       <Footer />
     </div>
   );
