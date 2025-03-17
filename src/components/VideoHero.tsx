@@ -2,12 +2,26 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Volume2, VolumeX, VideoOff } from 'lucide-react';
 
+interface VimeoPlayer {
+  on: (event: string, callback: Function) => void;
+  setVolume: (volume: number) => void;
+  play: () => Promise<void>;
+}
+
+declare global {
+  interface Window {
+    Vimeo?: {
+      Player: new (element: HTMLIFrameElement, options?: any) => VimeoPlayer;
+    };
+  }
+}
+
 const VideoHero: React.FC = () => {
   const [isMuted, setIsMuted] = useState(true);
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
   const iframeRef = useRef<HTMLIFrameElement>(null);
-  const vimeoPlayer = useRef<any>(null);
+  const vimeoPlayer = useRef<VimeoPlayer | null>(null);
 
   // Load the Vimeo Player API
   useEffect(() => {
@@ -33,14 +47,13 @@ const VideoHero: React.FC = () => {
     try {
       if (iframeRef.current && window.Vimeo) {
         console.log('Initializing Vimeo player');
-        // @ts-ignore - Vimeo Player is loaded dynamically
         vimeoPlayer.current = new window.Vimeo.Player(iframeRef.current);
         
         vimeoPlayer.current.on('loaded', () => {
           console.log('Vimeo player loaded');
           setIsLoading(false);
-          vimeoPlayer.current.setVolume(0); // Start muted
-          vimeoPlayer.current.play().catch(err => {
+          vimeoPlayer.current?.setVolume(0); // Start muted
+          vimeoPlayer.current?.play().catch(err => {
             console.error('Vimeo playback error:', err);
           });
         });
@@ -78,7 +91,7 @@ const VideoHero: React.FC = () => {
         <div className="vimeo-wrapper">
           <iframe
             ref={iframeRef}
-            src="https://player.vimeo.com/video/76979871?background=1&autoplay=1&loop=1&byline=0&title=0"
+            src="https://player.vimeo.com/video/1066410334?background=1&autoplay=1&loop=1&byline=0&title=0"
             frameBorder="0"
             allow="autoplay; fullscreen; picture-in-picture"
             className="video-element"
