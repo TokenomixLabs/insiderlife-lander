@@ -1,4 +1,3 @@
-
 import React, { useState, useRef, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -76,8 +75,6 @@ const VideoPlayer = () => {
         <div ref={playerRef} className="w-full h-full"></div>
       </div>
       
-      {/* Removed the dark overlay div that was here */}
-      
       <Button
         variant="ghost"
         size="icon"
@@ -87,7 +84,6 @@ const VideoPlayer = () => {
       >
         {isMuted ? <VolumeX size={24} /> : <Volume2 size={24} />}
       </Button>
-      <div className="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-black to-transparent pointer-events-none" />
     </div>
   );
 };
@@ -129,36 +125,39 @@ const VideoHeroSection: React.FC = () => {
     <section className="relative w-full flex flex-col pt-16">
       <div className="relative w-full h-[60vh] md:h-[70vh]">
         <VideoPlayer />
-      </div>
-      
-      <div className="relative z-20 container mx-auto px-4 py-0 flex flex-col items-center text-center">
-        <div className="max-w-4xl mx-auto animate-slide-up">
-          <form onSubmit={handleSubscribe} className="w-full max-w-md mx-auto mb-4 -mt-2">
-            <div className="flex flex-col sm:flex-row gap-2">
-              <Input 
-                type="email" 
-                placeholder="Enter your email address" 
-                className="bg-white/10 border-white/20 text-white placeholder:text-white/50 h-12"
-                required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                disabled={isSubmitting}
-              />
-              <Button 
-                type="submit"
-                className={cn(
-                  "bg-gradient-to-r from-insiderPurple to-insiderBlue",
-                  "hover:from-insiderPurple-light hover:to-insiderBlue-light",
-                  "text-white font-medium h-12 px-6 shadow-glow transition-all duration-300 hover:scale-105"
-                )}
-                disabled={isSubmitting}
-              >
-                {isSubmitting ? "Submitting..." : (
-                  <>Join the Movement <ArrowRight className="ml-2 h-4 w-4" /></>
-                )}
-              </Button>
+        
+        {/* Email form positioned in the shaded gradient section at the bottom */}
+        <div className="absolute bottom-0 left-0 w-full z-30">
+          <div className="bg-gradient-to-t from-black to-transparent py-4">
+            <div className="container mx-auto px-4">
+              <form onSubmit={handleSubscribe} className="w-full max-w-md mx-auto">
+                <div className="flex flex-col sm:flex-row gap-2">
+                  <Input 
+                    type="email" 
+                    placeholder="Enter your email address" 
+                    className="bg-white/10 border-white/20 text-white placeholder:text-white/50 h-12"
+                    required
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    disabled={isSubmitting}
+                  />
+                  <Button 
+                    type="submit"
+                    className={cn(
+                      "bg-gradient-to-r from-insiderPurple to-insiderBlue",
+                      "hover:from-insiderPurple-light hover:to-insiderBlue-light",
+                      "text-white font-medium h-12 px-6 shadow-glow transition-all duration-300 hover:scale-105"
+                    )}
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? "Submitting..." : (
+                      <>Join the Movement <ArrowRight className="ml-2 h-4 w-4" /></>
+                    )}
+                  </Button>
+                </div>
+              </form>
             </div>
-          </form>
+          </div>
         </div>
       </div>
     </section>
