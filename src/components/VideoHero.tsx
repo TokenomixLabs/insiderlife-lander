@@ -4,6 +4,7 @@ import { Volume2, VolumeX, VideoOff } from 'lucide-react';
 
 const VideoHero: React.FC = () => {
   const [isMuted, setIsMuted] = useState(true);
+  const [videoLoaded, setVideoLoaded] = useState(false);
   const [videoError, setVideoError] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
   
@@ -13,28 +14,45 @@ const VideoHero: React.FC = () => {
       
       const videoElement = videoRef.current;
       
-      const handleError = (e: Event) => {
-        console.error('Video error:', e);
+      // Handle video loading errors
+      const handleError = () => {
+        console.error('Video failed to load');
         setVideoError(true);
       };
       
-      const handleCanPlay = () => {
-        console.log('Video can now play');
+      // Handle successful video loading
+      const handleLoadedData = () => {
+        console.log('Video loaded successfully');
+        setVideoLoaded(true);
         setVideoError(false);
       };
       
       videoElement.addEventListener('error', handleError);
-      videoElement.addEventListener('canplay', handleCanPlay);
+      videoElement.addEventListener('loadeddata', handleLoadedData);
       
-      // Try to play the video
-      videoElement.play().catch(error => {
-        console.error("Video playback failed:", error);
-        setVideoError(true);
-      });
+      // Initial play attempt
+      const playVideo = async () => {
+        try {
+          await videoElement.play();
+          console.log('Video playback started');
+        } catch (error) {
+          console.error('Video playback failed:', error);
+          // We'll try again in 2 seconds
+          setTimeout(() => {
+            console.log('Attempting to play video again...');
+            videoElement.play().catch(e => {
+              console.error('Second play attempt failed:', e);
+              setVideoError(true);
+            });
+          }, 2000);
+        }
+      };
+      
+      playVideo();
       
       return () => {
         videoElement.removeEventListener('error', handleError);
-        videoElement.removeEventListener('canplay', handleCanPlay);
+        videoElement.removeEventListener('loadeddata', handleLoadedData);
       };
     }
   }, []);
@@ -45,6 +63,24 @@ const VideoHero: React.FC = () => {
       setIsMuted(!isMuted);
     }
   };
+
+  // Check if the video file exists
+  useEffect(() => {
+    const checkVideoFile = async () => {
+      try {
+        const response = await fetch('/video-background.mp4', { method: 'HEAD' });
+        if (!response.ok) {
+          console.error('Video file not found or inaccessible:', response.status);
+          setVideoError(true);
+        }
+      } catch (error) {
+        console.error('Error checking video file:', error);
+        setVideoError(true);
+      }
+    };
+    
+    checkVideoFile();
+  }, []);
 
   return (
     <div className="video-container">
@@ -61,6 +97,7 @@ const VideoHero: React.FC = () => {
           loop
           playsInline
           className="video-element"
+          poster="/placeholder.svg"
         >
           <source src="/video-background.mp4" type="video/mp4" />
           Your browser does not support the video tag.
@@ -70,8 +107,8 @@ const VideoHero: React.FC = () => {
       {/* Dark overlay for better text visibility */}
       <div className="video-overlay"></div>
       
-      {/* Mute Toggle Button (only show if video is not in error state) */}
-      {!videoError && (
+      {/* Mute Toggle Button (only show if video is loaded and not in error state) */}
+      {videoLoaded && !videoError && (
         <button
           onClick={toggleMute}
           className="mute-toggle-button"
