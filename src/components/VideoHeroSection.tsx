@@ -76,7 +76,7 @@ const VideoPlayer = () => {
         variant="ghost"
         size="icon"
         onClick={() => setIsMuted(!isMuted)}
-        className="absolute z-50 bottom-8 right-8 bg-black/50 hover:bg-black/70 backdrop-blur-sm rounded-full w-12 h-12 flex items-center justify-center shadow-lg"
+        className="absolute z-50 bottom-5 right-5 bg-black/50 hover:bg-black/70 backdrop-blur-sm rounded-full w-12 h-12 flex items-center justify-center shadow-lg"
         aria-label={isMuted ? "Unmute video" : "Mute video"}
       >
         {isMuted ? <VolumeX size={24} className="text-white" /> : <Volume2 size={24} className="text-white" />}
@@ -91,8 +91,8 @@ const VideoHeroSection: React.FC = () => {
   return (
     <section className="relative w-full overflow-hidden" style={{ 
       marginTop: '80px', 
-      height: isMobile ? '60vh' : '70vh', // Shorter height
-      marginBottom: '-20px' // Minimal negative margin
+      height: isMobile ? '55vh' : '65vh',
+      marginBottom: '0' // No margin bottom at all
     }}>
       <div className="w-full h-full">
         <VideoPlayer />

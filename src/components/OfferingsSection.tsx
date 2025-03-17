@@ -27,7 +27,7 @@ const OfferingsSection: React.FC = () => {
     <section id="offerings" className="relative bg-insiderDark z-20">
       <div className="absolute top-0 left-0 w-full h-full bg-grid-pattern opacity-5 z-0"></div>
       
-      <div className="container mx-auto px-4 relative z-10 py-16"> {/* Removed excessive top padding */}
+      <div className="container mx-auto px-4 relative z-10 pt-0 pb-16"> {/* Removed top padding completely */}
         <div className="text-center mb-10">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gradient font-orbitron">
             💎 Inside the InsiderLife Ecosystem
