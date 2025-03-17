@@ -1,4 +1,3 @@
-
 import React, { useState, useRef, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -6,7 +5,6 @@ import { ArrowRight, Volume2, VolumeX } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useNavigate } from 'react-router-dom';
 import { useToast } from '@/hooks/use-toast';
-import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { useIsMobile } from '@/hooks/use-mobile';
 
 const VideoPlayer = () => {
@@ -139,14 +137,6 @@ const VideoHeroSection: React.FC = () => {
       {/* Content */}
       <div className="relative z-20 container mx-auto px-4 py-24 md:py-36 flex flex-col items-center text-center">
         <div className="max-w-4xl mx-auto animate-slide-up">
-          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-4 font-orbitron">
-            Unlock the <span className="text-insiderBlue">Insider</span> Advantage:
-            <span className="block text-gradient mt-2">AI-Powered Wealth, Influence & Freedom</span>
-          </h1>
-          <p className="mt-6 text-xl text-white/80 max-w-2xl mx-auto">
-            Dominate the digital economy with next-level AI automation, high-impact monetization systems, and elite community access.
-          </p>
-          
           <form onSubmit={handleSubscribe} className="mt-10 w-full max-w-md mx-auto">
             <div className="flex flex-col sm:flex-row gap-2">
               <Input 
