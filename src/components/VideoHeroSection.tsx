@@ -3,6 +3,11 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Volume2, VolumeX } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { Input } from '@/components/ui/input';
+import { ArrowRight } from 'lucide-react';
+import { cn } from '@/lib/utils';
+import { useNavigate } from 'react-router-dom';
+import { useToast } from '@/hooks/use-toast';
 
 const VideoPlayer = () => {
   const [isMuted, setIsMuted] = useState(true);
@@ -85,11 +90,77 @@ const VideoPlayer = () => {
   );
 };
 
+const EmailSubscriptionForm = () => {
+  const { toast } = useToast();
+  const navigate = useNavigate();
+  const [email, setEmail] = React.useState('');
+  const [isSubmitting, setIsSubmitting] = React.useState(false);
+
+  const handleSubscribe = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    
+    try {
+      console.log('Subscription form submitted with email:', email);
+      
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      toast({
+        title: "Success!",
+        description: "You're now subscribed to InsiderLife updates.",
+      });
+      
+      navigate('/thank-you');
+    } catch (error) {
+      console.error('Subscription error:', error);
+      toast({
+        title: "Something went wrong",
+        description: "Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  return (
+    <form onSubmit={handleSubscribe} className="w-full px-4">
+      <div className="flex flex-col sm:flex-row gap-2">
+        <Input 
+          type="email" 
+          placeholder="Enter your email address" 
+          className="bg-white/10 border-white/20 text-white placeholder:text-white/50 h-12"
+          required
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          disabled={isSubmitting}
+        />
+        <Button 
+          type="submit"
+          className={cn(
+            "bg-gradient-to-r from-insiderPurple to-insiderBlue",
+            "hover:from-insiderPurple-light hover:to-insiderBlue-light",
+            "text-white font-medium h-12 px-6 shadow-glow transition-all duration-300 hover:scale-105"
+          )}
+          disabled={isSubmitting}
+        >
+          {isSubmitting ? "Submitting..." : (
+            <>Join the Movement <ArrowRight className="ml-2 h-4 w-4" /></>
+          )}
+        </Button>
+      </div>
+    </form>
+  );
+};
+
 const VideoHeroSection: React.FC = () => {
   return (
-    <section className="relative w-full flex flex-col pt-16 mb-0">
+    <section className="relative w-full flex flex-col">
       <div className="relative w-full h-[60vh] md:h-[70vh]">
         <VideoPlayer />
+      </div>
+      <div className="bg-insiderDark py-6 w-full max-w-md mx-auto -mt-2">
+        <EmailSubscriptionForm />
       </div>
     </section>
   );

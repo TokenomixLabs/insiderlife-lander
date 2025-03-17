@@ -1,76 +1,12 @@
+
 import React from 'react';
 import { cn } from '@/lib/utils';
-import { CheckCircle, Lightbulb, Zap, Users, ArrowRight } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { useNavigate } from 'react-router-dom';
-import { useToast } from '@/hooks/use-toast';
+import { Lightbulb, Zap, Users } from 'lucide-react';
 
 const AboutSection: React.FC = () => {
-  const { toast } = useToast();
-  const navigate = useNavigate();
-  const [email, setEmail] = React.useState('');
-  const [isSubmitting, setIsSubmitting] = React.useState(false);
-
-  const handleSubscribe = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
-    try {
-      console.log('Subscription form submitted with email:', email);
-      
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      toast({
-        title: "Success!",
-        description: "You're now subscribed to InsiderLife updates.",
-      });
-      
-      navigate('/thank-you');
-    } catch (error) {
-      console.error('Subscription error:', error);
-      toast({
-        title: "Something went wrong",
-        description: "Please try again later.",
-        variant: "destructive",
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
   return (
-    <section id="about" className="pt-0 mt-0 relative bg-insiderDark">
-      <div className="w-full max-w-md mx-auto">
-        <form onSubmit={handleSubscribe} className="w-full px-4 pb-6">
-          <div className="flex flex-col sm:flex-row gap-2">
-            <Input 
-              type="email" 
-              placeholder="Enter your email address" 
-              className="bg-white/10 border-white/20 text-white placeholder:text-white/50 h-12"
-              required
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              disabled={isSubmitting}
-            />
-            <Button 
-              type="submit"
-              className={cn(
-                "bg-gradient-to-r from-insiderPurple to-insiderBlue",
-                "hover:from-insiderPurple-light hover:to-insiderBlue-light",
-                "text-white font-medium h-12 px-6 shadow-glow transition-all duration-300 hover:scale-105"
-              )}
-              disabled={isSubmitting}
-            >
-              {isSubmitting ? "Submitting..." : (
-                <>Join the Movement <ArrowRight className="ml-2 h-4 w-4" /></>
-              )}
-            </Button>
-          </div>
-        </form>
-      </div>
-
-      <div className="glass-card p-8 md:p-12 max-w-3xl mx-auto mb-8">
+    <section id="about" className="relative bg-insiderDark py-12">
+      <div className="glass-card p-8 md:p-12 max-w-3xl mx-auto">
         <div className="flex items-center justify-center mb-6">
           <Lightbulb className="h-8 w-8 text-insiderBlue-light mr-3 animate-pulse-glow" />
           <h2 className="text-3xl md:text-4xl font-bold text-center text-gradient font-orbitron">
