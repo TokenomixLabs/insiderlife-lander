@@ -1,11 +1,55 @@
 
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Volume2, VolumeX } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useNavigate } from 'react-router-dom';
 import { useToast } from '@/hooks/use-toast';
+import { AspectRatio } from '@/components/ui/aspect-ratio';
+import { useIsMobile } from '@/hooks/use-mobile';
+
+const VideoPlayer = () => {
+  const [isMuted, setIsMuted] = useState(true);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const isMobile = useIsMobile();
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.muted = isMuted;
+    }
+  }, [isMuted]);
+
+  return (
+    <div className="absolute inset-0 w-full h-full overflow-hidden">
+      <video
+        ref={videoRef}
+        autoPlay
+        loop
+        playsInline
+        muted={isMuted}
+        className="w-full h-full object-cover"
+      >
+        <source src="https://assets.mixkit.co/videos/preview/mixkit-abstract-lines-and-shapes-in-digital-space-4148-large.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      
+      {/* Dark overlay */}
+      <div className="absolute inset-0 bg-insiderDark/70 z-10"></div>
+      
+      <Button
+        variant="ghost"
+        size="icon"
+        onClick={() => setIsMuted(!isMuted)}
+        className="absolute z-50 bg-black/20 hover:bg-black/40 backdrop-blur-sm rounded-full w-12 h-12 flex items-center justify-center bottom-8 right-8"
+        aria-label={isMuted ? "Unmute video" : "Mute video"}
+      >
+        {isMuted ? <VolumeX size={24} /> : <Volume2 size={24} />}
+      </Button>
+      <div className="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-black to-transparent pointer-events-none" />
+    </div>
+  );
+};
 
 const VideoHeroSection: React.FC = () => {
   const { toast } = useToast();
@@ -44,22 +88,9 @@ const VideoHeroSection: React.FC = () => {
   };
 
   return (
-    <section className="relative w-full">
+    <section className="relative w-full min-h-[70vh] md:min-h-[80vh] flex items-center">
       {/* Video Background */}
-      <div className="absolute inset-0 w-full h-full overflow-hidden z-0">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="w-full h-full object-cover"
-        >
-          <source src="https://assets.mixkit.co/videos/preview/mixkit-abstract-lines-and-shapes-in-digital-space-4148-large.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-insiderDark/70 z-10"></div>
-      </div>
+      <VideoPlayer />
 
       {/* Content */}
       <div className="relative z-20 container mx-auto px-4 py-24 md:py-36 flex flex-col items-center text-center">
