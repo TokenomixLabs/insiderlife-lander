@@ -1,5 +1,5 @@
 
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import { Volume2, VolumeX } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -15,30 +15,29 @@ const VideoHero: React.FC = () => {
   };
 
   return (
-    <div className="video-container fixed inset-0 w-screen h-screen overflow-hidden">
-      <video
-        ref={videoRef}
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="absolute top-0 left-0 min-w-full min-h-full w-auto h-auto object-cover"
-        style={{
-          width: '100vw',
-          height: '100vh'
-        }}
-      >
-        <source src="/video-background.mp4" type="video/mp4" />
-      </video>
+    <>
+      {/* Video container that fills the entire viewport */}
+      <div className="fixed inset-0 w-full h-full overflow-hidden">
+        <video
+          ref={videoRef}
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover"
+        >
+          <source src="/video-background.mp4" type="video/mp4" />
+        </video>
 
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-black/40"></div>
+        {/* Dark overlay for better text visibility */}
+        <div className="absolute inset-0 bg-black/50"></div>
+      </div>
 
       {/* Mute Toggle Button */}
       <button
         onClick={toggleMute}
         className={cn(
-          "absolute bottom-8 right-8 z-10",
+          "fixed bottom-8 right-8 z-50",
           "w-12 h-12 rounded-full flex items-center justify-center",
           "bg-black/30 backdrop-blur-sm",
           "text-white hover:bg-black/50 transition-all duration-300"
@@ -51,7 +50,7 @@ const VideoHero: React.FC = () => {
           <Volume2 className="w-6 h-6" />
         )}
       </button>
-    </div>
+    </>
   );
 };
 

@@ -1,4 +1,17 @@
 #root {
+  width: 100%;
+  text-align: center;
+}
+
+/* Remove fixed width/padding that might interfere with full-screen layout */
+body, html {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Keep all other existing styles below */
+#root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
