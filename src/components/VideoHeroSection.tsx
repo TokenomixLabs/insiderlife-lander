@@ -1,3 +1,4 @@
+
 import React, { useState, useRef, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -126,9 +127,9 @@ const VideoHeroSection: React.FC = () => {
       <div className="relative w-full h-[60vh] md:h-[70vh]">
         <VideoPlayer />
         
-        {/* Email form positioned in the shaded gradient section at the bottom */}
+        {/* Email form positioned in the middle of the shaded gradient section */}
         <div className="absolute bottom-0 left-0 w-full z-30">
-          <div className="bg-gradient-to-t from-black to-transparent py-4">
+          <div className="bg-gradient-to-t from-black to-transparent py-8 flex items-center justify-center">
             <div className="container mx-auto px-4">
               <form onSubmit={handleSubscribe} className="w-full max-w-md mx-auto">
                 <div className="flex flex-col sm:flex-row gap-2">
