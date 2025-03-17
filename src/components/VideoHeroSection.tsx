@@ -11,28 +11,72 @@ import { useIsMobile } from '@/hooks/use-mobile';
 
 const VideoPlayer = () => {
   const [isMuted, setIsMuted] = useState(true);
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const playerRef = useRef<HTMLIFrameElement>(null);
+  const playerInstanceRef = useRef<any>(null);
   const isMobile = useIsMobile();
 
   useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.muted = isMuted;
+    // Initialize Vimeo player
+    if (!playerRef.current) return;
+
+    const script = document.querySelector('script[src="https://player.vimeo.com/api/player.js"]');
+    if (!script) {
+      const vimeoScript = document.createElement('script');
+      vimeoScript.src = 'https://player.vimeo.com/api/player.js';
+      vimeoScript.onload = initializePlayer;
+      document.head.appendChild(vimeoScript);
+    } else {
+      initializePlayer();
+    }
+
+    return () => {
+      if (playerInstanceRef.current) {
+        playerInstanceRef.current.destroy();
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    if (playerInstanceRef.current) {
+      if (isMuted) {
+        playerInstanceRef.current.setVolume(0);
+      } else {
+        playerInstanceRef.current.setVolume(1);
+      }
     }
   }, [isMuted]);
 
+  const initializePlayer = () => {
+    if (!window.Vimeo || !playerRef.current) {
+      setTimeout(initializePlayer, 100);
+      return;
+    }
+
+    const options = {
+      id: 1066410334,
+      loop: true,
+      autoplay: true,
+      muted: isMuted,
+      background: true,
+      responsive: true,
+      controls: false
+    };
+
+    playerInstanceRef.current = new window.Vimeo.Player(playerRef.current, options);
+    
+    playerInstanceRef.current.on('loaded', () => {
+      if (isMuted) {
+        playerInstanceRef.current.setVolume(0);
+      }
+      playerInstanceRef.current.play();
+    });
+  };
+
   return (
     <div className="absolute inset-0 w-full h-full overflow-hidden">
-      <video
-        ref={videoRef}
-        autoPlay
-        loop
-        playsInline
-        muted={isMuted}
-        className="w-full h-full object-cover"
-      >
-        <source src="https://assets.mixkit.co/videos/preview/mixkit-abstract-lines-and-shapes-in-digital-space-4148-large.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
+      <div className="w-full h-full">
+        <div ref={playerRef} className="w-full h-full"></div>
+      </div>
       
       {/* Dark overlay */}
       <div className="absolute inset-0 bg-insiderDark/70 z-10"></div>
@@ -134,5 +178,12 @@ const VideoHeroSection: React.FC = () => {
     </section>
   );
 };
+
+// Add this declaration to handle the Vimeo Player API
+declare global {
+  interface Window {
+    Vimeo: any;
+  }
+}
 
 export default VideoHeroSection;
