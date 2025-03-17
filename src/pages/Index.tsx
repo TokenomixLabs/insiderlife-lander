@@ -15,7 +15,7 @@ const Index: React.FC = () => {
       <VideoHero />
       
       {/* Content that overlays the video */}
-      <div style={{ position: 'relative', width: '100%', minHeight: '100vh', zIndex: 10 }}>
+      <div className="content-overlay">
         <Navbar />
         <main>
           <HeroSection />

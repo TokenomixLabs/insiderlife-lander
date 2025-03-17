@@ -8,60 +8,55 @@ const VideoHero: React.FC = () => {
   
   useEffect(() => {
     if (videoRef.current) {
-      // Log that we're trying to play the video
       console.log("Attempting to play video...");
       
-      // Make sure the video source is valid and accessible
-      console.log("Video source:", videoRef.current.src);
-      
-      // Log video element properties
-      console.log("Video element:", {
-        width: videoRef.current.clientWidth,
-        height: videoRef.current.clientHeight,
-        networkState: videoRef.current.networkState,
-        readyState: videoRef.current.readyState
-      });
-      
-      const playVideo = async () => {
-        try {
-          await videoRef.current?.play();
-          console.log("Video started playing successfully");
-        } catch (error) {
-          console.error("Video playback failed:", error);
-          
-          // Try again with a slight delay
-          setTimeout(() => {
-            console.log("Attempting to play video again...");
-            videoRef.current?.play().catch(e => 
-              console.error("Second attempt to play video failed:", e)
-            );
-          }, 1000);
-        }
-      };
-      
-      playVideo();
+      // Explicitly set the source for the video
+      const videoElement = videoRef.current;
       
       // Add event listeners to debug video issues
-      const video = videoRef.current;
-      
       const handleError = (e: Event) => console.error('Video error:', e);
-      const handleCanPlay = () => console.log('Video can play');
-      const handlePlaying = () => console.log('Video is playing');
+      const handleCanPlay = () => console.log('Video can now play');
+      const handlePlaying = () => console.log('Video is now playing');
       const handleStalled = () => console.log('Video playback stalled');
       const handleWaiting = () => console.log('Video is waiting for more data');
       
-      video.addEventListener('error', handleError);
-      video.addEventListener('canplay', handleCanPlay);
-      video.addEventListener('playing', handlePlaying);
-      video.addEventListener('stalled', handleStalled);
-      video.addEventListener('waiting', handleWaiting);
+      videoElement.addEventListener('error', handleError);
+      videoElement.addEventListener('canplay', handleCanPlay);
+      videoElement.addEventListener('playing', handlePlaying);
+      videoElement.addEventListener('stalled', handleStalled);
+      videoElement.addEventListener('waiting', handleWaiting);
+      
+      // Try to play the video after a short delay to ensure DOM is ready
+      setTimeout(() => {
+        console.log("Video source before play:", videoElement.src);
+        console.log("Video element status:", {
+          width: videoElement.clientWidth,
+          height: videoElement.clientHeight,
+          networkState: videoElement.networkState,
+          readyState: videoElement.readyState
+        });
+        
+        videoElement.play().then(() => {
+          console.log("Video started playing successfully");
+        }).catch(error => {
+          console.error("Video playback failed:", error);
+          
+          // Try again with a longer delay
+          setTimeout(() => {
+            console.log("Attempting to play video again...");
+            videoElement.play().catch(e => 
+              console.error("Second attempt to play video failed:", e)
+            );
+          }, 2000);
+        });
+      }, 500);
       
       return () => {
-        video.removeEventListener('error', handleError);
-        video.removeEventListener('canplay', handleCanPlay);
-        video.removeEventListener('playing', handlePlaying);
-        video.removeEventListener('stalled', handleStalled);
-        video.removeEventListener('waiting', handleWaiting);
+        videoElement.removeEventListener('error', handleError);
+        videoElement.removeEventListener('canplay', handleCanPlay);
+        videoElement.removeEventListener('playing', handlePlaying);
+        videoElement.removeEventListener('stalled', handleStalled);
+        videoElement.removeEventListener('waiting', handleWaiting);
       };
     }
   }, []);
@@ -74,15 +69,14 @@ const VideoHero: React.FC = () => {
   };
 
   return (
-    <section className="hero" style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', overflow: 'hidden' }}>
-      {/* Background Video */}
+    <div className="video-container" style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', overflow: 'hidden', zIndex: 0 }}>
       <video
         ref={videoRef}
         autoPlay
         muted={isMuted}
         loop
         playsInline
-        style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover', zIndex: 0 }}
+        style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover' }}
       >
         <source src="/video-background.mp4" type="video/mp4" />
         Your browser does not support the video tag.
@@ -115,7 +109,7 @@ const VideoHero: React.FC = () => {
       >
         {isMuted ? <VolumeX size={20} /> : <Volume2 size={20} />}
       </button>
-    </section>
+    </div>
   );
 };
 
