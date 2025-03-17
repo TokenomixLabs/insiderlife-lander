@@ -1,8 +1,7 @@
 
 import React from 'react';
 import Navbar from '@/components/Navbar';
-import VideoHero from '@/components/VideoHero';
-import HeroForm from '@/components/HeroForm';
+import HeroSection from '@/components/HeroSection';
 import AboutSection from '@/components/AboutSection';
 import OfferingsSection from '@/components/OfferingsSection';
 import CtaSection from '@/components/CtaSection';
@@ -10,23 +9,12 @@ import Footer from '@/components/Footer';
 
 const Index: React.FC = () => {
   return (
-    <div className="flex flex-col min-h-screen bg-insiderDark">
+    <div className="min-h-screen bg-insiderDark overflow-x-hidden">
       <Navbar />
-      
-      <div className="hero-section">
-        <VideoHero />
-      </div>
-      
-      <div className="form-section">
-        <HeroForm />
-      </div>
-      
-      <main>
-        <AboutSection />
-        <OfferingsSection />
-        <CtaSection />
-      </main>
-      
+      <HeroSection />
+      <AboutSection />
+      <OfferingsSection />
+      <CtaSection />
       <Footer />
     </div>
   );
