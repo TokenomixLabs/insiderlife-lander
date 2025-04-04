@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { cn } from '@/lib/utils';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -93,19 +94,19 @@ const OfferingsSection: React.FC = () => {
           viewport={{ once: true }}
           className="mt-16 text-center flex flex-col items-center"
         >
-          <p className="text-white/70 italic text-lg mb-6">
-            "Join the top 1% of digital entrepreneurs leveraging AI to build wealth and freedom."
+          <p className="text-white/80 font-semibold text-xl mb-8 max-w-2xl mx-auto">
+            "The digital frontier rewards the prepared. Join the elite using AI to build unprecedented wealth and true freedom."
           </p>
           
           <Button
             className={cn(
               "bg-gradient-to-r from-insiderPurple to-insiderBlue",
               "hover:from-insiderPurple-light hover:to-insiderBlue-light",
-              "text-white font-medium px-8 py-6 h-auto shadow-glow transition-all duration-300 hover:scale-105"
+              "text-white font-semibold px-8 py-6 h-auto text-lg shadow-glow transition-all duration-300 hover:scale-105"
             )}
             onClick={() => setWaitlistOpen(true)}
           >
-            Get Started Now <ArrowRight className="ml-2" />
+            GET STARTED NOW <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
         </motion.div>
       </div>
