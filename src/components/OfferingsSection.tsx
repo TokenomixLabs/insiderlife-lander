@@ -1,11 +1,14 @@
-
-import React from 'react';
+import React, { useState } from 'react';
 import { cn } from '@/lib/utils';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Brain, Key, Users, BarChart } from 'lucide-react';
+import { Brain, Key, Users, BarChart, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Button } from './ui/button';
+import WaitlistDialog from './WaitlistDialog';
 
 const OfferingsSection: React.FC = () => {
+  const [waitlistOpen, setWaitlistOpen] = useState(false);
+  
   const offerings = [
     {
       title: "AI-Powered Business Strategies",
@@ -88,13 +91,26 @@ const OfferingsSection: React.FC = () => {
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.7, delay: 0.5 }}
           viewport={{ once: true }}
-          className="mt-16 text-center"
+          className="mt-16 text-center flex flex-col items-center"
         >
-          <p className="text-white/70 italic text-lg">
+          <p className="text-white/70 italic text-lg mb-6">
             "Join the top 1% of digital entrepreneurs leveraging AI to build wealth and freedom."
           </p>
+          
+          <Button
+            className={cn(
+              "bg-gradient-to-r from-insiderPurple to-insiderBlue",
+              "hover:from-insiderPurple-light hover:to-insiderBlue-light",
+              "text-white font-medium px-8 py-6 h-auto shadow-glow transition-all duration-300 hover:scale-105"
+            )}
+            onClick={() => setWaitlistOpen(true)}
+          >
+            Get Started Now <ArrowRight className="ml-2" />
+          </Button>
         </motion.div>
       </div>
+      
+      <WaitlistDialog open={waitlistOpen} onOpenChange={setWaitlistOpen} />
     </section>
   );
 };
