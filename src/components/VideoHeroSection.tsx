@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Volume2, VolumeX } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
@@ -7,18 +8,49 @@ import ErrorBoundary from "@/components/ErrorBoundary";
 const VideoPlayer = () => {
   const [isMuted, setIsMuted] = useState(true);
   const iframeRef = useRef<HTMLIFrameElement>(null);
+  const vimeoPlayerRef = useRef<any>(null);
   const isMobile = useIsMobile();
 
   useEffect(() => {
-    import('@vimeo/player').catch(error => {
-      console.error('Error loading Vimeo player:', error);
-    });
+    let isLoaded = false;
+
+    const loadVimeoPlayer = async () => {
+      try {
+        const VimeoPlayer = (await import('@vimeo/player')).default;
+        
+        if (iframeRef.current && !isLoaded) {
+          vimeoPlayerRef.current = new VimeoPlayer(iframeRef.current);
+          isLoaded = true;
+          
+          // Set initial mute state
+          vimeoPlayerRef.current.setVolume(isMuted ? 0 : 1).catch(err => {
+            console.error('Error setting volume:', err);
+          });
+        }
+      } catch (error) {
+        console.error('Error loading Vimeo player:', error);
+      }
+    };
+
+    loadVimeoPlayer();
+
+    return () => {
+      if (vimeoPlayerRef.current) {
+        vimeoPlayerRef.current.destroy().catch(err => {
+          console.error('Error destroying player:', err);
+        });
+      }
+    };
   }, []);
 
   useEffect(() => {
-    const iframe = iframeRef.current;
-    if (iframe) {
-      iframe.contentWindow?.postMessage({
+    if (vimeoPlayerRef.current) {
+      vimeoPlayerRef.current.setVolume(isMuted ? 0 : 1).catch(err => {
+        console.error('Error setting volume:', err);
+      });
+    } else if (iframeRef.current) {
+      // Fallback method using postMessage
+      iframeRef.current.contentWindow?.postMessage({
         method: 'setVolume',
         value: isMuted ? 0 : 1
       }, '*');
