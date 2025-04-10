@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { cn } from '@/lib/utils';
-import { Instagram, Linkedin, Mail, Youtube, Twitter, Facebook, Phone } from 'lucide-react';
+import { Instagram, Linkedin, Mail, Youtube, Twitter, Facebook, Phone, HelpCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Footer: React.FC = () => {
@@ -27,6 +27,7 @@ const Footer: React.FC = () => {
             <ul className="space-y-2">
               <li><a href="#about" className="text-white/70 hover:text-white transition-colors">About</a></li>
               <li><a href="#offerings" className="text-white/70 hover:text-white transition-colors">What We Offer</a></li>
+              <li><Link to="/support" className="text-white/70 hover:text-white transition-colors">Support</Link></li>
               <li><Link to="/privacy-policy" className="text-white/70 hover:text-white transition-colors">Privacy Policy</Link></li>
               <li><Link to="/terms-of-service" className="text-white/70 hover:text-white transition-colors">Terms of Service</Link></li>
             </ul>
@@ -39,6 +40,12 @@ const Footer: React.FC = () => {
             </p>
             <p className="flex items-center text-white/70 mb-2">
               <Mail className="h-5 w-5 mr-2" /> hello@insiderlife.com
+            </p>
+            <p className="flex items-center text-white/70 mb-6">
+              <HelpCircle className="h-5 w-5 mr-2" /> 
+              <Link to="/support" className="hover:text-white transition-colors">
+                Get Support
+              </Link>
             </p>
             
             <div className="mt-4">
