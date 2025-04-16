@@ -1,6 +1,7 @@
+
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Check, ArrowUpRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
@@ -171,3 +172,4 @@ const AiFreedomCode: React.FC = () => {
 };
 
 export default AiFreedomCode;
+
