@@ -51,23 +51,38 @@ const AiFreedomCode: React.FC = () => {
               <ul className="space-y-6">
                 <li className="flex items-start gap-4">
                   <Check className="h-6 w-6 text-insiderBlue mt-1 flex-shrink-0" />
-                  <span className="text-lg text-white/90">Instantly deployable funnel</span>
+                  <div>
+                    <span className="text-lg text-white/90 font-semibold block">Instantly deployable funnel</span>
+                    <p className="text-sm text-white/70 mt-1">Launch today — no tech headaches, no delays. Just plug in and go.</p>
+                  </div>
                 </li>
                 <li className="flex items-start gap-4">
                   <Check className="h-6 w-6 text-insiderBlue mt-1 flex-shrink-0" />
-                  <span className="text-lg text-white/90">Built-in referral engine</span>
+                  <div>
+                    <span className="text-lg text-white/90 font-semibold block">Built-in referral engine</span>
+                    <p className="text-sm text-white/70 mt-1">Turn every user into a promoter and unleash viral growth from Day 1.</p>
+                  </div>
                 </li>
                 <li className="flex items-start gap-4">
                   <Check className="h-6 w-6 text-insiderBlue mt-1 flex-shrink-0" />
-                  <span className="text-lg text-white/90">Early access to AI agents</span>
+                  <div>
+                    <span className="text-lg text-white/90 font-semibold block">Early access to AI agents</span>
+                    <p className="text-sm text-white/70 mt-1">Use intelligent systems that scale your reach, automate engagement, and close gaps in your business 24/7.</p>
+                  </div>
                 </li>
                 <li className="flex items-start gap-4">
                   <Check className="h-6 w-6 text-insiderBlue mt-1 flex-shrink-0" />
-                  <span className="text-lg text-white/90">Passive income layer</span>
+                  <div>
+                    <span className="text-lg text-white/90 font-semibold block">Passive income layer</span>
+                    <p className="text-sm text-white/70 mt-1">Earn even while you sleep — with a built-in revenue system that rewards action and alignment.</p>
+                  </div>
                 </li>
                 <li className="flex items-start gap-4">
                   <Check className="h-6 w-6 text-insiderBlue mt-1 flex-shrink-0" />
-                  <span className="text-lg text-white/90">Community + platform integration</span>
+                  <div>
+                    <span className="text-lg text-white/90 font-semibold block">Community + platform integration</span>
+                    <p className="text-sm text-white/70 mt-1">You're not alone — tap into a movement, get support, and grow inside a powerful ecosystem built for sovereignty.</p>
+                  </div>
                 </li>
               </ul>
             </div>
