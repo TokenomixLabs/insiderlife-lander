@@ -91,7 +91,7 @@ const AiFreedomCode: React.FC = () => {
         {/* Why This Is Different */}
         <section className="container mx-auto px-4 py-16 md:py-24">
           <div className="text-center mb-16">
-            <blockquote className="text-2xl md:text-3xl font-light italic text-white/70 max-w-3xl mx-auto">
+            <blockquote className="text-xl md:text-2xl font-light italic text-white/70 max-w-3xl mx-auto">
               "While others are learning about AI… you're partnering with it."
             </blockquote>
           </div>
