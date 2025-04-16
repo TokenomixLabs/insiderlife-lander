@@ -1,11 +1,12 @@
 
-import { useLocation, Link } from "react-router-dom";
+import { useLocation, Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
 
 const NotFound = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const [isRefresh, setIsRefresh] = useState(false);
 
   useEffect(() => {
@@ -27,20 +28,17 @@ const NotFound = () => {
       // Store the route for restoration after refresh
       localStorage.setItem("lastValidRoute", location.pathname);
       
-      // If we're in production, attempt to redirect to the correct route
-      if (import.meta.env.PROD) {
-        // Wait a moment to ensure the app is fully loaded
-        setTimeout(() => {
-          window.location.replace(location.pathname);
-        }, 100);
-      }
+      // Try immediately navigating to the correct route
+      setTimeout(() => {
+        navigate(location.pathname, { replace: true });
+      }, 100);
     } else {
       console.error(
         "404 Error: User attempted to access non-existent route:",
         location.pathname
       );
     }
-  }, [location.pathname]);
+  }, [location.pathname, navigate]);
 
   // Get the stored route or default to home
   const lastValidRoute = localStorage.getItem("lastValidRoute") || "/";
@@ -59,7 +57,7 @@ const NotFound = () => {
           {isRefresh ? (
             <Button
               className="bg-gradient-to-r from-insiderPurple to-insiderBlue hover:from-insiderPurple-light hover:to-insiderBlue-light text-white"
-              onClick={() => window.location.replace(lastValidRoute)}
+              onClick={() => navigate(lastValidRoute, { replace: true })}
             >
               Click here if not redirected
             </Button>
