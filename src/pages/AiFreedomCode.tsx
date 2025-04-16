@@ -38,36 +38,34 @@ const AiFreedomCode: React.FC = () => {
         {/* Overview Section */}
         <section className="container mx-auto px-4 py-16 bg-insiderDark-light/20 backdrop-blur-sm">
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center font-orbitron text-gradient">
-            Not Another Course
+            Way More Than A Course
           </h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div>
-              <p className="text-2xl md:text-3xl font-semibold leading-relaxed text-white">
-                AI FREEDOM CODE is a weaponized digital system built for speed, power, and leverage.
-                It combines automation, duplication, and viral mechanics — so you grow even while offline.
-              </p>
-            </div>
+          <div className="flex flex-col items-center max-w-4xl mx-auto">
+            <p className="text-xl md:text-2xl leading-relaxed text-white/90 mb-12 text-center">
+              AI FREEDOM CODE is a weaponized digital system built for speed, power, and leverage.
+              It combines automation, duplication, and viral mechanics — so you grow even while offline.
+            </p>
             
-            <div className="glass-card p-8">
-              <ul className="space-y-4">
-                <li className="flex items-start gap-3">
+            <div className="glass-card p-8 w-full">
+              <ul className="space-y-6">
+                <li className="flex items-start gap-4">
                   <Check className="h-6 w-6 text-insiderBlue mt-1 flex-shrink-0" />
                   <span className="text-lg text-white/90">Instantly deployable funnel</span>
                 </li>
-                <li className="flex items-start gap-3">
+                <li className="flex items-start gap-4">
                   <Check className="h-6 w-6 text-insiderBlue mt-1 flex-shrink-0" />
                   <span className="text-lg text-white/90">Built-in referral engine</span>
                 </li>
-                <li className="flex items-start gap-3">
+                <li className="flex items-start gap-4">
                   <Check className="h-6 w-6 text-insiderBlue mt-1 flex-shrink-0" />
                   <span className="text-lg text-white/90">Early access to AI agents</span>
                 </li>
-                <li className="flex items-start gap-3">
+                <li className="flex items-start gap-4">
                   <Check className="h-6 w-6 text-insiderBlue mt-1 flex-shrink-0" />
                   <span className="text-lg text-white/90">Passive income layer</span>
                 </li>
-                <li className="flex items-start gap-3">
+                <li className="flex items-start gap-4">
                   <Check className="h-6 w-6 text-insiderBlue mt-1 flex-shrink-0" />
                   <span className="text-lg text-white/90">Community + platform integration</span>
                 </li>
