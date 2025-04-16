@@ -11,6 +11,7 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import ThankYou from "./pages/ThankYou";
 import Support from "./pages/Support";
+import AiFreedomCode from "./pages/AiFreedomCode";
 import WaitlistDialog from "./components/WaitlistDialog";
 import useExitIntent from "./hooks/useExitIntent";
 
@@ -52,6 +53,7 @@ const App = () => (
           <Route path="/terms-of-service" element={<TermsOfService />} />
           <Route path="/thank-you" element={<ThankYou />} />
           <Route path="/support" element={<Support />} />
+          <Route path="/aifreedomcode" element={<AiFreedomCode />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
