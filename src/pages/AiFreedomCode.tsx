@@ -1,8 +1,7 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Check, ArrowUpRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { Link } from 'react-router-dom';
 import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
 
@@ -16,7 +15,7 @@ const AiFreedomCode: React.FC = () => {
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-orbitron mb-6 text-gradient">
             Forget Courses. This Is a Weapon.
           </h1>
-          <p className="text-xl md:text-2xl lg:text-3xl mb-10 max-w-4xl mx-auto text-white/90">
+          <p className="text-xl md:text-2xl lg:text-3xl mb-10 max-w-4xl mx-auto text-white/90 leading-tight">
             The First AI-Powered System That Builds Wealth, Creates True Freedom, and Helps Us Reclaim What's Been Stolen.
           </p>
           <div className="flex justify-center">
@@ -37,12 +36,12 @@ const AiFreedomCode: React.FC = () => {
 
         {/* Overview Section */}
         <section className="container mx-auto px-4 py-16 bg-insiderDark-light/20 backdrop-blur-sm">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center font-orbitron text-gradient">
+          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center font-orbitron text-gradient">
             Way More Than A Course
           </h2>
           
           <div className="flex flex-col items-center max-w-4xl mx-auto">
-            <p className="text-xl md:text-2xl leading-relaxed text-white/90 mb-12 text-center">
+            <p className="text-lg md:text-xl leading-relaxed text-white/80 mb-10 text-center">
               AI FREEDOM CODE is a weaponized digital system built for speed, power, and leverage.
               It combines automation, duplication, and viral mechanics — so you grow even while offline.
             </p>
