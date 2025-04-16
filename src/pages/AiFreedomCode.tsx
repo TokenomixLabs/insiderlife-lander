@@ -145,24 +145,26 @@ const AiFreedomCode: React.FC = () => {
               This isn't just another offer.
               It's the ignition of a movement.
             </p>
-            <p className="text-xl md:text-2xl text-white/80">
+            <p className="text-xl md:text-2xl text-white/80 mb-8">
               You're not buying a product —
               You're joining the rise of a new digital class.
             </p>
           </div>
           
-          <Button 
-            className={cn(
-              "bg-gradient-to-r from-insiderPurple to-insiderBlue",
-              "hover:from-insiderPurple-light hover:to-insiderBlue-light",
-              "text-white text-xl font-bold py-8 px-10 rounded-lg",
-              "shadow-glow transition-all duration-300 hover:scale-105",
-              "flex items-center gap-3"
-            )}
-          >
-            <span>ACTIVATE AI FREEDOM CODE</span>
-            <ArrowUpRight className="h-7 w-7" />
-          </Button>
+          <div className="flex justify-center">
+            <Button 
+              className={cn(
+                "bg-gradient-to-r from-insiderPurple to-insiderBlue",
+                "hover:from-insiderPurple-light hover:to-insiderBlue-light",
+                "text-white text-xl font-bold py-8 px-10 rounded-lg",
+                "shadow-glow transition-all duration-300 hover:scale-105",
+                "flex items-center gap-3"
+              )}
+            >
+              <span>ACTIVATE AI FREEDOM CODE</span>
+              <ArrowUpRight className="h-7 w-7" />
+            </Button>
+          </div>
         </section>
       </main>
       <Footer />
