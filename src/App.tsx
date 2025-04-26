@@ -54,6 +54,7 @@ const App = () => (
           <Route path="/thank-you" element={<ThankYou />} />
           <Route path="/support" element={<Support />} />
           <Route path="/aifreedomcode" element={<AiFreedomCode />} />
+          <Route path="/affiliate-swipe-hub" element={<AffiliateSwipeHub />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
