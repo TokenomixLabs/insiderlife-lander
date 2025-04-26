@@ -1,6 +1,7 @@
+
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, ArrowUpRight, Flame } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, Flame, Check } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
