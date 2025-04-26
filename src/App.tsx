@@ -12,6 +12,7 @@ import TermsOfService from "./pages/TermsOfService";
 import ThankYou from "./pages/ThankYou";
 import Support from "./pages/Support";
 import AiFreedomCode from "./pages/AiFreedomCode";
+import AffiliateSwipeHub from "./pages/AffiliateSwipeHub";
 import WaitlistDialog from "./components/WaitlistDialog";
 import useExitIntent from "./hooks/useExitIntent";
 
