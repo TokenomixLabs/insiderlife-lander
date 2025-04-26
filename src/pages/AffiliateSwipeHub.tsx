@@ -1,17 +1,19 @@
 
-import { Image } from "lucide-react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import React from 'react';
 import { Button } from "@/components/ui/button";
 import SwipeSection from "@/components/affiliate/SwipeSection";
 import CreativeAssets from "@/components/affiliate/CreativeAssets";
 import ExecutionTips from "@/components/affiliate/ExecutionTips";
 import SoftInvite from "@/components/affiliate/SoftInvite";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
-const AffiliateSwipeHub = () => {
+const AffiliateSwipeHub: React.FC = () => {
   return (
     <div className="min-h-screen bg-insiderDark text-white">
+      <Navbar />
       {/* Hero Section */}
-      <section className="py-20 px-4">
+      <section className="pt-[120px] pb-20 px-4">
         <div className="container mx-auto max-w-4xl text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 text-gradient">
             🔥 Promote the System That Pays Instantly
@@ -32,6 +34,8 @@ const AffiliateSwipeHub = () => {
       <CreativeAssets />
       <ExecutionTips />
       <SoftInvite />
+      
+      <Footer />
     </div>
   );
 };
