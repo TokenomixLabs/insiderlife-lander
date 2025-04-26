@@ -12,7 +12,7 @@ const AiFreedomCode: React.FC = () => {
       <main className="flex-grow pt-24">
         {/* Hero Section */}
         <section className="container mx-auto px-4 py-16 md:py-24 text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-orbitron mb-6 text-gradient leading-[1.4] py-2">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-orbitron mb-6 text-gradient leading-[1.4] py-2 pb-4">
             Forget Courses. This Is a Weapon.
           </h1>
           <p className="text-xl md:text-2xl lg:text-3xl mb-10 max-w-4xl mx-auto text-white/90 leading-tight">
@@ -36,7 +36,7 @@ const AiFreedomCode: React.FC = () => {
 
         {/* Overview Section */}
         <section className="container mx-auto px-4 py-16 bg-insiderDark-light/20 backdrop-blur-sm">
-          <h2 className="text-4xl md:text-5xl font-bold mb-8 text-center font-orbitron text-gradient">
+          <h2 className="text-4xl md:text-5xl font-bold mb-8 text-center font-orbitron text-gradient pb-4">
             Way More Than A Course
           </h2>
           
