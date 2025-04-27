@@ -28,63 +28,74 @@ const Mastermind: React.FC = () => {
           <div className="max-w-3xl mx-auto mb-16 text-lg text-white/80 space-y-8">
             <p className="italic">
               This is not for those seeking another mastermind.
-              This is for visionaries, builders, and awakened leaders ready to shape reality.
+              This is for visionaries, builders, and awakened leaders ready to shape a new reality together.
             </p>
             <p>
-              The Sovereign Circle is where aligned beings converge to co-create at the highest frequency —
+              The Sovereign Circle is where aligned creators converge to co-create at the highest frequency —
               not through transaction, but through resonance.
             </p>
           </div>
         </section>
 
-        {/* What Sovereign Circle Represents */}
+        {/* Pillars of the Circle */}
         <section className="container mx-auto px-4 py-16 glass-card my-8">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center font-orbitron text-gradient">
-              Sacred Architecture
+              🜂 Where Frequency Meets Execution
             </h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-lg text-white/80">
               <div className="glass-card p-6 space-y-3">
                 <h3 className="text-xl font-semibold mb-3 text-white">Strategic Alliance</h3>
-                <p>Where collective power meets ritualized execution</p>
+                <p>Where aligned power converges to build the new paradigm.</p>
               </div>
               
               <div className="glass-card p-6 space-y-3">
                 <h3 className="text-xl font-semibold mb-3 text-white">Activated Intelligence</h3>
-                <p>Access to crystallized wisdom and sovereign frameworks</p>
+                <p>Crystallized frameworks, sovereign playbooks, and direct transmission of code.</p>
               </div>
               
               <div className="glass-card p-6 space-y-3">
                 <h3 className="text-xl font-semibold mb-3 text-white">Digital Architecture</h3>
-                <p>Building the infrastructure of the new paradigm</p>
+                <p>Infrastructure for digital sovereignty — created by and for the awakened.</p>
               </div>
               
               <div className="glass-card p-6 space-y-3">
                 <h3 className="text-xl font-semibold mb-3 text-white">Spiritual Sovereignty</h3>
-                <p>Remembering and embodying our highest expression</p>
+                <p>Rooted in inner alignment. Guided by divine intelligence. Manifested through action.</p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* What's Included */}
+        {/* What Becomes Possible */}
         <section className="container mx-auto px-4 py-16 my-8">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="glass-card p-8 space-y-6 text-white/80">
-              <p className="text-lg">Those who align receive access to:</p>
-              <ul className="space-y-4 text-left max-w-2xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold mb-10 font-orbitron text-gradient">
+              🧬 What Becomes Possible
+            </h2>
+            
+            <div className="glass-card p-8 space-y-12 text-white/80">
+              <p className="text-xl md:text-2xl font-medium">
+                Those who resonate receive more than access.<br />
+                They receive activation.
+              </p>
+              <ul className="space-y-6 text-left max-w-2xl mx-auto text-lg">
                 <li className="flex items-center gap-4">
                   <span className="h-1 w-1 rounded-full bg-insiderPurple"></span>
-                  <span>Sacred strategy sessions and execution deep dives</span>
+                  <span>Unfiltered strategy sessions and sacred execution spaces</span>
                 </li>
                 <li className="flex items-center gap-4">
                   <span className="h-1 w-1 rounded-full bg-insiderPurple"></span>
-                  <span>Early access to key launches and sovereign technologies</span>
+                  <span>Early positioning in sovereign technologies and movements</span>
                 </li>
                 <li className="flex items-center gap-4">
                   <span className="h-1 w-1 rounded-full bg-insiderPurple"></span>
-                  <span>Direct influence in shaping InsiderDAO, Societi, InstantPay.AI</span>
+                  <span>Shared creation of the next wave of digital civilization</span>
+                </li>
+                <li className="flex items-center gap-4">
+                  <span className="h-1 w-1 rounded-full bg-insiderPurple"></span>
+                  <span>Real-time collaboration with those who shape timelines</span>
                 </li>
               </ul>
             </div>
@@ -98,22 +109,40 @@ const Mastermind: React.FC = () => {
               <CircleUser className="h-12 w-12 text-insiderPurple" />
             </div>
             <h3 className="text-2xl md:text-3xl font-bold text-center mb-4 font-orbitron text-gradient">
-              The High Table
+              🔱 Beyond the Circle: The High Table
             </h3>
-            <p className="text-lg text-center text-white/80">
-              Beyond the Circle exists The High Table —
-              an invitation-only council of aligned creators, major keyholders, and activated leaders 
-              building the next era of digital civilization.
-            </p>
+            <div className="space-y-6 text-lg text-center text-white/80">
+              <p className="font-medium italic">Some will go deeper.</p>
+              <p>
+                Beyond the Sovereign Circle exists The High Table —<br />
+                a private convergence of creators, visionaries, and keyholders<br />
+                shaping the next arc of human civilization.
+              </p>
+              <p className="font-medium">
+                This is not an "upgrade."<br />
+                It is an initiation into deeper alignment, longer timelines, and legacy-level impact.
+              </p>
+            </div>
           </div>
         </section>
 
-        {/* Apply to Enter */}
+        {/* Final Call to Action */}
         <section className="container mx-auto px-4 py-16 glass-card my-8">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-8 font-orbitron text-gradient">
-              Signal Your Alignment
+              🔔 Final Call: Step Into Resonance
             </h2>
+            
+            <div className="mb-10 text-lg text-white/80 space-y-6">
+              <p>
+                This isn't an application in the traditional sense.<br />
+                It's a signal — that you recognize the field, and you're ready to co-create at a higher octave.
+              </p>
+              <p>
+                Not everyone will be invited.<br />
+                That's by sacred design.
+              </p>
+            </div>
             
             <Button
               onClick={handleRequestInvite}
@@ -125,21 +154,16 @@ const Mastermind: React.FC = () => {
                 "mb-8"
               )}
             >
-              Apply for Alignment
+              👉 Request Invitation
             </Button>
-
-            <p className="text-lg text-white/80 max-w-2xl mx-auto">
-              This is not a standard application — it's a signal that you're ready to co-create 
-              on a higher level. Not everyone will be invited, and that's by sacred design.
-            </p>
           </div>
         </section>
 
-        {/* Final Message */}
+        {/* Closing Stamp */}
         <section className="container mx-auto px-4 py-16 text-center">
           <div className="max-w-2xl mx-auto space-y-4 text-lg text-white/90">
             <p>This isn't a mastermind.</p>
-            <p>This is a table where gods remember their role.</p>
+            <p>This is a table where gods remember who they are.</p>
             <p className="mt-8 font-orbitron">
               The frequency field is active. 🔱
             </p>

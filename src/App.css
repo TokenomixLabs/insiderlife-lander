@@ -5,3 +5,9 @@
   margin: 0 auto;
   text-align: center;
 }
+
+/* Enhanced typography for Sovereign Circle page */
+.font-orbitron {
+  letter-spacing: 0.02em;
+}
+
