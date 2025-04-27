@@ -10,7 +10,7 @@ const AffiliateSection = () => {
     <section className="container mx-auto px-4 py-16 bg-insiderDark-light/20 backdrop-blur-sm text-center">
       <div className="max-w-3xl mx-auto">
         <h2 className="text-4xl md:text-5xl font-bold mb-6 text-center font-orbitron text-gradient pb-4">
-          📣 Want to Share This With the World?
+          📣 Ready to Share This With the World?
         </h2>
       
         <p className="text-xl text-white/80 mb-10 text-center">
