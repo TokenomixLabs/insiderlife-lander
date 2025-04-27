@@ -16,7 +16,7 @@ const Mastermind: React.FC = () => {
       <main className="flex-grow pt-24">
         {/* Hero Section */}
         <section className="container mx-auto px-4 py-20 md:py-32 text-center">
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold font-orbitron mb-6 text-gradient leading-[1.2] tracking-tighter">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold font-orbitron mb-6 text-gradient leading-[1.3] tracking-tighter">
             Sovereign Circle
           </h1>
           <p className="text-xl md:text-2xl mb-12 text-white/90">
