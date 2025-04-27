@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { CircleUser } from 'lucide-react';
@@ -17,7 +18,7 @@ const Mastermind: React.FC = () => {
         {/* Hero Section */}
         <section className="container mx-auto px-4 py-20 md:py-32 text-center">
           <div className="py-4">
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold font-orbitron mb-6 text-white">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold font-orbitron mb-6 text-gradient">
               Sovereign Circle
             </h1>
           </div>
