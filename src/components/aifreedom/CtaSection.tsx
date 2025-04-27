@@ -5,6 +5,10 @@ import { ArrowUpRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const CtaSection = () => {
+  const handleActivateClick = () => {
+    window.open('https://go.aifreedomcode.com/start', '_blank', 'noopener,noreferrer');
+  };
+
   return (
     <section className="container mx-auto px-4 py-16 md:py-24 text-center">
       <div className="max-w-3xl mx-auto mb-12">
@@ -20,6 +24,7 @@ const CtaSection = () => {
       
       <div className="flex justify-center">
         <Button 
+          onClick={handleActivateClick}
           className={cn(
             "bg-gradient-to-r from-insiderPurple to-insiderBlue",
             "hover:from-insiderPurple-light hover:to-insiderBlue-light",
