@@ -17,7 +17,7 @@ const Mastermind: React.FC = () => {
         {/* Hero Section */}
         <section className="container mx-auto px-4 py-20 md:py-32 text-center">
           <div className="py-4">
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold font-orbitron mb-6 text-insiderPurple">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold font-orbitron mb-6 text-white">
               Sovereign Circle
             </h1>
           </div>
@@ -27,11 +27,11 @@ const Mastermind: React.FC = () => {
           
           {/* The Invitation */}
           <div className="max-w-3xl mx-auto mb-16 text-lg text-white/80 space-y-8">
-            <p className="italic">
+            <p className="italic text-white">
               This is not for those seeking another mastermind.
               This is for visionaries, builders, and awakened leaders ready to shape a new reality together.
             </p>
-            <p>
+            <p className="text-white">
               The Sovereign Circle is where aligned creators converge to co-create at the highest frequency —
               not through transaction, but through resonance.
             </p>
