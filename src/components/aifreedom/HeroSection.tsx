@@ -15,8 +15,8 @@ const HeroSection = () => {
         This AI System Pays You Instantly Even If You're Starting From Scratch
       </h1>
       <p className="text-xl md:text-2xl lg:text-3xl mb-10 max-w-4xl mx-auto text-white/90 leading-tight">
-        Plug Into the Hottest New Advanced Intelligence System<br />
-        That Creates Viral Growth While You Sleep
+        This AI System Is Paying People Thousands<br />
+        Even If You're Starting From Scratch
       </p>
       <div className="flex justify-center">
         <Button 
