@@ -25,6 +25,7 @@ const Navbar: React.FC = () => {
           <a href="#about" className="text-white/80 hover:text-white transition-colors duration-200">About</a>
           <a href="#offerings" className="text-white/80 hover:text-white transition-colors duration-200">What We Offer</a>
           <Link to="/aifreedomcode" className="text-white/80 hover:text-white transition-colors duration-200">AI FREEDOM CODE</Link>
+          <Link to="/mastermind" className="text-white/80 hover:text-white transition-colors duration-200">Mastermind</Link>
           <Link to="/support" className="text-white/80 hover:text-white transition-colors duration-200">Contact</Link>
         </div>
         

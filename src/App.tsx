@@ -13,6 +13,7 @@ import ThankYou from "./pages/ThankYou";
 import Support from "./pages/Support";
 import AiFreedomCode from "./pages/AiFreedomCode";
 import AffiliateSwipeHub from "./pages/AffiliateSwipeHub";
+import Mastermind from "./pages/Mastermind";
 import WaitlistDialog from "./components/WaitlistDialog";
 import useExitIntent from "./hooks/useExitIntent";
 
@@ -56,6 +57,7 @@ const App = () => (
           <Route path="/support" element={<Support />} />
           <Route path="/aifreedomcode" element={<AiFreedomCode />} />
           <Route path="/affiliate-swipe-hub" element={<AffiliateSwipeHub />} />
+          <Route path="/mastermind" element={<Mastermind />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
