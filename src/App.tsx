@@ -1,8 +1,9 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation, Navigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
@@ -54,6 +55,8 @@ const App = () => (
           <Route path="/aifreedomcode" element={<AiFreedomCode />} />
           <Route path="/affiliate-swipe-hub" element={<AffiliateSwipeHub />} />
           <Route path="/circle" element={<Mastermind />} />
+          {/* Add redirect from old mastermind URL to new circle URL */}
+          <Route path="/mastermind" element={<Navigate to="/circle" replace />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <ExitIntentWrapper />
