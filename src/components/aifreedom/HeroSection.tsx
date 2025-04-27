@@ -16,7 +16,8 @@ const HeroSection = () => {
         Intelligence System That Creates Viral Growth While You Sleep
       </h1>
       <p className="text-xl md:text-2xl lg:text-3xl mb-10 max-w-4xl mx-auto text-white/90 leading-tight">
-        The First AI-Powered System That Builds Wealth, Creates True Freedom, and Helps Us Reclaim What's Been Stolen.
+        Plug Into the Hottest New Advanced<br />
+        Intelligence System That Creates Viral Growth While You Sleep
       </p>
       <div className="flex justify-center">
         <Button 
@@ -38,4 +39,3 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
-
