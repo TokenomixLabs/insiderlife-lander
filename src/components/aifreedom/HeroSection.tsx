@@ -11,13 +11,13 @@ const HeroSection = () => {
 
   return (
     <section className="container mx-auto px-4 py-16 md:py-24 text-center">
-      <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-orbitron mb-6 text-gradient leading-[1.4] py-2 pb-4">
-        This AI System Pays You Instantly Even If You're Starting From Scratch
+      <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-orbitron mb-6 leading-[1.4] py-2 pb-4 bg-pink-100/10 rounded-lg">
+        This AI System Pays You Instantly Even If You're Starting From Scratch.
       </h1>
-      <p className="text-xl md:text-2xl lg:text-3xl mb-6 max-w-4xl mx-auto text-white/90 leading-tight">
+      <p className="text-xl md:text-2xl lg:text-3xl mb-6 max-w-4xl mx-auto text-blue-400 leading-tight font-orbitron bg-pink-100/5 rounded-lg py-3">
         Plug Into the Hottest New Advanced Intelligence System That Creates Viral Growth While You Sleep
       </p>
-      <p className="text-lg mb-10 max-w-3xl mx-auto text-white/80">
+      <p className="text-lg md:text-xl lg:text-2xl mb-10 max-w-3xl mx-auto font-orbitron bg-pink-100/10 rounded-lg py-2">
         No Guesswork. No Hype. Just Execution.
       </p>
       <div className="flex justify-center">
@@ -40,4 +40,3 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
-
