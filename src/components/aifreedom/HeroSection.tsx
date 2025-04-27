@@ -12,8 +12,8 @@ const HeroSection = () => {
   return (
     <section className="container mx-auto px-4 py-16 md:py-24 text-center">
       <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold font-orbitron mb-6 text-gradient leading-[1.4] py-2 pb-4">
-        This AI System Pays<br />
-        You Instantly Even If You're Starting From Scratch
+        This AI System Pays You<br />
+        Instantly Even If You're Starting From Scratch
       </h1>
       <p className="text-xl md:text-2xl lg:text-3xl mb-10 max-w-4xl mx-auto text-white/90 leading-tight">
         Plug Into the Hottest New Advanced Intelligence<br />
