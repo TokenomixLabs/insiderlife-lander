@@ -13,12 +13,10 @@ const CtaSection = () => {
     <section className="container mx-auto px-4 py-16 md:py-24 text-center">
       <div className="max-w-3xl mx-auto mb-12">
         <p className="text-2xl md:text-3xl font-semibold mb-6 text-white/90">
-          This isn't just another offer.
-          It's the ignition of a movement.
+          This isn't just another offer. It's the ignition of a movement.
         </p>
         <p className="text-xl md:text-2xl text-white/80 mb-8">
-          You're not buying a product —
-          You're joining the rise of a new digital class.
+          You're not buying a product — You're joining the rise of a new digital class.
         </p>
       </div>
       
