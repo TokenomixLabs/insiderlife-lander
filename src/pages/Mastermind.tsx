@@ -37,7 +37,7 @@ const Mastermind: React.FC = () => {
           </div>
 
           {/* Form Section */}
-          <div className={cn(
+          <div id="circle-form" className={cn(
             "max-w-2xl mx-auto transition-all duration-500",
             showForm ? "scale-100 opacity-100" : "scale-95 opacity-0 pointer-events-none absolute"
           )}>
@@ -60,8 +60,9 @@ const Mastermind: React.FC = () => {
                 "shadow-glow transition-all duration-300 hover:scale-105",
                 "mb-8"
               )}
+              asChild
             >
-              👉 Request Invitation
+              <a href="#circle-form">👉 Request Invitation</a>
             </Button>
           </div>
         </section>
@@ -182,8 +183,9 @@ const Mastermind: React.FC = () => {
                 "shadow-glow transition-all duration-300 hover:scale-105",
                 "mb-8"
               )}
+              asChild
             >
-              👉 Request Invitation
+              <a href="#circle-form">👉 Request Invitation</a>
             </Button>
           </div>
         </section>
