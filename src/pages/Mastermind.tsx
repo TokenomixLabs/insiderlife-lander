@@ -1,14 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { CircleUser } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
+import ApplicationForm from '@/components/circle/ApplicationForm';
 
 const Mastermind: React.FC = () => {
-  const handleRequestInvite = () => {
-    window.location.href = "mailto:admin@insiderlife.com?subject=Sovereign Circle Alignment Signal";
-  };
+  const [showForm, setShowForm] = useState(false);
 
   return (
     <div className="flex flex-col min-h-screen bg-insiderDark">
@@ -35,6 +34,35 @@ const Mastermind: React.FC = () => {
               The Sovereign Circle is where aligned creators converge to co-create at the highest frequency —
               not through transaction, but through resonance.
             </p>
+          </div>
+
+          {/* Form Section */}
+          <div className={cn(
+            "max-w-2xl mx-auto transition-all duration-500",
+            showForm ? "scale-100 opacity-100" : "scale-95 opacity-0 pointer-events-none absolute"
+          )}>
+            <div className="glass-card p-8 border border-insiderPurple/20">
+              <ApplicationForm />
+            </div>
+          </div>
+
+          {/* Initial CTA */}
+          <div className={cn(
+            "transition-all duration-500",
+            showForm ? "scale-95 opacity-0 pointer-events-none absolute" : "scale-100 opacity-100"
+          )}>
+            <Button
+              onClick={() => setShowForm(true)}
+              className={cn(
+                "bg-gradient-to-r from-insiderPurple to-insiderBlue",
+                "hover:from-insiderPurple-light hover:to-insiderBlue-light",
+                "text-white text-lg font-medium py-6 px-8 rounded-lg",
+                "shadow-glow transition-all duration-300 hover:scale-105",
+                "mb-8"
+              )}
+            >
+              👉 Request Invitation
+            </Button>
           </div>
         </section>
 
@@ -146,7 +174,7 @@ const Mastermind: React.FC = () => {
             </div>
             
             <Button
-              onClick={handleRequestInvite}
+              onClick={() => setShowForm(true)}
               className={cn(
                 "bg-gradient-to-r from-insiderPurple to-insiderBlue",
                 "hover:from-insiderPurple-light hover:to-insiderBlue-light",
