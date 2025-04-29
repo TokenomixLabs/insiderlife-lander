@@ -2,38 +2,33 @@
 import React, { useState } from 'react';
 import { cn } from '@/lib/utils';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Brain, Key, Users, BarChart, ArrowRight } from 'lucide-react';
+import { Broadcast, Code, Circle, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Button } from './ui/button';
+import { Link } from 'react-router-dom';
 import WaitlistDialog from './WaitlistDialog';
 
 const OfferingsSection: React.FC = () => {
   const [waitlistOpen, setWaitlistOpen] = useState(false);
   
-  const offerings = [
+  const pillars = [
     {
-      title: "AI-Powered Business Strategies",
-      description: "Leverage cutting-edge AI to develop business strategies that scale rapidly and outperform the competition.",
-      icon: <Brain className="h-10 w-10" />,
+      title: "The Broadcast",
+      description: "Raw, unfiltered signal transmission. Show up, tune in, and tap into the next-level frequency of execution and alignment.",
+      icon: <Broadcast className="h-10 w-10" />,
       delay: 0.1
     },
     {
-      title: "High-Leverage Monetization Systems",
-      description: "Implement proven monetization systems designed to maximize revenue and create sustainable business models.",
-      icon: <Key className="h-10 w-10" />,
+      title: "The Code",
+      description: "AI Freedom Code isn't a course. It's a complete digital weapon system — designed for sovereign scale, instant monetization, and unstoppable digital presence.",
+      icon: <Code className="h-10 w-10" />,
       delay: 0.2
     },
     {
-      title: "Community & Collaboration",
-      description: "Join a powerful network of entrepreneurs and creators who are shaping the future of the digital economy.",
-      icon: <Users className="h-10 w-10" />,
+      title: "The Circle",
+      description: "Private alliance of awakened creators. Collaboration, expansion, strategy, and sovereign wealth creation from the inside out.",
+      icon: <Circle className="h-10 w-10" />,
       delay: 0.3
-    },
-    {
-      title: "Data-Driven Insights",
-      description: "Unlock powerful analytics and insights to make informed decisions and optimize your business performance.",
-      icon: <BarChart className="h-10 w-10" />,
-      delay: 0.4
     }
   ];
 
@@ -58,13 +53,19 @@ const OfferingsSection: React.FC = () => {
           </p>
         </motion.div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {offerings.map((offering, index) => (
+        <div className="text-center mb-12">
+          <h3 className="text-2xl md:text-3xl font-bold mb-4 text-white font-orbitron">
+            Inside the Movement
+          </h3>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {pillars.map((pillar, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: offering.delay }}
+              transition={{ duration: 0.5, delay: pillar.delay }}
               viewport={{ once: true }}
             >
               <Card className="bg-insiderDark-light/40 border border-white/10 backdrop-blur-sm transform transition-all duration-300 hover:scale-105 hover:shadow-glow h-full">
@@ -73,14 +74,13 @@ const OfferingsSection: React.FC = () => {
                     "mb-5 text-insiderBlue",
                     index === 1 ? "text-insiderPurple" : "",
                     index === 2 ? "text-insiderBlue-light" : "",
-                    index === 3 ? "text-insiderPurple-light" : ""
                   )}>
-                    {offering.icon}
+                    {pillar.icon}
                   </div>
-                  <CardTitle className="text-xl font-semibold font-orbitron">{offering.title}</CardTitle>
+                  <CardTitle className="text-xl font-semibold font-orbitron">{pillar.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <CardDescription className="text-white/70 text-base">{offering.description}</CardDescription>
+                  <CardDescription className="text-white/70 text-base">{pillar.description}</CardDescription>
                 </CardContent>
               </Card>
             </motion.div>
