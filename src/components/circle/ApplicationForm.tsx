@@ -1,22 +1,11 @@
 
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
-import { Textarea } from '@/components/ui/textarea';
-import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
-import { Label } from '@/components/ui/label';
-import { cn } from '@/lib/utils';
-
-type FormData = {
-  fullName: string;
-  email: string;
-  socialProfile: string;
-  building: string;
-  attraction: string;
-  contribution: string;
-  investmentLevel: 'yes' | 'not_yet' | 'discuss';
-};
+import FormInput from './form/FormInput';
+import FormTextarea from './form/FormTextarea';
+import RadioOptionGroup from './form/RadioOptionGroup';
+import SubmitButton from './form/SubmitButton';
+import { FormData } from './form/FormTypes';
 
 const ApplicationForm = () => {
   const { register, handleSubmit } = useForm<FormData>();
@@ -36,76 +25,62 @@ Investment Level: ${data.investmentLevel}
     window.location.href = `mailto:admin@insiderlife.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   };
 
+  const investmentOptions = [
+    { value: 'yes', label: 'Yes' },
+    { value: 'not_yet', label: 'Not yet' },
+    { value: 'discuss', label: 'Let\'s discuss' }
+  ];
+
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 text-left">
       <div className="space-y-4">
-        <Input
-          {...register('fullName')}
-          placeholder="Full Name"
-          className="bg-black/40 border-insiderPurple/50 text-white placeholder:text-white/50 focus:border-insiderPurple h-12"
+        <FormInput 
+          register={register} 
+          name="fullName" 
+          placeholder="Full Name" 
         />
         
-        <Input
-          {...register('email')}
+        <FormInput 
+          register={register} 
+          name="email" 
+          placeholder="Email" 
           type="email"
-          placeholder="Email"
-          className="bg-black/40 border-insiderPurple/50 text-white placeholder:text-white/50 focus:border-insiderPurple h-12"
         />
         
-        <Input
-          {...register('socialProfile')}
-          placeholder="Social Profile / Website"
-          className="bg-black/40 border-insiderPurple/50 text-white placeholder:text-white/50 focus:border-insiderPurple h-12"
+        <FormInput 
+          register={register} 
+          name="socialProfile" 
+          placeholder="Social Profile / Website" 
         />
         
-        <Textarea
-          {...register('building')}
-          placeholder="What are you building / leading?"
-          className="bg-black/40 border-insiderPurple/50 text-white placeholder:text-white/50 focus:border-insiderPurple min-h-[100px]"
+        <FormTextarea 
+          register={register} 
+          name="building" 
+          placeholder="What are you building / leading?" 
         />
         
-        <Textarea
-          {...register('attraction')}
-          placeholder="What drew you to InsiderLife?"
-          className="bg-black/40 border-insiderPurple/50 text-white placeholder:text-white/50 focus:border-insiderPurple min-h-[100px]"
+        <FormTextarea 
+          register={register} 
+          name="attraction" 
+          placeholder="What drew you to InsiderLife?" 
         />
         
-        <Textarea
-          {...register('contribution')}
-          placeholder="What would you bring to the Circle?"
-          className="bg-black/40 border-insiderPurple/50 text-white placeholder:text-white/50 focus:border-insiderPurple min-h-[100px]"
+        <FormTextarea 
+          register={register} 
+          name="contribution" 
+          placeholder="What would you bring to the Circle?" 
         />
         
-        <div className="space-y-3">
-          <Label className="text-white/90">Are you in a position to invest at a high level?</Label>
-          <RadioGroup defaultValue="discuss" className="space-y-2" {...register('investmentLevel')}>
-            <div className="flex items-center space-x-2">
-              <RadioGroupItem value="yes" id="yes" className="border-insiderPurple/50" />
-              <Label htmlFor="yes" className="text-white/90">Yes</Label>
-            </div>
-            <div className="flex items-center space-x-2">
-              <RadioGroupItem value="not_yet" id="not_yet" className="border-insiderPurple/50" />
-              <Label htmlFor="not_yet" className="text-white/90">Not yet</Label>
-            </div>
-            <div className="flex items-center space-x-2">
-              <RadioGroupItem value="discuss" id="discuss" className="border-insiderPurple/50" />
-              <Label htmlFor="discuss" className="text-white/90">Let's discuss</Label>
-            </div>
-          </RadioGroup>
-        </div>
+        <RadioOptionGroup 
+          register={register} 
+          name="investmentLevel" 
+          label="Are you in a position to invest at a high level?" 
+          options={investmentOptions} 
+          defaultValue="discuss" 
+        />
       </div>
 
-      <Button 
-        type="submit"
-        className={cn(
-          "bg-gradient-to-r from-insiderPurple to-insiderBlue",
-          "hover:from-insiderPurple-light hover:to-insiderBlue-light",
-          "text-white text-lg font-medium py-6 px-8 rounded-lg w-full",
-          "shadow-glow transition-all duration-300 hover:scale-105"
-        )}
-      >
-        Send Application
-      </Button>
+      <SubmitButton />
     </form>
   );
 };
