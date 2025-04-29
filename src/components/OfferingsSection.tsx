@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { cn } from '@/lib/utils';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Broadcast, Code, Circle, ArrowRight } from 'lucide-react';
+import { Radio, Code, Circle, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Button } from './ui/button';
 import { Link } from 'react-router-dom';
@@ -15,7 +15,7 @@ const OfferingsSection: React.FC = () => {
     {
       title: "The Broadcast",
       description: "Raw, unfiltered signal transmission. Show up, tune in, and tap into the next-level frequency of execution and alignment.",
-      icon: <Broadcast className="h-10 w-10" />,
+      icon: <Radio className="h-10 w-10" />,
       delay: 0.1
     },
     {
