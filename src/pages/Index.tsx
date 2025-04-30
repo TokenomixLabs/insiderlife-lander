@@ -4,7 +4,6 @@ import Navbar from '@/components/Navbar';
 import VideoHeroSection from '@/components/VideoHeroSection';
 import OfferingsSection from '@/components/OfferingsSection';
 import AnnouncementBanner from '@/components/AnnouncementBanner';
-import CtaSection from '@/components/CtaSection';
 import Footer from '@/components/Footer';
 import AboutSection from '@/components/AboutSection';
 
@@ -17,7 +16,6 @@ const Index: React.FC = () => {
         <OfferingsSection />
         <AnnouncementBanner />
         <AboutSection />
-        <CtaSection />
       </main>
       <Footer />
     </div>
