@@ -6,7 +6,7 @@ import { Lightbulb, Zap, Users } from 'lucide-react';
 const AboutSection: React.FC = () => {
   return (
     <section id="about" className="relative bg-insiderDark py-12">
-      <div className="glass-card p-8 md:p-12 max-w-3xl mx-auto">
+      <div className="glass-card p-8 md:p-12 max-w-4xl mx-auto">
         <div className="flex items-center justify-center mb-6">
           <Lightbulb className="h-8 w-8 text-insiderBlue-light mr-3 animate-pulse-glow" />
           <h2 className="text-3xl md:text-4xl font-bold text-center text-gradient font-orbitron">
