@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { cn } from '@/lib/utils';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -135,7 +136,7 @@ const OfferingsSection: React.FC = () => {
           </div>
         </motion.div>
 
-        {/* The Final CTA Section - Keep but update button text & link */}
+        {/* The Final CTA Section */}
         <motion.div 
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
