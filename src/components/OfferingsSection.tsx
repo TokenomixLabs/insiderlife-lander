@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { cn } from '@/lib/utils';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Radio, Code, Circle, ArrowRight } from 'lucide-react';
+import { Radio, Code, Circle, ArrowRight, Lock } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Button } from './ui/button';
 import { Link } from 'react-router-dom';
@@ -86,6 +86,55 @@ const OfferingsSection: React.FC = () => {
             </motion.div>
           ))}
         </div>
+        
+        {/* InsiderDAO VIP Invitation Block */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.3 }}
+          viewport={{ once: true }}
+          className="mt-24 glass-card p-8 md:p-10 border border-white/10 shadow-glow-purple relative overflow-hidden"
+        >
+          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-insiderPurple/20 to-insiderBlue/20 opacity-50 z-0"></div>
+          <div className="absolute -top-20 -right-20 w-72 h-72 bg-insiderPurple/20 rounded-full filter blur-3xl opacity-30 animate-pulse-glow"></div>
+          <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-insiderBlue/20 rounded-full filter blur-3xl opacity-30 animate-pulse-glow animation-delay-1000"></div>
+          
+          <div className="relative z-10 text-center md:text-left md:flex md:items-center md:justify-between">
+            <div className="md:max-w-2xl">
+              <div className="flex items-center justify-center md:justify-start mb-4">
+                <Lock className="h-6 w-6 text-insiderPurple mr-2" />
+                <h3 className="text-2xl md:text-3xl font-bold text-gradient font-orbitron">
+                  🔐 InsiderDAO Is Now Open
+                </h3>
+              </div>
+              <h4 className="text-xl font-semibold text-white mb-4">
+                Private access to our inner-circle hub — where aligned visionaries connect, collaborate, and accelerate together.
+              </h4>
+              <p className="text-white/80 mb-6 md:mb-0">
+                This is your VIP invitation to enter the private command center behind InsiderLife.<br />
+                Not a forum. Not a feed.<br />
+                A living DAO of sovereign builders and digital dominators.<br />
+                If you feel the resonance, step inside — and take your seat.
+              </p>
+            </div>
+            <div className="mt-6 md:mt-0 md:ml-6 flex justify-center md:justify-end">
+              <a 
+                href="https://insiderdao.com/signup?ref=vip" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className={cn(
+                  "bg-gradient-to-r from-insiderPurple to-insiderBlue",
+                  "hover:from-insiderPurple-light hover:to-insiderBlue-light",
+                  "text-white font-semibold px-8 py-4 rounded-md",
+                  "shadow-glow transition-all duration-300 hover:scale-105",
+                  "inline-flex items-center"
+                )}
+              >
+                💠 Claim VIP Access <ArrowRight className="ml-2 h-5 w-5" />
+              </a>
+            </div>
+          </div>
+        </motion.div>
         
         <motion.div 
           initial={{ opacity: 0 }}

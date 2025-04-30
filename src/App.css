@@ -25,3 +25,8 @@ html {
   animation-delay: 1s;
 }
 
+/* Custom shadow for InsiderDAO section */
+.shadow-glow-purple {
+  box-shadow: 0 0 20px rgba(114, 9, 183, 0.4);
+}
+
