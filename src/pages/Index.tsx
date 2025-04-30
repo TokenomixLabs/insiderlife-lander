@@ -16,8 +16,6 @@ const Index: React.FC = () => {
       <main className="flex-grow flex flex-col">
         <VideoHeroSection />
         <OfferingsSection />
-        <AnnouncementBanner />
-        <AboutSection />
         
         {/* The Final CTA Section - Last section before footer */}
         <section className="relative bg-insiderDark z-20 py-16 mb-8">
@@ -65,6 +63,9 @@ const Index: React.FC = () => {
             </div>
           </div>
         </section>
+        
+        <AnnouncementBanner />
+        <AboutSection />
       </main>
       <Footer />
     </div>
