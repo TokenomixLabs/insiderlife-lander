@@ -135,53 +135,6 @@ const OfferingsSection: React.FC = () => {
             </div>
           </div>
         </motion.div>
-
-        {/* The Final CTA Section */}
-        <motion.div 
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.7, delay: 0.5 }}
-          viewport={{ once: true }}
-          className="mt-24 glass-card p-10 md:p-16 text-center max-w-4xl mx-auto"
-        >
-          <div className="inline-flex items-center justify-center mb-6">
-            <h2 className="text-3xl md:text-4xl font-bold text-gradient font-orbitron">
-              Your Future is Calling. Will You Answer?
-            </h2>
-          </div>
-          <p className="text-lg text-white/80 mb-10 max-w-2xl mx-auto">
-            This isn't just a membership—it's your passport to the next level of digital wealth, freedom, and influence.
-          </p>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
-            <div className="flex items-center justify-center md:justify-start">
-              <span className="text-insiderBlue-light mr-2">•</span>
-              <span className="text-white">Insider strategies</span>
-            </div>
-            <div className="flex items-center justify-center md:justify-start">
-              <span className="text-insiderBlue-light mr-2">•</span>
-              <span className="text-white">AI-driven automation</span>
-            </div>
-            <div className="flex items-center justify-center md:justify-start">
-              <span className="text-insiderBlue-light mr-2">•</span>
-              <span className="text-white">Top 1% of digital visionaries</span>
-            </div>
-          </div>
-          
-          <a 
-            href="https://insiderdao.com/signup?ref=vip"
-            target="_blank"
-            rel="noopener noreferrer" 
-            className={cn(
-              "bg-gradient-to-r from-insiderPurple to-insiderBlue",
-              "hover:from-insiderPurple-light hover:to-insiderBlue-light",
-              "text-white font-medium text-lg px-8 py-6 inline-block rounded-md",
-              "shadow-glow transition-all duration-300 hover:scale-105"
-            )}
-          >
-            🔥 Join the Community <ArrowRight className="ml-2 h-5 w-5 inline" />
-          </a>
-        </motion.div>
       </div>
       
       <WaitlistDialog open={waitlistOpen} onOpenChange={setWaitlistOpen} />
