@@ -26,7 +26,7 @@ const Footer: React.FC = () => {
             <h4 className="text-lg font-semibold mb-4 font-orbitron">Quick Links</h4>
             <ul className="space-y-2">
               <li><a href="#about" className="text-white/70 hover:text-white transition-colors">About</a></li>
-              <li><a href="#offerings" className="text-white/70 hover:text-white transition-colors">What We Offer</a></li>
+              <li><Link to="/circle" className="text-white/70 hover:text-white transition-colors">Sovereign Circle</Link></li>
               <li><Link to="/aifreedomcode" className="text-white/70 hover:text-white transition-colors">AI FREEDOM CODE</Link></li>
               <li><Link to="/support" className="text-white/70 hover:text-white transition-colors">Support</Link></li>
               <li><Link to="/privacy-policy" className="text-white/70 hover:text-white transition-colors">Privacy Policy</Link></li>
