@@ -72,7 +72,11 @@ const VimeoPlayer = ({
     // Clean up on unmount
     return () => {
       if (vimeoPlayer) {
-        vimeoPlayer.destroy().catch(console.error);
+        try {
+          vimeoPlayer.destroy();
+        } catch (error) {
+          console.error("Error destroying Vimeo player:", error);
+        }
       }
     };
   }, [videoId, autoplay, loop, muted, background, controls]);
