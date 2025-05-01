@@ -2,7 +2,7 @@
 import { useLocation, Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, RefreshCw } from "lucide-react";
+import { ArrowLeft, RefreshCw, Home } from "lucide-react";
 
 const NotFound = () => {
   const location = useLocation();
@@ -14,6 +14,14 @@ const NotFound = () => {
   useEffect(() => {
     console.log("NotFound component mounted at path:", location.pathname);
     
+    // If we're at the root path but seeing 404, something's wrong with routing
+    if (location.pathname === "/") {
+      console.error("Root path showing 404 - critical routing issue detected");
+      // Force direct navigation to index
+      window.location.href = "/";
+      return;
+    }
+    
     // Check if the path matches a valid route
     const validRoutes = [
       "/",
@@ -23,7 +31,7 @@ const NotFound = () => {
       "/support",
       "/aifreedomcode",
       "/circle",
-      "/mastermind", // Include the old route as well
+      "/mastermind",
       "/affiliate-swipe-hub",
       "/sovereign-access"
     ];
@@ -43,8 +51,14 @@ const NotFound = () => {
       const timeout = setTimeout(() => {
         console.log("Attempting fallback navigation");
         setAttemptCount(prev => prev + 1);
-        window.history.replaceState({}, document.title, location.pathname);
-        navigate(location.pathname, { replace: true });
+        
+        // If we've tried multiple times, go to homepage as fallback
+        if (attemptCount > 1) {
+          navigate("/", { replace: true });
+        } else {
+          window.history.replaceState({}, document.title, location.pathname);
+          navigate(location.pathname, { replace: true });
+        }
       }, 500);
       
       return () => clearTimeout(timeout);
@@ -61,8 +75,7 @@ const NotFound = () => {
   
   // Force refresh function
   const handleForceRefresh = () => {
-    localStorage.setItem("lastValidRoute", lastValidRoute);
-    window.location.href = lastValidRoute;
+    window.location.href = "/";
   };
 
   return (
@@ -80,9 +93,10 @@ const NotFound = () => {
             <>
               <Button
                 className="bg-gradient-to-r from-insiderPurple to-insiderBlue hover:from-insiderPurple-light hover:to-insiderBlue-light text-white"
-                onClick={() => navigate(lastValidRoute, { replace: true })}
+                onClick={handleForceRefresh}
               >
-                Click here if not redirected
+                <Home className="mr-2 h-4 w-4" />
+                Go to Homepage
               </Button>
               <div className="pt-2">
                 <Button
