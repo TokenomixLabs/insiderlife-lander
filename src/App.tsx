@@ -1,6 +1,6 @@
 
 import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "sonner";
+import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation, Navigate } from "react-router-dom";
@@ -14,7 +14,6 @@ import Support from "./pages/Support";
 import AiFreedomCode from "./pages/AiFreedomCode";
 import AffiliateSwipeHub from "./pages/AffiliateSwipeHub";
 import Mastermind from "./pages/Mastermind";
-import SovereignAccess from "./pages/SovereignAccess";
 import WaitlistDialog from "./components/WaitlistDialog";
 import useExitIntent from "./hooks/useExitIntent";
 
@@ -56,7 +55,7 @@ const App = () => (
           <Route path="/aifreedomcode" element={<AiFreedomCode />} />
           <Route path="/affiliate-swipe-hub" element={<AffiliateSwipeHub />} />
           <Route path="/circle" element={<Mastermind />} />
-          <Route path="/sovereign-access" element={<SovereignAccess />} />
+          {/* Add redirect from old mastermind URL to new circle URL */}
           <Route path="/mastermind" element={<Navigate to="/circle" replace />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

@@ -3,7 +3,6 @@ import { useLocation, Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
-import { toast } from "sonner";
 
 const NotFound = () => {
   const location = useLocation();
@@ -19,10 +18,9 @@ const NotFound = () => {
       "/thank-you",
       "/support",
       "/aifreedomcode",
-      "/affiliate-swipe-hub",
       "/circle",
       "/mastermind", // Include the old route as well
-      "/sovereign-access"
+      "/affiliate-swipe-hub"
     ];
 
     // If the current path is a valid route but we got a 404, it's likely a refresh
@@ -37,12 +35,6 @@ const NotFound = () => {
       setTimeout(() => {
         navigate(location.pathname, { replace: true });
       }, 100);
-      
-      // Show a toast notification
-      toast.info("Restoring your session...", {
-        duration: 3000,
-        position: "top-center"
-      });
     } else {
       console.error(
         "404 Error: User attempted to access non-existent route:",
