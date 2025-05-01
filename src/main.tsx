@@ -14,8 +14,12 @@ try {
     document.body.innerHTML = "<div>Error: Root element not found</div>";
   } else {
     console.log("Rendering app to root element");
+    // Generate a completely unique version number based on current timestamp to force re-render
     const appVersion = "1." + new Date().getTime();
     console.log("App version:", appVersion);
+    
+    // Force clean DOM before rendering
+    rootElement.innerHTML = '';
     
     createRoot(rootElement).render(
       <ErrorBoundary>

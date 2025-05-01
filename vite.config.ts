@@ -23,8 +23,15 @@ export default defineConfig(({ mode }) => ({
     },
   },
   build: {
+    // Disable caching mechanisms
     rollupOptions: {
-      external: ['@vimeo/player']
+      external: ['@vimeo/player'],
+      output: {
+        // Force unique file names to prevent caching
+        entryFileNames: `assets/[name]-[hash].js`,
+        chunkFileNames: `assets/[name]-[hash].js`,
+        assetFileNames: `assets/[name]-[hash].[ext]`
+      }
     }
   }
 }));

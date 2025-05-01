@@ -7,19 +7,21 @@
   command = "npm run build"
   ignore_warnings = true
 
-# Disable asset optimization
+# Completely disable asset optimization
 [build.processing]
   skip_processing = true
 
-# Global headers for all paths
+# Global headers for all paths - most aggressive no-cache settings
 [[headers]]
   for = "/*"
   [headers.values]
-    Cache-Control = "no-store, must-revalidate"
+    Cache-Control = "no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0"
     Pragma = "no-cache"
     Expires = "0"
+    Surrogate-Control = "no-store"
     X-Frame-Options = "DENY"
     X-Content-Type-Options = "nosniff"
+    Clear-Site-Data = "\"cache\""
 
 # Force HTTPS
 [[redirects]]
@@ -33,6 +35,7 @@
   from = "/*"
   to = "/index.html"
   status = 200
+  force = true
 
 # Specific path handling for sovereign-access
 [[headers]]
