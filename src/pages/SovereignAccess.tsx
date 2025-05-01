@@ -40,7 +40,7 @@ const VimeoPlayer = ({ videoId, onEnded, autoplay = false, className = "" }: {
       try {
         // Create the player
         const player = new Player(containerRef.current, {
-          id: typeof videoId === 'string' ? parseInt(videoId, 10) : videoId,
+          id: typeof videoId === 'number' ? videoId : parseInt(videoId, 10),
           autoplay: autoplay,
           loop: false,
           muted: autoplay, // Autoplay requires muted
@@ -56,7 +56,7 @@ const VimeoPlayer = ({ videoId, onEnded, autoplay = false, className = "" }: {
         }
         
         // Force load video
-        player.loadVideo(videoId).catch(err => 
+        player.loadVideo(typeof videoId === 'number' ? videoId : parseInt(videoId, 10)).catch(err => 
           console.error(`Error loading video ${videoId}:`, err)
         );
       } catch (error) {
