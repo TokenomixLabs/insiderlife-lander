@@ -21,6 +21,7 @@
     Surrogate-Control = "no-store"
     X-Content-Type-Options = "nosniff"
     Clear-Site-Data = '"cache","storage"'
+    Access-Control-Allow-Origin = "*"
 
 # SPA redirect - this is critical for React Router
 [[redirects]]
