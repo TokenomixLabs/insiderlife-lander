@@ -28,15 +28,8 @@ const SovereignAccess: React.FC = () => {
           <h2 className="text-2xl md:text-3xl font-bold text-center text-insiderBlue-light font-orbitron mb-8">
             Watch the AI Freedom Code Video
           </h2>
-          <div className="glass-card p-6 md:p-8 mb-8">
-            <VimeoPlayer videoId={1080443373} autoplay={false} />
-          </div>
           <div className="glass-card p-6 md:p-8 mb-16">
-            <h3 className="text-xl font-semibold mb-4 text-white/90">Bridge Message</h3>
-            <p className="text-white/70 mb-4">
-              The video above is designed for mass activation. What you're about to experience goes deeper.
-              You've been selected for sovereign access to exclusive content that few will ever see.
-            </p>
+            <VimeoPlayer videoId={1080443373} autoplay={false} />
           </div>
         </section>
         
