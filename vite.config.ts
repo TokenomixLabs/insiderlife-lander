@@ -25,15 +25,12 @@ export default defineConfig(({ mode }) => ({
     emptyOutDir: true,
     // Disable minification for debugging
     minify: false,
-    // Use simple file naming without hashes to avoid cache issues
+    sourcemap: true,
+    // Use simple file naming for debugging
     rollupOptions: {
       external: ['@vimeo/player'],
       output: {
-        entryFileNames: 'assets/[name].js',
-        chunkFileNames: 'assets/[name].js',
-        assetFileNames: 'assets/[name].[ext]',
-        // Bundle everything together
-        manualChunks: () => 'app'
+        manualChunks: undefined
       }
     }
   }

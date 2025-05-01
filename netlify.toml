@@ -4,35 +4,23 @@
 # Define build settings
 [build]
   publish = "dist"
-  command = "npm run build && node netlify.js"
+  command = "npm run build"
 
-# Disable processing to prevent automatic optimizations
+# Process files automatically
 [build.processing]
-  skip_processing = true
+  skip_processing = false
 
 # Environment variables
 [build.environment]
   NODE_VERSION = "18.0.0"
 
-# Global headers - aggressive no-cache settings
+# Global headers for caching control
 [[headers]]
   for = "/*"
   [headers.values]
-    Cache-Control = "no-store, no-cache, must-revalidate, max-age=0"
-    Pragma = "no-cache"
-    Expires = "0"
-    Clear-Site-Data = '"cache","storage"'
+    Cache-Control = "no-store"
 
-# Specific no-cache for index.html
-[[headers]]
-  for = "/index.html"
-  [headers.values]
-    Cache-Control = "no-store, no-cache, must-revalidate, max-age=0"
-    Pragma = "no-cache"
-    Expires = "0"
-    Clear-Site-Data = '"cache","storage"'
-
-# SPA redirect - critical for React Router
+# SPA redirect for React Router
 [[redirects]]
   from = "/*"
   to = "/index.html"

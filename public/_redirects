@@ -1,4 +1,2 @@
 
-# Serve index.html for all routes with 200 status code, disable cache
-/*    /index.html   200
-
+/* /index.html 200

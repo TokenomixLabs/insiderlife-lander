@@ -8,46 +8,20 @@ const NotFound = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // Automatically try to recover from 404
   useEffect(() => {
     console.log("NotFound rendered at path:", location.pathname);
     
-    // If we're at the root path but showing 404, refresh the page
+    // If on root path but seeing 404, try to force a direct reload
     if (location.pathname === "/") {
-      console.log("Detected 404 on root path - attempting recovery");
+      console.log("Root path with 404 - trying to recover");
       window.location.href = "/";
       return;
     }
-    
-    // Known valid routes
-    const validRoutes = [
-      "/",
-      "/privacy-policy",
-      "/terms-of-service",
-      "/thank-you",
-      "/support",
-      "/aifreedomcode",
-      "/circle",
-      "/mastermind",
-      "/affiliate-swipe-hub",
-      "/sovereign-access"
-    ];
-    
-    // Handle route recovery
-    if (validRoutes.includes(location.pathname)) {
-      console.log("Valid route detected but 404 shown - attempting recovery");
-      // Try to navigate using React Router first
-      navigate(location.pathname, { replace: true });
-      
-      // If that doesn't work, try a direct browser navigation
-      setTimeout(() => {
-        window.location.href = location.pathname;
-      }, 200);
-    }
-  }, [location.pathname, navigate]);
+  }, [location.pathname]);
 
-  // Force a full page refresh
+  // Force a hard refresh
   const handleForceRefresh = () => {
+    console.log("Force refresh initiated");
     window.location.href = "/";
   };
 
@@ -56,29 +30,17 @@ const NotFound = () => {
       <div className="text-center max-w-md px-4">
         <h1 className="text-6xl font-bold mb-4 text-gradient">404</h1>
         <p className="text-xl text-white/80 mb-6">
-          Attempting to restore your session...
+          We couldn't find the page you're looking for.
         </p>
         
         <div className="space-y-4">
-          <Link to="/">
-            <Button
-              className="bg-gradient-to-r from-insiderPurple to-insiderBlue hover:from-insiderPurple-light hover:to-insiderBlue-light text-white"
-            >
-              <Home className="mr-2 h-4 w-4" />
-              Return to Homepage
-            </Button>
-          </Link>
-          
-          <div className="pt-2">
-            <Button
-              variant="outline"
-              className="text-white border-white/30 hover:bg-white/10"
-              onClick={handleForceRefresh}
-            >
-              <RefreshCw className="mr-2 h-4 w-4" />
-              Force Reload
-            </Button>
-          </div>
+          <Button
+            className="bg-gradient-to-r from-insiderPurple to-insiderBlue hover:from-insiderPurple-light hover:to-insiderBlue-light text-white"
+            onClick={handleForceRefresh}
+          >
+            <Home className="mr-2 h-4 w-4" />
+            Return to Homepage
+          </Button>
         </div>
       </div>
     </div>

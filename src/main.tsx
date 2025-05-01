@@ -9,27 +9,28 @@ console.log("Main.tsx executing - Build timestamp: " + new Date().toISOString())
 console.log("Browser: " + navigator.userAgent);
 console.log("URL: " + window.location.href);
 console.log("Path: " + window.location.pathname);
+console.log("Hostname: " + window.location.hostname);
 
 // Create a fallback element if mounting fails
-const createFallbackUI = (error: any) => {
-  console.error("Fatal application error:", error);
+const createFallbackUI = () => {
   return `
-    <div style="padding: 20px; font-family: system-ui, sans-serif;">
-      <h1>Application Error</h1>
-      <p>Unable to initialize the application. Please try refreshing the page.</p>
-      <p>Error details: ${error instanceof Error ? error.message : 'Unknown error'}</p>
-      <button onclick="window.location.reload(true)" style="padding: 10px; background: linear-gradient(to right, #8B5CF6, #3B82F6); color: white; border: none; border-radius: 4px; cursor: pointer;">
-        Reload Application
-      </button>
+    <div style="display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #060821; color: white; text-align: center; padding: 20px;">
+      <div>
+        <h1 style="font-family: 'Orbitron', sans-serif; font-size: 2rem; margin-bottom: 1rem;">InsiderLife</h1>
+        <p style="margin-bottom: 1rem;">Unable to load the application</p>
+        <button onclick="window.location.reload(true)" style="padding: 10px; background: linear-gradient(to right, #8B5CF6, #3B82F6); color: white; border: none; border-radius: 4px; cursor: pointer;">
+          Reload Application
+        </button>
+      </div>
     </div>
   `;
 };
 
-// Mount the application with multiple fallbacks
-try {
+// Ensure DOM is fully loaded before mounting
+function mountApp() {
   console.log("Attempting to mount application");
   
-  // Find or create root element
+  // Get or create the root element
   let rootElement = document.getElementById("root");
   
   if (!rootElement) {
@@ -41,37 +42,24 @@ try {
     console.log("Root element found");
   }
   
-  // Clear any existing content (fallback UI)
-  while (rootElement.firstChild) {
-    rootElement.removeChild(rootElement.firstChild);
-  }
-  
-  // Create React root and render
   try {
+    // Create React root and render
     const root = createRoot(rootElement);
     root.render(
       <ErrorBoundary>
         <App />
       </ErrorBoundary>
     );
-    console.log("Application rendered successfully");
-    
-    // Verify render worked
-    setTimeout(() => {
-      if (rootElement.children.length === 0) {
-        console.error("Application may have rendered but produced no DOM elements");
-        rootElement.innerHTML = createFallbackUI(new Error("No DOM elements rendered"));
-      } else {
-        console.log("Application rendering confirmed with DOM elements present");
-      }
-    }, 1000);
-    
-  } catch (renderError) {
-    console.error("Failed during React rendering:", renderError);
-    rootElement.innerHTML = createFallbackUI(renderError);
+    console.log("Application successfully mounted");
+  } catch (error) {
+    console.error("Failed to render app:", error);
+    rootElement.innerHTML = createFallbackUI();
   }
-} catch (error) {
-  console.error("Critical application initialization error:", error);
-  const fallbackElement = document.getElementById("root") || document.body;
-  fallbackElement.innerHTML = createFallbackUI(error);
+}
+
+// Wait for DOM to be ready before mounting
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', mountApp);
+} else {
+  mountApp();
 }
