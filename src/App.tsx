@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -57,7 +56,6 @@ const App = () => (
           <Route path="/affiliate-swipe-hub" element={<AffiliateSwipeHub />} />
           <Route path="/circle" element={<Mastermind />} />
           <Route path="/sovereign-access" element={<SovereignAccess />} />
-          {/* Add redirect from old mastermind URL to new circle URL */}
           <Route path="/mastermind" element={<Navigate to="/circle" replace />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
