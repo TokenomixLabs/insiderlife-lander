@@ -6,6 +6,10 @@ import Footer from '@/components/Footer';
 import { Separator } from '@/components/ui/separator';
 import { Card, CardContent } from '@/components/ui/card';
 
+// Add build timestamp to force fresh content
+const BUILD_TIMESTAMP = new Date().toISOString();
+console.log("SovereignAccess component loading, timestamp:", BUILD_TIMESTAMP);
+
 const VimeoPlayer = ({ videoId, onEnded, autoplay = false, className = "" }: { 
   videoId: string | number, 
   onEnded?: () => void, 
@@ -57,6 +61,11 @@ const VimeoPlayer = ({ videoId, onEnded, autoplay = false, className = "" }: {
 
 const SovereignAccess: React.FC = () => {
   const [playBridgeVideo, setPlayBridgeVideo] = useState(false);
+  
+  // Log component mount to verify fresh load
+  useEffect(() => {
+    console.log("SovereignAccess mounted with timestamp:", BUILD_TIMESTAMP);
+  }, []);
   
   return (
     <div className="min-h-screen bg-insiderDark flex flex-col">

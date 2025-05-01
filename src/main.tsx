@@ -5,7 +5,7 @@ import './index.css'
 import ErrorBoundary from './components/ErrorBoundary'
 
 // Add console logging to help debug
-console.log("Main.tsx executing");
+console.log("Main.tsx executing - Build timestamp: " + new Date().toISOString());
 
 try {
   const rootElement = document.getElementById("root");
@@ -14,9 +14,12 @@ try {
     document.body.innerHTML = "<div>Error: Root element not found</div>";
   } else {
     console.log("Rendering app to root element");
+    const appVersion = "1." + new Date().getTime();
+    console.log("App version:", appVersion);
+    
     createRoot(rootElement).render(
       <ErrorBoundary>
-        <App />
+        <App key={appVersion} />
       </ErrorBoundary>
     );
   }
