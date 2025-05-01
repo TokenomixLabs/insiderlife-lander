@@ -18,9 +18,10 @@ const NotFound = () => {
       "/thank-you",
       "/support",
       "/aifreedomcode",
+      "/affiliate-swipe-hub",
       "/circle",
       "/mastermind", // Include the old route as well
-      "/affiliate-swipe-hub"
+      "/sovereign-access"
     ];
 
     // If the current path is a valid route but we got a 404, it's likely a refresh
