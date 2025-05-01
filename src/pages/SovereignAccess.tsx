@@ -27,7 +27,7 @@ const VimeoPlayer = ({ videoId, onEnded, autoplay = false, className = "" }: {
     
     // Create the player
     const player = new Player(containerRef.current, {
-      id: videoId,
+      id: typeof videoId === 'string' ? parseInt(videoId, 10) : videoId,
       autoplay: autoplay,
       loop: false,
       muted: autoplay, // Autoplay requires muted
