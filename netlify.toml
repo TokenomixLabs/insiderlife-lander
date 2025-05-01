@@ -1,41 +1,40 @@
 
 # Netlify configuration file
 
-# Force Netlify to clear cache and rebuild completely
+# Define build settings
 [build]
   publish = "dist"
   command = "npm run build"
 
-# Disable asset optimization to prevent caching issues
+# Disable asset optimization
 [build.processing]
   skip_processing = true
 
-# Add cache control headers for all files
+# Global headers for all paths
 [[headers]]
   for = "/*"
   [headers.values]
-    Cache-Control = "no-cache, no-store, must-revalidate, max-age=0"
+    Cache-Control = "no-cache, no-store, must-revalidate"
     Pragma = "no-cache"
     Expires = "0"
 
-# Special handling for the sovereign-access path
-[[headers]]
-  for = "/sovereign-access"
-  [headers.values]
-    Cache-Control = "no-cache, no-store, must-revalidate, max-age=0"
-    Pragma = "no-cache"
-    Expires = "0"
-
-# Force HTTPS and prevent caching
+# Force HTTPS
 [[redirects]]
   from = "http://*"
   to = "https://:splat"
   status = 301
   force = true
 
-# Main redirect that forces revalidation
+# Primary SPA redirect - this is critical for React Router
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
-  force = true
+
+# Specific path handling for sovereign-access
+[[headers]]
+  for = "/sovereign-access/*"
+  [headers.values]
+    Cache-Control = "no-cache, no-store, must-revalidate"
+    Pragma = "no-cache"
+    Expires = "0"
