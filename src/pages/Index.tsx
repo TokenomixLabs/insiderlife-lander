@@ -6,7 +6,6 @@ import OfferingsSection from '@/components/OfferingsSection';
 import AnnouncementBanner from '@/components/AnnouncementBanner';
 import Footer from '@/components/Footer';
 import AboutSection from '@/components/AboutSection';
-import HeroSection from '@/components/HeroSection';
 import { ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -15,7 +14,7 @@ const Index: React.FC = () => {
     <div className="min-h-screen bg-insiderDark flex flex-col overflow-hidden">
       <Navbar />
       <main className="flex-grow flex flex-col">
-        <HeroSection />
+        <VideoHeroSection />
         <OfferingsSection />
         <AboutSection />
         <AnnouncementBanner />
