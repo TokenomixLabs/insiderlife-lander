@@ -4,7 +4,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="Cache-Control" content="no-store" />
     <title>InsiderLife - AI-Driven Business & Digital Monetization</title>
     <meta name="description" content="InsiderLife empowers entrepreneurs, creators, and visionaries with AI-driven strategies, cutting-edge education, and scalable digital business models." />
     <meta name="author" content="InsiderLife" />
@@ -15,16 +14,23 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
       /* Simple loading spinner */
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #060821;
+        color: white;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      }
+      
       .loading-container {
         display: flex;
         justify-content: center;
         align-items: center;
         height: 100vh;
-        background-color: #060821;
-        color: white;
         text-align: center;
         padding: 20px;
       }
+      
       .spinner {
         width: 40px;
         height: 40px;
@@ -34,18 +40,32 @@
         animation: spin 1s linear infinite;
         margin: 20px auto;
       }
+      
       @keyframes spin { to { transform: rotate(360deg); } }
+      
+      .reload-btn {
+        padding: 10px 20px;
+        background: linear-gradient(to right, #8B5CF6, #3B82F6);
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+        margin-top: 20px;
+      }
     </style>
   </head>
 
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root">
       <div class="loading-container">
         <div>
           <h2>Loading InsiderLife...</h2>
           <div class="spinner"></div>
-          <p>If this message persists, please refresh the page</p>
+          <p>If this message persists, please try refreshing</p>
+          <button onclick="window.location.reload()" class="reload-btn">
+            Reload Page
+          </button>
         </div>
       </div>
     </div>

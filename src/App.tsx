@@ -3,8 +3,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, useLocation, Navigate } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
@@ -15,32 +14,10 @@ import AiFreedomCode from "./pages/AiFreedomCode";
 import AffiliateSwipeHub from "./pages/AffiliateSwipeHub";
 import Mastermind from "./pages/Mastermind";
 import SovereignAccess from "./pages/SovereignAccess";
-import WaitlistDialog from "./components/WaitlistDialog";
-import useExitIntent from "./hooks/useExitIntent";
+import ExitIntentWrapper from "./components/ExitIntentWrapper";
 
 // Create a new query client instance
 const queryClient = new QueryClient();
-
-const ExitIntentWrapper = () => {
-  const [showExitIntent, setShowExitIntent] = useState(false);
-  const location = useLocation();
-  
-  useEffect(() => {
-    setShowExitIntent(false);
-  }, [location.pathname]);
-  
-  useExitIntent({
-    onExit: () => {
-      if (location.pathname === '/' && !localStorage.getItem('exitIntentShown')) {
-        setShowExitIntent(true);
-        localStorage.setItem('exitIntentShown', 'true');
-      }
-    },
-    active: location.pathname === '/'
-  });
-  
-  return <WaitlistDialog open={showExitIntent} onOpenChange={setShowExitIntent} />;
-};
 
 const App = () => {
   return (

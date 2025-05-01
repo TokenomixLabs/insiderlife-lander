@@ -8,13 +8,7 @@ import { componentTagger } from "lovable-tagger";
 export default defineConfig(({ mode }) => ({
   server: {
     host: "::",
-    port: 8080,
-    // Force no cache in development
-    headers: {
-      'Cache-Control': 'no-store',
-      'Pragma': 'no-cache',
-      'Expires': '0'
-    }
+    port: 8080
   },
   plugins: [
     react(),
@@ -27,20 +21,12 @@ export default defineConfig(({ mode }) => ({
     },
   },
   build: {
-    // Clean output directory before building
+    outDir: 'dist',
     emptyOutDir: true,
-    // Disable minification for debugging
-    minify: false,
-    sourcemap: true,
-    // Use simple file naming for debugging
     rollupOptions: {
       external: ['@vimeo/player'],
       output: {
-        manualChunks: undefined,
-        // Add cache busting
-        entryFileNames: 'assets/[name]-[hash].js',
-        chunkFileNames: 'assets/[name]-[hash].js',
-        assetFileNames: 'assets/[name]-[hash].[ext]'
+        manualChunks: undefined
       }
     }
   }
