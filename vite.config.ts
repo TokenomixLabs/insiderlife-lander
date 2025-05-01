@@ -8,7 +8,9 @@ import { componentTagger } from "lovable-tagger";
 export default defineConfig(({ mode }) => ({
   server: {
     host: "::",
-    port: 8080
+    port: 8080,
+    // Enable history fallback for client-side routing
+    historyApiFallback: true
   },
   plugins: [
     react(),
@@ -21,13 +23,8 @@ export default defineConfig(({ mode }) => ({
     },
   },
   build: {
-    outDir: 'dist',
-    emptyOutDir: true,
     rollupOptions: {
-      external: ['@vimeo/player'],
-      output: {
-        manualChunks: undefined
-      }
+      external: ['@vimeo/player']
     }
   }
 }));

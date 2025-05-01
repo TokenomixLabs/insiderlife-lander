@@ -1,37 +1,78 @@
 
-import { useNavigate, useLocation } from "react-router-dom";
+import { useLocation, Link, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Home } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 
 const NotFound = () => {
-  const navigate = useNavigate();
   const location = useLocation();
+  const navigate = useNavigate();
+  const [isRefresh, setIsRefresh] = useState(false);
+
+  useEffect(() => {
+    // Check if the path matches a valid route
+    const validRoutes = [
+      "/",
+      "/privacy-policy",
+      "/terms-of-service",
+      "/thank-you",
+      "/support",
+      "/aifreedomcode",
+      "/circle",
+      "/mastermind", // Include the old route as well
+      "/affiliate-swipe-hub"
+    ];
+
+    // If the current path is a valid route but we got a 404, it's likely a refresh
+    if (validRoutes.includes(location.pathname)) {
+      setIsRefresh(true);
+      console.log("Detected refresh on valid route:", location.pathname);
+      
+      // Store the route for restoration after refresh
+      localStorage.setItem("lastValidRoute", location.pathname);
+      
+      // Try immediately navigating to the correct route
+      setTimeout(() => {
+        navigate(location.pathname, { replace: true });
+      }, 100);
+    } else {
+      console.error(
+        "404 Error: User attempted to access non-existent route:",
+        location.pathname
+      );
+    }
+  }, [location.pathname, navigate]);
+
+  // Get the stored route or default to home
+  const lastValidRoute = localStorage.getItem("lastValidRoute") || "/";
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-insiderDark">
       <div className="text-center max-w-md px-4">
         <h1 className="text-6xl font-bold mb-4 text-gradient">404</h1>
         <p className="text-xl text-white/80 mb-6">
-          We couldn't find the page you're looking for.
+          {isRefresh 
+            ? "Attempting to restore your session..." 
+            : "Oops! The page you're looking for doesn't exist."}
         </p>
         
         <div className="space-y-4">
-          <Button
-            className="bg-gradient-to-r from-insiderPurple to-insiderBlue hover:from-insiderPurple-light hover:to-insiderBlue-light text-white"
-            onClick={() => window.location.href = "/?reload=" + Date.now()}
-          >
-            Reload Application
-          </Button>
-          
-          {location.pathname !== "/" && (
+          {isRefresh ? (
             <Button
-              variant="outline"
-              className="ml-2 border-white/20 text-white hover:bg-white/10"
-              onClick={() => navigate("/")}
+              className="bg-gradient-to-r from-insiderPurple to-insiderBlue hover:from-insiderPurple-light hover:to-insiderBlue-light text-white"
+              onClick={() => navigate(lastValidRoute, { replace: true })}
             >
-              <Home className="mr-2 h-4 w-4" />
-              Return Home
+              Click here if not redirected
             </Button>
+          ) : (
+            <Link to="/">
+              <Button
+                className="bg-gradient-to-r from-insiderPurple to-insiderBlue hover:from-insiderPurple-light hover:to-insiderBlue-light text-white"
+              >
+                <ArrowLeft className="mr-2 h-4 w-4" />
+                Return to Home
+              </Button>
+            </Link>
           )}
         </div>
       </div>
