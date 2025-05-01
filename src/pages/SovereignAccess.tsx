@@ -5,8 +5,6 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Separator } from '@/components/ui/separator';
 import { Card, CardContent } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { MessageCircle } from 'lucide-react';
 
 const VimeoPlayer = ({ videoId, onEnded, autoplay = false, className = "" }: { 
   videoId: string | number, 
@@ -165,12 +163,6 @@ const SovereignAccess: React.FC = () => {
                 <h3 className="font-orbitron text-xl text-white/90 mb-6">
                   Message Jamison Directly for the Scroll
                 </h3>
-                <Button 
-                  className="bg-gradient-to-r from-insiderPurple to-insiderBlue hover:from-insiderPurple-light hover:to-insiderBlue-light text-white px-6 py-6 rounded-md shadow-glow transition-all duration-300 hover:scale-105"
-                >
-                  <MessageCircle className="mr-2" />
-                  Contact Jamison
-                </Button>
               </div>
             </div>
           </div>
