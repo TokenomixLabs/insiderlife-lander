@@ -18,17 +18,20 @@ const createFallbackUI = () => {
       <div>
         <h1 style="font-family: 'Orbitron', sans-serif; font-size: 2rem; margin-bottom: 1rem;">InsiderLife</h1>
         <p style="margin-bottom: 1rem;">Unable to load the application</p>
-        <button onclick="window.location.reload(true)" style="padding: 10px; background: linear-gradient(to right, #8B5CF6, #3B82F6); color: white; border: none; border-radius: 4px; cursor: pointer;">
+        <button onclick="window.location.href='/?reload=' + new Date().getTime()" style="padding: 10px; background: linear-gradient(to right, #8B5CF6, #3B82F6); color: white; border: none; border-radius: 4px; cursor: pointer;">
           Reload Application
         </button>
+        <p style="margin-top: 20px; font-size: 0.8rem;">
+          Try clearing your browser cache or using a different browser if this issue persists.
+        </p>
       </div>
     </div>
   `;
 };
 
-// Ensure DOM is fully loaded before mounting
-function mountApp() {
-  console.log("Attempting to mount application");
+// Retry mechanism for application mounting
+const mountAppWithRetry = (retries = 3, delay = 1000) => {
+  console.log(`Attempting to mount application (${retries} retries left)`);
   
   // Get or create the root element
   let rootElement = document.getElementById("root");
@@ -53,13 +56,31 @@ function mountApp() {
     console.log("Application successfully mounted");
   } catch (error) {
     console.error("Failed to render app:", error);
-    rootElement.innerHTML = createFallbackUI();
+    
+    if (retries > 0) {
+      console.log(`Retrying in ${delay}ms...`);
+      setTimeout(() => mountAppWithRetry(retries - 1, delay * 1.5), delay);
+    } else {
+      console.error("Maximum retries reached, showing fallback UI");
+      rootElement.innerHTML = createFallbackUI();
+    }
   }
-}
+};
 
-// Wait for DOM to be ready before mounting
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', mountApp);
-} else {
-  mountApp();
+// Function to check if the DOM is ready
+const domReadyCheck = () => {
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => mountAppWithRetry());
+  } else {
+    mountAppWithRetry();
+  }
+};
+
+// Add another layer of retry if initial mount fails
+try {
+  domReadyCheck();
+} catch (error) {
+  console.error("Error during initial mount attempt:", error);
+  // Wait a bit and try again
+  setTimeout(domReadyCheck, 1000);
 }

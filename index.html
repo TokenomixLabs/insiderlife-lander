@@ -4,6 +4,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Force reload if page gets stuck -->
+    <meta http-equiv="Cache-Control" content="no-store" />
     <title>InsiderLife - AI-Driven Business & Digital Monetization</title>
     <meta name="description" content="InsiderLife empowers entrepreneurs, creators, and visionaries with AI-driven strategies, cutting-edge education, and scalable digital business models." />
     <meta name="author" content="InsiderLife" />
@@ -12,22 +14,50 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+      /* Enhanced loading spinner */
+      @keyframes spin { to { transform: rotate(360deg); } }
+      @keyframes pulse { 0% { opacity: 0.6; } 50% { opacity: 1; } 100% { opacity: 0.6; } }
+      .loading-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #060821;
+        color: white;
+        text-align: center;
+        padding: 20px;
+      }
+      .loading-spinner {
+        width: 50px;
+        height: 50px;
+        border: 5px solid rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        border-top-color: white;
+        animation: spin 1s ease-in-out infinite;
+        margin: 1rem auto;
+      }
+      .loading-text {
+        font-family: 'Orbitron', sans-serif;
+        animation: pulse 1.5s infinite;
+      }
+    </style>
   </head>
 
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root">
-      <!-- Simple loading indicator -->
-      <div style="display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #060821; color: white; text-align: center; padding: 20px;">
+      <!-- Enhanced loading indicator -->
+      <div class="loading-container">
         <div>
           <h1 style="font-family: 'Orbitron', sans-serif; font-size: 2rem; margin-bottom: 1rem;">InsiderLife</h1>
-          <p style="margin-bottom: 1rem;">Loading application...</p>
-          <div style="width: 50px; height: 50px; border: 5px solid rgba(255, 255, 255, 0.3); border-radius: 50%; border-top-color: white; animation: spin 1s ease-in-out infinite; margin: 0 auto;"></div>
-          <style>@keyframes spin { to { transform: rotate(360deg); } }</style>
+          <p class="loading-text">Loading application...</p>
+          <div class="loading-spinner"></div>
+          <p style="margin-top: 1rem; font-size: 0.8rem; opacity: 0.7;">If loading takes too long, <a href="/" style="color: #8B5CF6; text-decoration: underline;">refresh the page</a></p>
         </div>
       </div>
     </div>
-    <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
+    <!-- Remove the GPT Engineer script as it might be causing conflicts -->
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
