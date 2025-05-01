@@ -22,10 +22,11 @@ export function Navbar() {
         </div>
         
         <div className="hidden md:flex space-x-8 text-sm">
-          <a href="#about" className="text-white/80 hover:text-white transition-colors duration-200">About</a>
+          <Link to="/#about" className="text-white/80 hover:text-white transition-colors duration-200">About</Link>
           <Link to="/aifreedomcode" className="text-white/80 hover:text-white transition-colors duration-200">AI FREEDOM CODE</Link>
           <Link to="/circle" className="text-white/80 hover:text-white transition-colors duration-200">Sovereign Circle</Link>
           <a href="https://insiderdao.com/signup?ref=vip" className="text-white/80 hover:text-white transition-colors duration-200" target="_blank" rel="noopener noreferrer">Community</a>
+          <Link to="/sovereign-access" className="text-white/80 hover:text-white transition-colors duration-200">Sovereign Access</Link>
           <Link to="/support" className="text-white/80 hover:text-white transition-colors duration-200">Contact</Link>
         </div>
         

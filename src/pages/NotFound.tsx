@@ -3,6 +3,7 @@ import { useLocation, Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
+import { toast } from "@/components/ui/sonner";
 
 const NotFound = () => {
   const location = useLocation();
@@ -36,6 +37,12 @@ const NotFound = () => {
       setTimeout(() => {
         navigate(location.pathname, { replace: true });
       }, 100);
+      
+      // Show a toast notification
+      toast.info("Restoring your session...", {
+        duration: 3000,
+        position: "top-center"
+      });
     } else {
       console.error(
         "404 Error: User attempted to access non-existent route:",
