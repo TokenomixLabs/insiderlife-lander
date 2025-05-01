@@ -1,8 +1,8 @@
 
-# Redirect all routes to index.html with a 200 status code and no caching
+# Redirect all routes to index.html with a 200 status code and strict no-cache
 /*    /index.html   200!
 
-# Specific redirect for /sovereign-access with cache control
+# Specific redirect for /sovereign-access with strong cache busting
 /sovereign-access    /index.html   200!
 
 # Handle external domain redirects - make these more specific and precise
@@ -11,7 +11,9 @@ http://insiderlife.com/sovereign-access     /sovereign-access   301!
 https://www.insiderlife.com/sovereign-access    /sovereign-access   301!
 http://www.insiderlife.com/sovereign-access     /sovereign-access   301!
 
-# Add cache control headers
+# Add stronger cache control headers
 /* 
-  Cache-Control: no-cache, no-store, must-revalidate
+  Cache-Control: no-cache, no-store, must-revalidate, max-age=0
+  Pragma: no-cache
+  Expires: 0
 
