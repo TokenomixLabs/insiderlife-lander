@@ -38,19 +38,11 @@ const SovereignAccess = () => {
             <h2 className="mb-12 pb-2 text-center text-2xl font-bold text-gradient font-orbitron md:text-3xl">
               Watch the AI Freedom Code Video
             </h2>
-            <Card className="glass-card mb-12 overflow-hidden">
-              <CardContent className="p-0">
-                <VimeoPlayer videoId={1080443373} aspectRatio="16:9" />
-              </CardContent>
-            </Card>
             <Card className="glass-card overflow-hidden">
               <CardContent className="p-0">
                 <VimeoPlayer videoId={1080443373} aspectRatio="16:9" />
               </CardContent>
             </Card>
-            <p className="mt-6 text-center italic text-white/70">
-              This video is for mass activation. You are here for something deeper.
-            </p>
           </div>
         </section>
 
