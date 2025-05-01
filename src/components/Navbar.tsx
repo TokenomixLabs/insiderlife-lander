@@ -25,6 +25,7 @@ export function Navbar() {
           <a href="#about" className="text-white/80 hover:text-white transition-colors duration-200">About</a>
           <Link to="/aifreedomcode" className="text-white/80 hover:text-white transition-colors duration-200">AI FREEDOM CODE</Link>
           <Link to="/circle" className="text-white/80 hover:text-white transition-colors duration-200">Sovereign Circle</Link>
+          <a href="https://insiderdao.com/signup?ref=vip" target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-white transition-colors duration-200">Community</a>
           <Link to="/support" className="text-white/80 hover:text-white transition-colors duration-200">Contact</Link>
         </div>
         
