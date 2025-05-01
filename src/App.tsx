@@ -18,6 +18,7 @@ import SovereignAccess from "./pages/SovereignAccess";
 import WaitlistDialog from "./components/WaitlistDialog";
 import useExitIntent from "./hooks/useExitIntent";
 
+// Create a new query client instance
 const queryClient = new QueryClient();
 
 const ExitIntentWrapper = () => {
@@ -41,30 +42,31 @@ const ExitIntentWrapper = () => {
   return <WaitlistDialog open={showExitIntent} onOpenChange={setShowExitIntent} />;
 };
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-          <Route path="/terms-of-service" element={<TermsOfService />} />
-          <Route path="/thank-you" element={<ThankYou />} />
-          <Route path="/support" element={<Support />} />
-          <Route path="/aifreedomcode" element={<AiFreedomCode />} />
-          <Route path="/affiliate-swipe-hub" element={<AffiliateSwipeHub />} />
-          <Route path="/circle" element={<Mastermind />} />
-          <Route path="/sovereign-access" element={<SovereignAccess />} />
-          {/* Add redirect from old mastermind URL to new circle URL */}
-          <Route path="/mastermind" element={<Navigate to="/circle" replace />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-        <ExitIntentWrapper />
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
-);
+const App = () => {
+  return (
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <BrowserRouter>
+          <Toaster />
+          <Sonner />
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/terms-of-service" element={<TermsOfService />} />
+            <Route path="/thank-you" element={<ThankYou />} />
+            <Route path="/support" element={<Support />} />
+            <Route path="/aifreedomcode" element={<AiFreedomCode />} />
+            <Route path="/affiliate-swipe-hub" element={<AffiliateSwipeHub />} />
+            <Route path="/circle" element={<Mastermind />} />
+            <Route path="/sovereign-access" element={<SovereignAccess />} />
+            <Route path="/mastermind" element={<Navigate to="/circle" replace />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+          <ExitIntentWrapper />
+        </BrowserRouter>
+      </TooltipProvider>
+    </QueryClientProvider>
+  );
+};
 
 export default App;
