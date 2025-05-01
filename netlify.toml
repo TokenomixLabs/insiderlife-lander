@@ -1,0 +1,34 @@
+
+# Netlify configuration file
+
+# Force Netlify to clear cache and reprocess files
+[build]
+  publish = "dist"
+
+# Add cache control headers for all files
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+    Pragma = "no-cache"
+
+# Special cache control for HTML files
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+    Pragma = "no-cache"
+
+# Special handling for the sovereign-access path
+[[headers]]
+  for = "/sovereign-access"
+  [headers.values]
+    Cache-Control = "no-cache, no-store, must-revalidate"
+    Pragma = "no-cache"
+
+# Force HTTPS
+[[redirects]]
+  from = "http://*"
+  to = "https://:splat"
+  status = 301
+  force = true
