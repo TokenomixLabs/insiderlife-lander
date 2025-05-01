@@ -10,6 +10,9 @@ const SovereignAccess = () => {
   useEffect(() => {
     // Set title when component mounts
     document.title = "Sovereign Access | InsiderLife";
+    
+    // Scroll to top when component mounts
+    window.scrollTo(0, 0);
   }, []);
 
   return (
