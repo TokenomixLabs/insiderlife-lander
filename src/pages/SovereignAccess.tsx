@@ -5,8 +5,6 @@ import Footer from "@/components/Footer";
 import VimeoPlayer from "@/components/VimeoPlayer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import { Button } from "@/components/ui/button";
-import { Mail } from "lucide-react";
 
 const SovereignAccess = () => {
   useEffect(() => {
@@ -88,19 +86,6 @@ const SovereignAccess = () => {
                 <VimeoPlayer videoId={1080449117} aspectRatio="16:9" />
               </CardContent>
             </Card>
-            
-            <div className="mt-12 text-center">
-              <h3 className="mb-8 pb-2 text-xl font-bold text-gradient font-orbitron">
-                Message Jamison Directly for the Scroll
-              </h3>
-              <Button 
-                className="bg-gradient-to-r from-insiderPurple to-insiderBlue px-8 py-6 text-lg"
-                onClick={() => window.location.href = "mailto:jamison@insiderlife.io"}
-              >
-                <Mail className="mr-2" />
-                Contact Jamison
-              </Button>
-            </div>
           </div>
         </section>
       </main>
