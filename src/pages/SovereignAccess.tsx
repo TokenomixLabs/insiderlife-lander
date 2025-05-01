@@ -46,15 +46,15 @@ const SovereignAccess = () => {
           </div>
         </section>
 
-        <Separator className="mx-auto my-12 w-1/2 bg-white/10" />
+        <Separator className="mx-auto my-16 w-1/2 bg-white/10" />
 
         {/* Section 3: Societi Videos */}
         <section className="w-full">
-          <div className="container mx-auto max-w-5xl px-4 py-12">
-            <h2 className="mb-12 pb-2 text-center text-2xl font-bold text-gradient font-orbitron md:text-3xl">
+          <div className="container mx-auto max-w-5xl px-4">
+            <h2 className="mb-16 pt-8 text-center text-2xl font-bold text-gradient font-orbitron md:text-3xl">
               Watch These 5 Societi Videos
             </h2>
-            <div className="space-y-12">
+            <div className="space-y-16">
               {[
                 { id: 1036230113, title: "VSL 1" },
                 { id: 1036234553, title: "VSL 2" },
@@ -75,7 +75,7 @@ const SovereignAccess = () => {
           </div>
         </section>
 
-        <Separator className="mx-auto my-12 w-1/2 bg-white/10" />
+        <Separator className="mx-auto my-16 w-1/2 bg-white/10" />
 
         {/* Section 4: Final Message */}
         <section className="w-full">
