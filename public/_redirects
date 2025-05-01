@@ -2,3 +2,6 @@
 # Redirect all routes to index.html with a 200 status code
 /*    /index.html   200
 
+# Specific redirect for /sovereign-access
+/sovereign-access    /index.html   200
+
