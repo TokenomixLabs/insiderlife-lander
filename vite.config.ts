@@ -22,16 +22,21 @@ export default defineConfig(({ mode }) => ({
     },
   },
   build: {
-    // Force clean output directory and disable chunk caching
+    // Force clean output directory
     emptyOutDir: true,
+    // Generate sourcemaps only in development
     sourcemap: mode === 'development',
+    // Disable code splitting for SPA
+    cssCodeSplit: false,
     rollupOptions: {
       external: ['@vimeo/player'],
       output: {
-        // Simple fixed names to avoid cache issues
-        entryFileNames: 'assets/[name].js',
+        // Use simple names without hashing to avoid cache issues
+        entryFileNames: 'assets/main.js',
         chunkFileNames: 'assets/[name].js',
-        assetFileNames: 'assets/[name].[ext]'
+        assetFileNames: 'assets/[name].[ext]',
+        // Combine all chunks into a single file for easier loading
+        manualChunks: () => 'app'
       }
     }
   }

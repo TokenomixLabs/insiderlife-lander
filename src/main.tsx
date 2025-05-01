@@ -4,20 +4,38 @@ import App from './App.tsx'
 import './index.css'
 import ErrorBoundary from './components/ErrorBoundary'
 
-// Add console logging to help debug
+// Add verbose console logging to help debug
 console.log("Main.tsx executing - Build timestamp: " + new Date().toISOString());
+console.log("Browser: " + navigator.userAgent);
+console.log("URL: " + window.location.href);
 
 try {
+  // Find root element
   const rootElement = document.getElementById("root");
+  
   if (!rootElement) {
     console.error("Root element not found");
-    document.body.innerHTML = "<div>Error: Root element not found</div>";
+    // Create a root element if it doesn't exist
+    const newRoot = document.createElement("div");
+    newRoot.id = "root";
+    document.body.appendChild(newRoot);
+    console.log("Created new root element");
+    
+    createRoot(newRoot).render(
+      <ErrorBoundary>
+        <App />
+      </ErrorBoundary>
+    );
   } else {
-    console.log("Rendering app to root element");
+    console.log("Rendering app to existing root element");
     
-    // Force reset any cached state
-    window.history.scrollRestoration = 'manual';
+    // Clear any browser history state that might be causing issues
+    window.history.replaceState({}, document.title, window.location.pathname);
     
+    // Force clear the root to ensure a clean mount
+    rootElement.innerHTML = '';
+    
+    // Create a fresh root and render
     createRoot(rootElement).render(
       <ErrorBoundary>
         <App />
@@ -25,6 +43,15 @@ try {
     );
   }
 } catch (error) {
-  console.error("Error rendering application:", error);
-  document.body.innerHTML = "<div>Error loading the application. Please try again later.</div>";
+  console.error("Fatal error rendering application:", error);
+  document.body.innerHTML = `
+    <div style="padding: 20px; font-family: system-ui, sans-serif;">
+      <h1>Error Loading Application</h1>
+      <p>Please try refreshing the page or clearing your browser cache.</p>
+      <p>Error details: ${error instanceof Error ? error.message : 'Unknown error'}</p>
+      <button onclick="window.location.reload(true)" style="padding: 10px; background: #4444ff; color: white; border: none; border-radius: 4px; cursor: pointer;">
+        Hard Refresh Page
+      </button>
+    </div>
+  `;
 }
