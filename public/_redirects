@@ -5,3 +5,6 @@
 # Specific redirect for /sovereign-access
 /sovereign-access    /index.html   200
 
+# Handle external domain redirects
+https://insiderlife.com/sovereign-access    /sovereign-access   301
+http://insiderlife.com/sovereign-access     /sovereign-access   301
