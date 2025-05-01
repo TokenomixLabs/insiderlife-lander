@@ -24,13 +24,14 @@ export default defineConfig(({ mode }) => ({
   build: {
     // Force clean output directory and disable chunk caching
     emptyOutDir: true,
+    sourcemap: mode === 'development',
     rollupOptions: {
       external: ['@vimeo/player'],
       output: {
-        // Append timestamp to force new assets on build
-        entryFileNames: `assets/[name].[hash]-${Date.now()}.js`,
-        chunkFileNames: `assets/chunk-[name].[hash]-${Date.now()}.js`,
-        assetFileNames: `assets/[name].[hash]-${Date.now()}.[ext]`
+        // Simple fixed names to avoid cache issues
+        entryFileNames: 'assets/[name].js',
+        chunkFileNames: 'assets/[name].js',
+        assetFileNames: 'assets/[name].[ext]'
       }
     }
   }

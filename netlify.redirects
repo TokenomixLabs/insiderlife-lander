@@ -1,2 +1,3 @@
 
-/*    /index.html   200!
+# Additional redirect to ensure SPA routing works properly
+/*    /index.html   200

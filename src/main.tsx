@@ -15,16 +15,12 @@ try {
   } else {
     console.log("Rendering app to root element");
     
-    // Generate a timestamp to force complete re-render
-    const timestamp = new Date().getTime();
-    console.log("Forcing refresh with timestamp:", timestamp);
-    
-    // Clear any existing content to ensure clean mount
-    rootElement.innerHTML = '';
+    // Force reset any cached state
+    window.history.scrollRestoration = 'manual';
     
     createRoot(rootElement).render(
       <ErrorBoundary>
-        <App key={`app-instance-${timestamp}`} />
+        <App />
       </ErrorBoundary>
     );
   }
