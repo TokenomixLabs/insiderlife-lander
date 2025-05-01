@@ -9,7 +9,6 @@ export default defineConfig(({ mode }) => ({
   server: {
     host: "::",
     port: 8080,
-    // Enable history fallback for client-side routing
     historyApiFallback: true
   },
   plugins: [
@@ -23,15 +22,8 @@ export default defineConfig(({ mode }) => ({
     },
   },
   build: {
-    // Disable caching mechanisms
     rollupOptions: {
-      external: ['@vimeo/player'],
-      output: {
-        // Force unique file names to prevent caching
-        entryFileNames: `assets/[name]-[hash].js`,
-        chunkFileNames: `assets/[name]-[hash].js`,
-        assetFileNames: `assets/[name]-[hash].[ext]`
-      }
+      external: ['@vimeo/player']
     }
   }
 }));
