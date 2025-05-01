@@ -80,17 +80,6 @@ const SovereignAccess: React.FC = () => {
           <div className="glass-card p-6 md:p-8 mb-8">
             <VimeoPlayer videoId={1080449117} autoplay={false} />
           </div>
-          
-          <div className="flex justify-center">
-            <a 
-              href="https://t.me/jamisonheld" 
-              target="_blank"
-              rel="noopener noreferrer" 
-              className="bg-gradient-to-r from-insiderPurple to-insiderBlue hover:from-insiderPurple-light hover:to-insiderBlue-light text-white font-medium text-lg px-8 py-4 inline-block rounded-md shadow-glow transition-all duration-300 hover:scale-105"
-            >
-              Message Jamison Directly for the Scroll
-            </a>
-          </div>
         </section>
       </main>
       
