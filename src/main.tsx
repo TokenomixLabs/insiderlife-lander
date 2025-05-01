@@ -10,47 +10,68 @@ console.log("Browser: " + navigator.userAgent);
 console.log("URL: " + window.location.href);
 console.log("Path: " + window.location.pathname);
 
-// Clean up any lingering data that might cause issues
-try {
-  // Find root element
-  const rootElement = document.getElementById("root");
-  
-  if (!rootElement) {
-    console.error("Root element not found");
-    // Create a root element if it doesn't exist
-    const newRoot = document.createElement("div");
-    newRoot.id = "root";
-    document.body.appendChild(newRoot);
-    console.log("Created new root element");
-    
-    createRoot(newRoot).render(
-      <ErrorBoundary>
-        <App />
-      </ErrorBoundary>
-    );
-  } else {
-    console.log("Rendering app to existing root element");
-    
-    // Create a fresh root and render
-    createRoot(rootElement).render(
-      <ErrorBoundary>
-        <App />
-      </ErrorBoundary>
-    );
-    
-    // Confirm rendering
-    console.log("App rendered to DOM");
-  }
-} catch (error) {
-  console.error("Fatal error rendering application:", error);
-  document.body.innerHTML = `
+// Create a fallback element if mounting fails
+const createFallbackUI = (error: any) => {
+  console.error("Fatal application error:", error);
+  return `
     <div style="padding: 20px; font-family: system-ui, sans-serif;">
-      <h1>Error Loading Application</h1>
-      <p>Please try refreshing the page or clearing your browser cache.</p>
+      <h1>Application Error</h1>
+      <p>Unable to initialize the application. Please try refreshing the page.</p>
       <p>Error details: ${error instanceof Error ? error.message : 'Unknown error'}</p>
-      <button onclick="window.location.reload(true)" style="padding: 10px; background: #4444ff; color: white; border: none; border-radius: 4px; cursor: pointer;">
-        Hard Refresh Page
+      <button onclick="window.location.reload(true)" style="padding: 10px; background: linear-gradient(to right, #8B5CF6, #3B82F6); color: white; border: none; border-radius: 4px; cursor: pointer;">
+        Reload Application
       </button>
     </div>
   `;
+};
+
+// Mount the application with multiple fallbacks
+try {
+  console.log("Attempting to mount application");
+  
+  // Find or create root element
+  let rootElement = document.getElementById("root");
+  
+  if (!rootElement) {
+    console.warn("Root element not found - creating one");
+    rootElement = document.createElement("div");
+    rootElement.id = "root";
+    document.body.appendChild(rootElement);
+  } else {
+    console.log("Root element found");
+  }
+  
+  // Clear any existing content (fallback UI)
+  while (rootElement.firstChild) {
+    rootElement.removeChild(rootElement.firstChild);
+  }
+  
+  // Create React root and render
+  try {
+    const root = createRoot(rootElement);
+    root.render(
+      <ErrorBoundary>
+        <App />
+      </ErrorBoundary>
+    );
+    console.log("Application rendered successfully");
+    
+    // Verify render worked
+    setTimeout(() => {
+      if (rootElement.children.length === 0) {
+        console.error("Application may have rendered but produced no DOM elements");
+        rootElement.innerHTML = createFallbackUI(new Error("No DOM elements rendered"));
+      } else {
+        console.log("Application rendering confirmed with DOM elements present");
+      }
+    }, 1000);
+    
+  } catch (renderError) {
+    console.error("Failed during React rendering:", renderError);
+    rootElement.innerHTML = createFallbackUI(renderError);
+  }
+} catch (error) {
+  console.error("Critical application initialization error:", error);
+  const fallbackElement = document.getElementById("root") || document.body;
+  fallbackElement.innerHTML = createFallbackUI(error);
 }

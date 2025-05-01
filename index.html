@@ -12,15 +12,26 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <!-- Force no-cache for this page -->
+    <!-- Force no-cache -->
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
-    <!-- Remove the problematic refresh meta tag -->
   </head>
 
   <body>
-    <div id="root"></div>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root">
+      <!-- Fallback content -->
+      <div style="display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #060821; color: white; text-align: center; padding: 20px;">
+        <div>
+          <h1 style="font-family: 'Orbitron', sans-serif; font-size: 2rem; margin-bottom: 1rem;">InsiderLife</h1>
+          <p style="margin-bottom: 1rem;">Loading application...</p>
+          <button onclick="window.location.reload(true)" style="padding: 8px 16px; background: linear-gradient(to right, #8B5CF6, #3B82F6); color: white; border: none; border-radius: 4px; cursor: pointer;">
+            Refresh Page
+          </button>
+        </div>
+      </div>
+    </div>
     <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
     <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
     <script type="module" src="/src/main.tsx"></script>
@@ -28,9 +39,21 @@
     <script>
       console.log('Page loaded at:', new Date().toISOString());
       console.log('Current URL:', window.location.href);
-      document.addEventListener('DOMContentLoaded', () => {
-        console.log('DOM fully loaded');
+      
+      // Monitor for application errors
+      window.addEventListener('error', function(e) {
+        console.error('Global error caught:', e.message, e.filename, e.lineno);
       });
+      
+      // Check if the application loaded
+      setTimeout(function() {
+        const appContent = document.getElementById('root').children;
+        if (appContent.length <= 1) {
+          console.warn('Application may not have loaded correctly. Auto-refreshing in 5 seconds...');
+          // Auto refresh if app didn't load
+          setTimeout(() => window.location.reload(), 5000);
+        }
+      }, 3000);
     </script>
   </body>
 </html>

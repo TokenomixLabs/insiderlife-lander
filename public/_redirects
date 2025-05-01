@@ -1,3 +1,4 @@
 
 # Serve index.html for all routes with 200 status code, disable cache
-/*    /index.html   200!    Cache-Control=no-store,no-cache,must-revalidate,max-age=0
+/*    /index.html   200
+

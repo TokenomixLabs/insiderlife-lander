@@ -8,8 +8,7 @@ import { componentTagger } from "lovable-tagger";
 export default defineConfig(({ mode }) => ({
   server: {
     host: "::",
-    port: 8080,
-    historyApiFallback: true
+    port: 8080
   },
   plugins: [
     react(),
@@ -22,24 +21,18 @@ export default defineConfig(({ mode }) => ({
     },
   },
   build: {
-    // Force clean output directory
+    // Clean output directory before building
     emptyOutDir: true,
-    // Generate sourcemaps only in development
-    sourcemap: mode === 'development',
-    // Disable code splitting for SPA
-    cssCodeSplit: false,
-    // Disable minification to help with debugging
+    // Disable minification for debugging
     minify: false,
-    // Silence warnings
-    reportCompressedSize: false,
+    // Use simple file naming without hashes to avoid cache issues
     rollupOptions: {
       external: ['@vimeo/player'],
       output: {
-        // Use simple names without hashing to avoid cache issues
-        entryFileNames: 'assets/main.js',
-        chunkFileNames: 'assets/chunk.js',
+        entryFileNames: 'assets/[name].js',
+        chunkFileNames: 'assets/[name].js',
         assetFileNames: 'assets/[name].[ext]',
-        // Combine all chunks into a single file for easier loading
+        // Bundle everything together
         manualChunks: () => 'app'
       }
     }

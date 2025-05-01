@@ -5,49 +5,35 @@
 [build]
   publish = "dist"
   command = "npm run build && node netlify.js"
-  ignore_warnings = true
 
-# Disable all processing to prevent automatic optimizations that might cause caching
+# Disable processing to prevent automatic optimizations
 [build.processing]
   skip_processing = true
 
-# Force the site to not be served from Netlify's CDN edge to avoid caching issues
+# Environment variables
 [build.environment]
-  NETLIFY_USE_EDGE = "false"
   NODE_VERSION = "18.0.0"
-  NETLIFY_CACHE_DISABLED = "true"
 
-# Global headers for all paths - most aggressive no-cache settings possible
+# Global headers - aggressive no-cache settings
 [[headers]]
   for = "/*"
   [headers.values]
-    Cache-Control = "no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0"
+    Cache-Control = "no-store, no-cache, must-revalidate, max-age=0"
     Pragma = "no-cache"
     Expires = "0"
-    Surrogate-Control = "no-store"
-    X-Content-Type-Options = "nosniff"
     Clear-Site-Data = '"cache","storage"'
-    Access-Control-Allow-Origin = "*"
-    X-Frame-Options = "DENY"
-    Content-Security-Policy = "upgrade-insecure-requests"
 
-# SPA redirect - this is critical for React Router - higher priority than other redirects
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
-  force = true
-  priority = 1
-  [redirects.headers]
-    Cache-Control = "no-store, no-cache, must-revalidate"
-    X-Content-Type-Options = "nosniff"
-
-# Additional specific no-cache settings for important routes
+# Specific no-cache for index.html
 [[headers]]
   for = "/index.html"
   [headers.values]
     Cache-Control = "no-store, no-cache, must-revalidate, max-age=0"
     Pragma = "no-cache"
     Expires = "0"
-    Vary = "*"
     Clear-Site-Data = '"cache","storage"'
+
+# SPA redirect - critical for React Router
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
