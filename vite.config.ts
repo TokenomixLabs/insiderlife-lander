@@ -28,12 +28,16 @@ export default defineConfig(({ mode }) => ({
     sourcemap: mode === 'development',
     // Disable code splitting for SPA
     cssCodeSplit: false,
+    // Disable minification to help with debugging
+    minify: false,
+    // Silence warnings
+    reportCompressedSize: false,
     rollupOptions: {
       external: ['@vimeo/player'],
       output: {
         // Use simple names without hashing to avoid cache issues
         entryFileNames: 'assets/main.js',
-        chunkFileNames: 'assets/[name].js',
+        chunkFileNames: 'assets/chunk.js',
         assetFileNames: 'assets/[name].[ext]',
         // Combine all chunks into a single file for easier loading
         manualChunks: () => 'app'

@@ -8,6 +8,15 @@ import ErrorBoundary from './components/ErrorBoundary'
 console.log("Main.tsx executing - Build timestamp: " + new Date().toISOString());
 console.log("Browser: " + navigator.userAgent);
 console.log("URL: " + window.location.href);
+console.log("Query params:", window.location.search);
+
+// Clean up any lingering data that might cause issues
+try {
+  sessionStorage.clear();
+  console.log("Session storage cleared");
+} catch (e) {
+  console.warn("Could not clear session storage", e);
+}
 
 try {
   // Find root element
@@ -30,7 +39,7 @@ try {
     console.log("Rendering app to existing root element");
     
     // Clear any browser history state that might be causing issues
-    window.history.replaceState({}, document.title, window.location.pathname);
+    window.history.replaceState({}, document.title, window.location.pathname + window.location.search);
     
     // Force clear the root to ensure a clean mount
     rootElement.innerHTML = '';
@@ -41,6 +50,17 @@ try {
         <App />
       </ErrorBoundary>
     );
+    
+    // Setup failsafe
+    setTimeout(() => {
+      const appContainer = document.querySelector("#root > div");
+      if (!appContainer || !appContainer.children.length) {
+        console.error("App didn't render properly after timeout, forcing refresh");
+        window.location.reload();
+      } else {
+        console.log("App rendered successfully");
+      }
+    }, 3000);
   }
 } catch (error) {
   console.error("Fatal error rendering application:", error);

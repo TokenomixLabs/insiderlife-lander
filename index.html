@@ -16,6 +16,8 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
+    <!-- Add meta tag to force refresh -->
+    <meta http-equiv="refresh" content="0;URL=window.location.href">
   </head>
 
   <body>
@@ -23,5 +25,13 @@
     <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
     <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
     <script type="module" src="/src/main.tsx"></script>
+    <!-- Debug info -->
+    <script>
+      console.log('Page loaded at:', new Date().toISOString());
+      console.log('Current URL:', window.location.href);
+      document.addEventListener('DOMContentLoaded', () => {
+        console.log('DOM fully loaded');
+      });
+    </script>
   </body>
 </html>

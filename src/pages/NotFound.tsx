@@ -2,14 +2,18 @@
 import { useLocation, Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, RefreshCw } from "lucide-react";
 
 const NotFound = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const [isRefresh, setIsRefresh] = useState(false);
+  const [attemptCount, setAttemptCount] = useState(0);
 
+  // More aggressive route restoration
   useEffect(() => {
+    console.log("NotFound component mounted at path:", location.pathname);
+    
     // Check if the path matches a valid route
     const validRoutes = [
       "/",
@@ -20,7 +24,8 @@ const NotFound = () => {
       "/aifreedomcode",
       "/circle",
       "/mastermind", // Include the old route as well
-      "/affiliate-swipe-hub"
+      "/affiliate-swipe-hub",
+      "/sovereign-access"
     ];
 
     // If the current path is a valid route but we got a 404, it's likely a refresh
@@ -31,20 +36,34 @@ const NotFound = () => {
       // Store the route for restoration after refresh
       localStorage.setItem("lastValidRoute", location.pathname);
       
-      // Try immediately navigating to the correct route
-      setTimeout(() => {
+      // Try immediately navigating to the correct route with replace: true
+      navigate(location.pathname, { replace: true });
+      
+      // Set up a fallback in case the first attempt fails
+      const timeout = setTimeout(() => {
+        console.log("Attempting fallback navigation");
+        setAttemptCount(prev => prev + 1);
+        window.history.replaceState({}, document.title, location.pathname);
         navigate(location.pathname, { replace: true });
-      }, 100);
+      }, 500);
+      
+      return () => clearTimeout(timeout);
     } else {
       console.error(
         "404 Error: User attempted to access non-existent route:",
         location.pathname
       );
     }
-  }, [location.pathname, navigate]);
+  }, [location.pathname, navigate, attemptCount]);
 
   // Get the stored route or default to home
   const lastValidRoute = localStorage.getItem("lastValidRoute") || "/";
+  
+  // Force refresh function
+  const handleForceRefresh = () => {
+    localStorage.setItem("lastValidRoute", lastValidRoute);
+    window.location.href = lastValidRoute;
+  };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-insiderDark">
@@ -58,12 +77,24 @@ const NotFound = () => {
         
         <div className="space-y-4">
           {isRefresh ? (
-            <Button
-              className="bg-gradient-to-r from-insiderPurple to-insiderBlue hover:from-insiderPurple-light hover:to-insiderBlue-light text-white"
-              onClick={() => navigate(lastValidRoute, { replace: true })}
-            >
-              Click here if not redirected
-            </Button>
+            <>
+              <Button
+                className="bg-gradient-to-r from-insiderPurple to-insiderBlue hover:from-insiderPurple-light hover:to-insiderBlue-light text-white"
+                onClick={() => navigate(lastValidRoute, { replace: true })}
+              >
+                Click here if not redirected
+              </Button>
+              <div className="pt-2">
+                <Button
+                  variant="outline"
+                  className="text-white border-white/30 hover:bg-white/10"
+                  onClick={handleForceRefresh}
+                >
+                  <RefreshCw className="mr-2 h-4 w-4" />
+                  Force Reload
+                </Button>
+              </div>
+            </>
           ) : (
             <Link to="/">
               <Button

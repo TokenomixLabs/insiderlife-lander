@@ -4,7 +4,7 @@
 # Define build settings
 [build]
   publish = "dist"
-  command = "npm run build"
+  command = "npm run build && node netlify.js"
   ignore_warnings = true
 
 # Disable all processing to prevent automatic optimizations that might cause caching
@@ -14,6 +14,8 @@
 # Force the site to not be served from Netlify's CDN edge to avoid caching issues
 [build.environment]
   NETLIFY_USE_EDGE = "false"
+  NODE_VERSION = "18.0.0"
+  NETLIFY_CACHE_DISABLED = "true"
 
 # Global headers for all paths - most aggressive no-cache settings possible
 [[headers]]
@@ -35,12 +37,16 @@
   to = "/index.html"
   status = 200
   force = true
+  [redirects.headers]
+    Cache-Control = "no-store, no-cache, must-revalidate"
+    X-Content-Type-Options = "nosniff"
 
-# Specific aggressive no-cache settings for the SovereignAccess page
+# Additional specific no-cache settings for important routes
 [[headers]]
-  for = "/sovereign-access*"
+  for = "/index.html"
   [headers.values]
     Cache-Control = "no-store, no-cache, must-revalidate, max-age=0"
     Pragma = "no-cache"
     Expires = "0"
     Vary = "*"
+    Clear-Site-Data = '"cache","storage"'
