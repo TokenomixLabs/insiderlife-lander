@@ -22,8 +22,16 @@ export default defineConfig(({ mode }) => ({
     },
   },
   build: {
+    // Force clean output directory and disable chunk caching
+    emptyOutDir: true,
     rollupOptions: {
-      external: ['@vimeo/player']
+      external: ['@vimeo/player'],
+      output: {
+        // Append timestamp to force new assets on build
+        entryFileNames: `assets/[name].[hash]-${Date.now()}.js`,
+        chunkFileNames: `assets/chunk-[name].[hash]-${Date.now()}.js`,
+        assetFileNames: `assets/[name].[hash]-${Date.now()}.[ext]`
+      }
     }
   }
 }));

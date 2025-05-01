@@ -6,8 +6,8 @@ import Footer from '@/components/Footer';
 import { Separator } from '@/components/ui/separator';
 import { Card, CardContent } from '@/components/ui/card';
 
-// Add build timestamp to force fresh content
-const BUILD_TIMESTAMP = new Date().toISOString();
+// Force fresh content with dynamic timestamp
+const BUILD_TIMESTAMP = new Date().getTime();
 console.log("SovereignAccess component loading, timestamp:", BUILD_TIMESTAMP);
 
 const VimeoPlayer = ({ videoId, onEnded, autoplay = false, className = "" }: { 
@@ -18,53 +18,89 @@ const VimeoPlayer = ({ videoId, onEnded, autoplay = false, className = "" }: {
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const playerRef = useRef<Player | null>(null);
+  const instanceId = useRef(`player-${Math.random().toString(36).substring(2, 9)}`);
   
   useEffect(() => {
     if (!containerRef.current) return;
+    
+    console.log(`Creating player for video ${videoId} with instance ${instanceId.current}`);
     
     // Clean up any existing player
     if (playerRef.current) {
       playerRef.current.destroy();
     }
     
-    // Create the player
-    const player = new Player(containerRef.current, {
-      id: typeof videoId === 'string' ? parseInt(videoId, 10) : videoId,
-      autoplay: autoplay,
-      loop: false,
-      muted: autoplay, // Autoplay requires muted
-      responsive: true,
-      background: false,
-    });
+    // Force clean the container element
+    containerRef.current.innerHTML = '';
     
-    playerRef.current = player;
-    
-    if (onEnded) {
-      player.on('ended', onEnded);
-    }
+    // Create the player with a small delay to ensure DOM is ready
+    setTimeout(() => {
+      if (!containerRef.current) return;
+      
+      try {
+        // Create the player
+        const player = new Player(containerRef.current, {
+          id: typeof videoId === 'string' ? parseInt(videoId, 10) : videoId,
+          autoplay: autoplay,
+          loop: false,
+          muted: autoplay, // Autoplay requires muted
+          responsive: true,
+          background: false,
+          dnt: false, // Disable do-not-track to prevent caching
+        });
+        
+        playerRef.current = player;
+        
+        if (onEnded) {
+          player.on('ended', onEnded);
+        }
+        
+        // Force load video
+        player.loadVideo(videoId).catch(err => 
+          console.error(`Error loading video ${videoId}:`, err)
+        );
+      } catch (error) {
+        console.error("Error initializing Vimeo player:", error);
+      }
+    }, 100);
     
     return () => {
       if (playerRef.current) {
         if (onEnded) playerRef.current.off('ended', onEnded);
-        playerRef.current.destroy();
+        try {
+          playerRef.current.destroy();
+        } catch (e) {
+          console.error("Error destroying player:", e);
+        }
       }
     };
   }, [videoId, onEnded, autoplay]);
   
   return (
     <div 
+      key={`vimeo-container-${videoId}-${BUILD_TIMESTAMP}`}
       ref={containerRef} 
       className={`relative w-full overflow-hidden aspect-video ${className}`}
+      data-timestamp={BUILD_TIMESTAMP}
     ></div>
   );
 };
 
 const SovereignAccess: React.FC = () => {
   const [playBridgeVideo, setPlayBridgeVideo] = useState(false);
+  const pageLoadTime = useRef(new Date().getTime());
   
   // Log component mount to verify fresh load
   useEffect(() => {
-    console.log("SovereignAccess mounted with timestamp:", BUILD_TIMESTAMP);
+    console.log("SovereignAccess mounted with timestamp:", pageLoadTime.current);
+    
+    // Force refresh after mount
+    const timer = setTimeout(() => {
+      console.log("Forcing refresh of content");
+      setPlayBridgeVideo(false); // Reset state to force re-render
+    }, 500);
+    
+    return () => clearTimeout(timer);
   }, []);
   
   return (
@@ -82,6 +118,7 @@ const SovereignAccess: React.FC = () => {
               <VimeoPlayer 
                 videoId="1080452974"
                 className="shadow-lg rounded-lg"
+                key={`intro-video-${BUILD_TIMESTAMP}`}
               />
             </div>
           </div>
@@ -100,6 +137,7 @@ const SovereignAccess: React.FC = () => {
                 videoId="1080443373" 
                 onEnded={() => setPlayBridgeVideo(true)} 
                 className="shadow-lg rounded-lg"
+                key={`freedom-code-${BUILD_TIMESTAMP}`}
               />
               
               {playBridgeVideo && (
@@ -110,7 +148,8 @@ const SovereignAccess: React.FC = () => {
                   <VimeoPlayer 
                     videoId="1080443373" 
                     autoplay={true}
-                    className="shadow-lg rounded-lg" 
+                    className="shadow-lg rounded-lg"
+                    key={`bridge-video-${BUILD_TIMESTAMP}`}
                   />
                   <p className="text-white/80 mt-4 text-center">
                     While the video above is designed for mass activation, you are here for something deeper.
@@ -138,7 +177,7 @@ const SovereignAccess: React.FC = () => {
                 { id: "1036245610", title: "Societi VSL 4" },
                 { id: "1075027764", title: "Societi VSL 5" }
               ].map((video, index) => (
-                <Card key={index} className="glass-card overflow-hidden">
+                <Card key={`${index}-${BUILD_TIMESTAMP}`} className="glass-card overflow-hidden">
                   <CardContent className="p-6">
                     <h3 className="font-orbitron text-xl text-white/90 mb-4">
                       {video.title}
@@ -146,6 +185,7 @@ const SovereignAccess: React.FC = () => {
                     <VimeoPlayer 
                       videoId={video.id} 
                       className="shadow-lg rounded-lg"
+                      key={`societi-${index}-${BUILD_TIMESTAMP}`}
                     />
                   </CardContent>
                 </Card>
@@ -166,6 +206,7 @@ const SovereignAccess: React.FC = () => {
               <VimeoPlayer 
                 videoId="1080449117"
                 className="shadow-lg rounded-lg mb-8"
+                key={`final-message-${BUILD_TIMESTAMP}`}
               />
               
               <div className="text-center">

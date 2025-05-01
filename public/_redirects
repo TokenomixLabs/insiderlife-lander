@@ -1,2 +1,4 @@
 
-/*    /index.html   200
+# Force SPA routing with strongest possible cache invalidation
+/*    /index.html   200!
+
