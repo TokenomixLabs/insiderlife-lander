@@ -21,7 +21,7 @@ const SovereignAccess = () => {
         {/* Section 1: Full-width intro video */}
         <section className="w-full">
           <div className="container mx-auto max-w-6xl px-4 py-12">
-            <h1 className="mb-8 text-center text-3xl font-bold text-gradient font-orbitron md:text-4xl lg:text-5xl">
+            <h1 className="mb-12 pb-4 text-center text-3xl font-bold text-gradient font-orbitron md:text-4xl lg:text-5xl">
               Sovereign Access
             </h1>
             <div className="overflow-hidden rounded-lg border border-white/10 shadow-lg">
@@ -35,7 +35,7 @@ const SovereignAccess = () => {
         {/* Section 2: AI Freedom Code Video */}
         <section className="w-full">
           <div className="container mx-auto max-w-5xl px-4 py-12">
-            <h2 className="mb-8 text-center text-2xl font-bold text-gradient font-orbitron md:text-3xl">
+            <h2 className="mb-12 pb-2 text-center text-2xl font-bold text-gradient font-orbitron md:text-3xl">
               Watch the AI Freedom Code Video
             </h2>
             <Card className="glass-card mb-12 overflow-hidden">
@@ -59,7 +59,7 @@ const SovereignAccess = () => {
         {/* Section 3: Societi Videos */}
         <section className="w-full">
           <div className="container mx-auto max-w-5xl px-4 py-12">
-            <h2 className="mb-12 text-center text-2xl font-bold text-gradient font-orbitron md:text-3xl">
+            <h2 className="mb-12 pb-2 text-center text-2xl font-bold text-gradient font-orbitron md:text-3xl">
               Watch These 5 Societi Videos
             </h2>
             <div className="space-y-12">
@@ -72,7 +72,7 @@ const SovereignAccess = () => {
               ].map((video, index) => (
                 <Card key={index} className="glass-card overflow-hidden">
                   <CardContent className="p-0">
-                    <h3 className="p-4 text-xl font-medium text-gradient font-orbitron">
+                    <h3 className="p-6 text-xl font-medium text-gradient font-orbitron">
                       {video.title}
                     </h3>
                     <VimeoPlayer videoId={video.id} aspectRatio="16:9" />
@@ -88,7 +88,7 @@ const SovereignAccess = () => {
         {/* Section 4: Final Message */}
         <section className="w-full">
           <div className="container mx-auto max-w-5xl px-4 py-12">
-            <h2 className="mb-8 text-center text-2xl font-bold text-gradient font-orbitron md:text-3xl">
+            <h2 className="mb-12 pb-2 text-center text-2xl font-bold text-gradient font-orbitron md:text-3xl">
               Final Message
             </h2>
             <Card className="glass-card mb-12 overflow-hidden">
@@ -98,7 +98,7 @@ const SovereignAccess = () => {
             </Card>
             
             <div className="mt-12 text-center">
-              <h3 className="mb-6 text-xl font-bold text-gradient font-orbitron">
+              <h3 className="mb-8 pb-2 text-xl font-bold text-gradient font-orbitron">
                 Message Jamison Directly for the Scroll
               </h3>
               <Button 
