@@ -2,7 +2,7 @@
 # SPA fallback
 /*    /index.html   200
 
-# External domain redirects
+# External domain redirects 
 https://insiderlife.com/sovereign-access    /sovereign-access   301
 http://insiderlife.com/sovereign-access     /sovereign-access   301
 https://www.insiderlife.com/sovereign-access    /sovereign-access   301

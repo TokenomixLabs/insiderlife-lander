@@ -5,6 +5,7 @@
 [build]
   publish = "dist"
   command = "npm run build"
+  ignore_warnings = true
 
 # Disable asset optimization
 [build.processing]
@@ -14,9 +15,9 @@
 [[headers]]
   for = "/*"
   [headers.values]
-    Cache-Control = "no-cache, no-store, must-revalidate"
-    Pragma = "no-cache"
-    Expires = "0"
+    Cache-Control = "public, max-age=0, must-revalidate"
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
 
 # Force HTTPS
 [[redirects]]
