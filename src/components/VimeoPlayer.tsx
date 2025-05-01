@@ -55,9 +55,11 @@ const VimeoPlayer: React.FC<VimeoPlayerProps> = ({
       isMounted = false;
       
       if (playerRef.current) {
-        playerRef.current.destroy().catch((err) => {
+        try {
+          playerRef.current.destroy();
+        } catch (err) {
           console.error("Error destroying Vimeo player:", err);
-        });
+        }
         playerRef.current = null;
       }
     };
