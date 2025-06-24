@@ -15,6 +15,7 @@ import AiFreedomCode from "./pages/AiFreedomCode";
 import AffiliateSwipeHub from "./pages/AffiliateSwipeHub";
 import Mastermind from "./pages/Mastermind";
 import SovereignAccess from "./pages/SovereignAccess";
+import GodMode from "./pages/GodMode";
 import WaitlistDialog from "./components/WaitlistDialog";
 import useExitIntent from "./hooks/useExitIntent";
 
@@ -57,6 +58,7 @@ const App = () => (
           <Route path="/affiliate-swipe-hub" element={<AffiliateSwipeHub />} />
           <Route path="/circle" element={<Mastermind />} />
           <Route path="/sovereign-access" element={<SovereignAccess />} />
+          <Route path="/godmode" element={<GodMode />} />
           {/* Add redirect from old mastermind URL to new circle URL */}
           <Route path="/mastermind" element={<Navigate to="/circle" replace />} />
           <Route path="*" element={<NotFound />} />
