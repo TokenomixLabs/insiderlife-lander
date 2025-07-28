@@ -186,7 +186,7 @@ const GodMode: React.FC = () => {
                   "shadow-glow transition-all duration-300 hover:scale-105 font-orbitron"
                 )}
               >
-                Join InsiderDAO to begin receiving scrolls →
+                Join InsiderDAO to Begin Receiving Scrolls →
               </a>
             </div>
           </div>
