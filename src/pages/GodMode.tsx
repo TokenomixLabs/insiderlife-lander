@@ -174,7 +174,7 @@ const GodMode: React.FC = () => {
         {/* Final CTA Section */}
         <section className="py-20 px-4 mb-8">
           <div className="container mx-auto max-w-4xl">
-            <div className="text-left">
+            <div className="text-center">
               <a 
                 href="https://insiderdao.com/signup?ref=vip"
                 target="_blank"
