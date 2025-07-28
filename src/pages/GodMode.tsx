@@ -14,7 +14,7 @@ const GodMode: React.FC = () => {
         <section className="py-20 px-4">
           <div className="container mx-auto max-w-4xl">
             <h1 className="text-6xl md:text-8xl font-bold mb-16 text-gradient font-orbitron tracking-wide text-left">
-              INSIDER LIFE: GOD MODE
+              INSIDER LIFE: GODMODE
             </h1>
           </div>
         </section>
@@ -23,7 +23,7 @@ const GodMode: React.FC = () => {
         <section className="py-16 px-4">
           <div className="container mx-auto max-w-4xl">
             <h2 className="text-4xl md:text-5xl font-bold mb-12 text-gradient font-orbitron text-left">
-              ENTER GOD MODE
+              ENTER GODMODE
             </h2>
             <div className="text-lg md:text-xl leading-relaxed space-y-6 text-white/90 text-left">
               <p>This is not a course.</p>
@@ -31,7 +31,7 @@ const GodMode: React.FC = () => {
               <p>This is a frequency.</p>
               
               <div className="py-8">
-                <p><strong>GOD MODE</strong> is a transmission.</p>
+                <p><strong>GODMODE</strong> is a transmission.</p>
                 <p>It is a framework designed to transform every dimension of your reality.</p>
                 <p>Not in theory—in practice.</p>
               </div>
@@ -50,10 +50,10 @@ const GodMode: React.FC = () => {
         <section className="py-16 px-4">
           <div className="container mx-auto max-w-4xl">
             <h2 className="text-4xl md:text-5xl font-bold mb-12 text-gradient font-orbitron text-left">
-              WHAT IS GOD MODE?
+              WHAT IS GODMODE?
             </h2>
             <div className="text-lg md:text-xl leading-relaxed space-y-6 text-white/90 text-left">
-              <p><strong>GOD MODE</strong> is a scroll-based transformational system that operates across all domains of life.</p>
+              <p><strong>GODMODE</strong> is a scroll-based transformational system that operates across all domains of life.</p>
               
               <div className="py-8 space-y-2">
                 <div className="border-l-4 border-insiderBlue pl-6 space-y-2">
@@ -90,7 +90,7 @@ const GodMode: React.FC = () => {
               THE FRAMEWORK
             </h2>
             <div className="text-lg md:text-xl leading-relaxed space-y-6 text-white/90 text-left">
-              <p><strong>GOD MODE</strong> is revealed in sequential episodes.</p>
+              <p><strong>GODMODE</strong> is revealed in sequential episodes.</p>
               <p>Each episode contains:</p>
               
               <ul className="space-y-3 pl-6 py-6">
@@ -112,7 +112,7 @@ const GodMode: React.FC = () => {
               <p>It is designed for those who are done with information overload and ready to become the signal.</p>
               
               <div className="py-8">
-                <p>If followed in sequence and applied with full intent, <strong>GOD MODE</strong> does not improve your life.</p>
+                <p>If followed in sequence and applied with full intent, <strong>GODMODE</strong> does not improve your life.</p>
                 <p className="text-2xl font-bold text-insiderBlue-light">It replaces it.</p>
               </div>
             </div>
@@ -131,7 +131,7 @@ const GodMode: React.FC = () => {
             </h2>
             <div className="text-lg md:text-xl leading-relaxed space-y-6 text-white/90 text-left">
               <p>This system is already being transmitted.</p>
-              <p><strong>GOD MODE</strong> has already been shared with selected initiates.</p>
+              <p><strong>GODMODE</strong> has already been shared with selected initiates.</p>
               <p>Scrolls have been distributed.</p>
               <p>Private documents exist.</p>
               <p>The framework is in motion.</p>
@@ -162,7 +162,7 @@ const GodMode: React.FC = () => {
               <p>Each step, a new dimension of reality.</p>
               
               <div className="py-8">
-                <p>You are not becoming God Mode.</p>
+                <p>You are not becoming GODMODE.</p>
                 <p className="text-2xl font-bold text-gradient">You are remembering that you always were.</p>
               </div>
               
