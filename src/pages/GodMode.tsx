@@ -13,13 +13,8 @@ const GodMode: React.FC = () => {
         {/* Header Section */}
         <section className="py-20 px-4">
           <div className="container mx-auto max-w-4xl">
-            <h1 className="text-6xl md:text-8xl font-bold mb-16 text-gradient font-orbitron tracking-wide text-left flex items-center gap-4">
-              <span>INSIDER LIFE:</span>
-              <img 
-                src="/lovable-uploads/1366740b-7e3d-463f-8c78-40217c39fed0.png" 
-                alt="GODMODE" 
-                className="h-16 md:h-24 w-auto"
-              />
+            <h1 className="text-6xl md:text-8xl font-bold mb-16 text-gradient font-orbitron tracking-wide text-left">
+              INSIDER LIFE: GODMODE
             </h1>
           </div>
         </section>
