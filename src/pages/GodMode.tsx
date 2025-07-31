@@ -13,32 +13,18 @@ const GodMode: React.FC = () => {
         {/* Header Section */}
         <section className="py-20 px-4">
           <div className="container mx-auto max-w-4xl">
-            <div className="mb-16">
-              <h1 className="text-6xl md:text-8xl font-bold text-gradient font-orbitron tracking-wide text-left mb-8">
-                INSIDER LIFE:
-              </h1>
-              <img 
-                src="/lovable-uploads/b63abb27-2c0b-418b-bdbf-3e743f079fb4.png" 
-                alt="GODMODE" 
-                className="max-w-md md:max-w-lg h-auto"
-              />
-            </div>
+            <h1 className="text-6xl md:text-8xl font-bold mb-16 text-gradient font-orbitron tracking-wide text-left">
+              INSIDER LIFE: GODMODE
+            </h1>
           </div>
         </section>
 
         {/* Enter God Mode Section */}
         <section className="py-16 px-4">
           <div className="container mx-auto max-w-4xl">
-            <div className="mb-12 flex flex-col items-start">
-              <h2 className="text-4xl md:text-5xl font-bold text-gradient font-orbitron text-left mb-4">
-                ENTER
-              </h2>
-              <img 
-                src="/lovable-uploads/b63abb27-2c0b-418b-bdbf-3e743f079fb4.png" 
-                alt="GODMODE" 
-                className="max-w-xs md:max-w-sm h-auto"
-              />
-            </div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-12 text-gradient font-orbitron text-left">
+              ENTER GODMODE
+            </h2>
             <div className="text-lg md:text-xl leading-relaxed space-y-6 text-white/90 text-left">
               <p>This is not a course.</p>
               <p>This is not a brand.</p>
@@ -63,19 +49,9 @@ const GodMode: React.FC = () => {
         {/* What Is God Mode Section */}
         <section className="py-16 px-4">
           <div className="container mx-auto max-w-4xl">
-            <div className="mb-12 flex flex-col items-start">
-              <h2 className="text-4xl md:text-5xl font-bold text-gradient font-orbitron text-left mb-4">
-                WHAT IS
-              </h2>
-              <div className="flex items-center gap-2">
-                <img 
-                  src="/lovable-uploads/b63abb27-2c0b-418b-bdbf-3e743f079fb4.png" 
-                  alt="GODMODE" 
-                  className="max-w-xs md:max-w-sm h-auto"
-                />
-                <span className="text-4xl md:text-5xl font-bold text-gradient font-orbitron">?</span>
-              </div>
-            </div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-12 text-gradient font-orbitron text-left">
+              WHAT IS GODMODE?
+            </h2>
             <div className="text-lg md:text-xl leading-relaxed space-y-6 text-white/90 text-left">
               <p><strong>GODMODE</strong> is a scroll-based transformational system that operates across all domains of life.</p>
               
