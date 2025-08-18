@@ -171,6 +171,54 @@ const GodMode: React.FC = () => {
           </div>
         </section>
 
+        <div className="container mx-auto max-w-4xl px-4">
+          <hr className="border-white/20 my-16" />
+        </div>
+
+        {/* Download Manual Section */}
+        <section className="py-16 px-4">
+          <div className="container mx-auto max-w-4xl">
+            <h2 className="text-4xl md:text-5xl font-bold mb-12 text-gradient font-orbitron text-left">
+              Download the GODMODE Manual
+            </h2>
+            <div className="text-lg md:text-xl leading-relaxed space-y-6 text-white/90 text-left mb-12">
+              <p>
+                Download the official GODMODE: Reality Engineering Manual. It outlines the core framework and live training topics we teach, including business; marketing; artificial intelligence; technology; personal development; blockchain; cryptocurrency; sovereignty; mindset; leadership; spirituality; and health & wellness.
+              </p>
+            </div>
+            
+            <div className="flex flex-col items-start space-y-4">
+              <a 
+                href="/godmode-manual-final.pdf"
+                target="_blank"
+                rel="noopener"
+                download
+                className={cn(
+                  "bg-gradient-to-r from-insiderPurple to-insiderBlue",
+                  "hover:from-insiderPurple-light hover:to-insiderBlue-light",
+                  "text-white font-medium text-xl px-12 py-6 inline-block rounded-lg",
+                  "shadow-glow transition-all duration-300 hover:scale-105 font-orbitron"
+                )}
+              >
+                Download Manual (PDF)
+              </a>
+              
+              <p className="text-sm text-white/60 mt-2">
+                GODMODE: Reality Engineering — Confidential Manual & Framework (PDF)
+              </p>
+              
+              <a 
+                href="https://insiderdao.com/signup?ref=vip"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-insiderBlue hover:text-insiderBlue-light transition-colors duration-200 text-lg mt-2"
+              >
+                Want the full training experience? Join InsiderDAO →
+              </a>
+            </div>
+          </div>
+        </section>
+
         {/* Final CTA Section */}
         <section className="py-20 px-4 mb-8">
           <div className="container mx-auto max-w-4xl">
