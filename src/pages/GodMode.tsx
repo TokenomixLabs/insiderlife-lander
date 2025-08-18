@@ -176,10 +176,10 @@ const GodMode: React.FC = () => {
         </div>
 
         {/* Download Manual Section */}
-        <section className="py-16 px-4">
+        <section className="py-16 px-4 pb-8">
           <div className="container mx-auto max-w-4xl text-center">
             <h2 className="text-4xl md:text-5xl font-bold mb-12 text-gradient font-orbitron">
-              Download the GODMODE Manual
+              Download the GODMODE Reality Engineering Manual
             </h2>
             <div className="text-lg md:text-xl leading-relaxed space-y-6 text-white/90 mb-12 max-w-3xl mx-auto">
               <p>
@@ -210,12 +210,8 @@ const GodMode: React.FC = () => {
           </div>
         </section>
 
-        <div className="container mx-auto max-w-4xl px-4">
-          <hr className="border-white/20 my-16" />
-        </div>
-
         {/* Final CTA Section */}
-        <section className="py-20 px-4 mb-8">
+        <section className="pt-8 pb-12 px-4 mb-8">
           <div className="container mx-auto max-w-4xl text-center">
             <p className="text-2xl md:text-3xl font-medium text-white/90 mb-8 font-orbitron">
               Are you ready for the complete GODMODE experience?
