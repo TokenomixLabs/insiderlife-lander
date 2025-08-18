@@ -214,7 +214,7 @@ const GodMode: React.FC = () => {
         <section className="pt-8 pb-12 px-4 mb-8">
           <div className="container mx-auto max-w-4xl text-center">
             <p className="text-2xl md:text-3xl font-medium text-white/90 mb-8 font-orbitron">
-              Are you ready for the complete GODMODE experience?
+              Are you ready for the complete GODMODE community experience?
             </p>
             <a 
               href="https://insiderdao.com/signup?ref=vip"
