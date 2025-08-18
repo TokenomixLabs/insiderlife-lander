@@ -210,24 +210,29 @@ const GodMode: React.FC = () => {
           </div>
         </section>
 
+        <div className="container mx-auto max-w-4xl px-4">
+          <hr className="border-white/20 my-16" />
+        </div>
+
         {/* Final CTA Section */}
         <section className="py-20 px-4 mb-8">
-          <div className="container mx-auto max-w-4xl">
-            <div className="text-center">
-              <a 
-                href="https://insiderdao.com/signup?ref=vip"
-                target="_blank"
-                rel="noopener noreferrer" 
-                className={cn(
-                  "bg-gradient-to-r from-insiderPurple to-insiderBlue",
-                  "hover:from-insiderPurple-light hover:to-insiderBlue-light",
-                  "text-white font-medium text-xl px-12 py-6 inline-block rounded-lg",
-                  "shadow-glow transition-all duration-300 hover:scale-105 font-orbitron"
-                )}
-              >
-                Join InsiderDAO to Begin Receiving Scrolls →
-              </a>
-            </div>
+          <div className="container mx-auto max-w-4xl text-center">
+            <p className="text-2xl md:text-3xl font-medium text-white/90 mb-8 font-orbitron">
+              Are you ready for the complete GODMODE experience?
+            </p>
+            <a 
+              href="https://insiderdao.com/signup?ref=vip"
+              target="_blank"
+              rel="noopener noreferrer" 
+              className={cn(
+                "bg-gradient-to-r from-insiderPurple to-insiderBlue",
+                "hover:from-insiderPurple-light hover:to-insiderBlue-light",
+                "text-white font-medium text-xl px-12 py-6 inline-block rounded-lg",
+                "shadow-glow transition-all duration-300 hover:scale-105 font-orbitron"
+              )}
+            >
+              Join InsiderDAO to Begin Receiving Scrolls →
+            </a>
           </div>
         </section>
       </main>
