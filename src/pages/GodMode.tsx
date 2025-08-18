@@ -178,7 +178,7 @@ const GodMode: React.FC = () => {
         {/* Download Manual Section */}
         <section className="py-16 px-4 pb-8">
           <div className="container mx-auto max-w-4xl text-center">
-            <h2 className="text-4xl md:text-5xl font-bold mb-12 text-gradient font-orbitron">
+            <h2 className="text-4xl md:text-5xl font-bold mb-12 text-gradient font-orbitron leading-tight">
               Download the GODMODE Reality Engineering Manual
             </h2>
             <div className="text-lg md:text-xl leading-relaxed space-y-6 text-white/90 mb-12 max-w-3xl mx-auto">
