@@ -35,6 +35,25 @@
 
     --radius: 0.75rem;
 
+    /* Brand energy tokens */
+    --energy-cyan: 189 94% 62%;
+    --energy-blue: 217 100% 62%;
+    --energy-violet: 268 86% 62%;
+    --energy-magenta: 305 72% 56%;
+
+    --gradient-energy: linear-gradient(
+      100deg,
+      hsl(var(--energy-cyan)),
+      hsl(var(--energy-blue)) 42%,
+      hsl(var(--energy-violet)) 74%,
+      hsl(var(--energy-magenta))
+    );
+    --gradient-veil: radial-gradient(
+      120% 100% at 50% 0%,
+      hsl(var(--energy-blue) / 0.16),
+      transparent 62%
+    );
+
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
     --sidebar-primary: 240 5.9% 10%;
@@ -54,14 +73,45 @@
   body {
     @apply bg-insiderDark text-foreground;
   }
+
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 @layer components {
   .text-gradient {
     @apply bg-gradient-to-r from-insiderBlue to-insiderPurple bg-clip-text text-transparent;
   }
-  
+
   .glass-card {
     @apply bg-insiderDark-light/40 backdrop-blur-lg border border-white/10 rounded-xl shadow-lg;
+  }
+
+  /* Brand system */
+  .text-energy {
+    background-image: var(--gradient-energy);
+    @apply bg-clip-text text-transparent;
+  }
+
+  .bg-energy {
+    background-image: var(--gradient-energy);
+  }
+
+  .veil {
+    background-image: var(--gradient-veil);
+  }
+
+  .display {
+    @apply font-orbitron font-bold uppercase tracking-tight leading-[1.18] pb-[0.14em];
+  }
+
+  .hairline {
+    @apply h-px w-full bg-gradient-to-r from-transparent via-white/15 to-transparent;
+  }
+
+  .rule-energy {
+    background-image: var(--gradient-energy);
+    @apply h-px w-full opacity-70;
   }
 }
