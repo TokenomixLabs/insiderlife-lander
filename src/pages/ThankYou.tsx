@@ -14,7 +14,7 @@ const ThankYou: React.FC = () => {
             <img 
               src={logoAsset.url}
               alt="InsiderLife Logo" 
-              className="h-10 mb-8"
+              className="h-12 w-auto mb-8"
             />
           </Link>
           
