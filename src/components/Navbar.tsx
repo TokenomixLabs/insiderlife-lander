@@ -2,6 +2,7 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { Link } from 'react-router-dom';
+import logoAsset from '@/assets/insiderlife-logo.png.asset.json';
 
 export function Navbar() {
   return (
@@ -10,7 +11,7 @@ export function Navbar() {
         <div className="flex items-center">
           <Link to="/">
             <img 
-              src="/lovable-uploads/fe4a3c75-e706-4c9e-9a22-d0dd85c0f199.png" 
+              src={logoAsset.url}
               alt="InsiderLife Logo" 
               className="h-6 md:h-8" 
             />
