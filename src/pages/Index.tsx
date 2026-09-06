@@ -16,6 +16,16 @@ import Ecosystem from '@/components/home/Ecosystem';
 import FinalClose from '@/components/home/FinalClose';
 
 const Index: React.FC = () => {
+  const { hash } = useLocation();
+
+  useEffect(() => {
+    if (!hash) return;
+    const el = document.querySelector(hash);
+    if (el) {
+      window.setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
+    }
+  }, [hash]);
+
   return (
     <div className="min-h-screen bg-insiderDark flex flex-col overflow-x-hidden">
       <Navbar />
