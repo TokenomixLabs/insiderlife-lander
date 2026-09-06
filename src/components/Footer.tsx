@@ -3,6 +3,7 @@ import React from 'react';
 import { cn } from '@/lib/utils';
 import { Instagram, Linkedin, Mail, Youtube, Twitter, Facebook, Phone, HelpCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import logoAsset from '@/assets/insiderlife-logo.png.asset.json';
 
 const Footer: React.FC = () => {
   return (
@@ -12,7 +13,7 @@ const Footer: React.FC = () => {
           <div>
             <Link to="/" className="block mb-4">
               <img 
-                src="/lovable-uploads/fe4a3c75-e706-4c9e-9a22-d0dd85c0f199.png" 
+                src={logoAsset.url}
                 alt="InsiderLife Logo" 
                 className="h-8"
               />
