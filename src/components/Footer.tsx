@@ -15,7 +15,7 @@ const Footer: React.FC = () => {
               <img 
                 src={logoAsset.url}
                 alt="InsiderLife Logo" 
-                className="h-10"
+                className="h-12 w-auto"
               />
             </Link>
             <p className="text-white/70 max-w-xs">
