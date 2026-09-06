@@ -14,9 +14,9 @@ const Reveal: React.FC<RevealProps> = ({ children, className, delay = 0 }) => {
   return (
     <div
       ref={elementRef}
-      style={{ transitionDelay: `${delay}ms` }}
+      style={{ transitionDelay: `${delay}ms`, transitionDuration: '900ms' }}
       className={cn(
-        'transition-all duration-[900ms] ease-out will-change-transform',
+        'transition-all ease-out will-change-transform',
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6',
         className
       )}
