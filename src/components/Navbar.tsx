@@ -13,7 +13,7 @@ export function Navbar() {
             <img 
               src={logoAsset.url}
               alt="InsiderLife Logo" 
-              className="h-6 md:h-8" 
+              className="h-8 md:h-10" 
             />
           </Link>
         </div>
