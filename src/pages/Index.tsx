@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import VideoHeroSection from '@/components/VideoHeroSection';
 import Footer from '@/components/Footer';
