@@ -1,15 +1,16 @@
 import React from 'react';
+import { RadioTower, UsersRound, Waypoints } from 'lucide-react';
 import SectionShell, { Eyebrow } from './SectionShell';
 import Reveal from './Reveal';
 
 const values = [
-  { title: 'Better Signal', copy: 'What reaches you decides what you consider. Fewer takes, more truth.' },
-  { title: 'Better People', copy: 'Standards are contagious. Move with people already operating higher.' },
-  { title: 'Better Opportunity', copy: 'Access travels through relationships long before it reaches a feed.' },
+  { title: 'Better Signal', copy: 'What reaches you decides what you consider. Fewer takes, more truth.', Icon: RadioTower },
+  { title: 'Better People', copy: 'Standards are contagious. Move with people already operating higher.', Icon: UsersRound },
+  { title: 'Better Opportunity', copy: 'Access travels through relationships long before it reaches a feed.', Icon: Waypoints },
 ];
 
 const CommunityDoctrine: React.FC = () => (
-  <SectionShell id="community" className="border-t border-white/5 overflow-hidden">
+  <SectionShell id="community" className="border-t border-white/10">
     <div className="pointer-events-none absolute inset-0 veil opacity-70" aria-hidden="true" />
     <div className="relative">
       <Reveal>
@@ -22,17 +23,19 @@ const CommunityDoctrine: React.FC = () => (
         </p>
       </Reveal>
 
-      <div className="mt-16 md:mt-20 relative">
-        <div className="hidden md:block absolute top-[14px] left-0 right-0 rule-energy" />
-        <div className="grid gap-12 md:grid-cols-3 md:gap-10">
+      <div className="mt-10 md:mt-12 relative">
+        <div className="hidden md:block absolute top-5 left-[16.666%] right-[16.666%] rule-energy" />
+        <div className="grid gap-7 md:grid-cols-3 md:gap-8">
           {values.map((v, i) => (
-            <Reveal key={v.title} delay={i * 110}>
-              <div className="relative md:pt-10">
-                <span className="hidden md:block absolute top-[9px] left-0 h-[11px] w-[11px] rounded-full bg-energy" />
-                <h3 className="font-orbitron text-base md:text-lg tracking-[0.18em] uppercase text-white leading-relaxed pb-[0.1em]">
+            <Reveal key={v.title} delay={i * 110} className="min-w-0">
+              <div className="relative min-w-0 border border-white/10 bg-insiderDark-light/35 px-6 py-7 md:pt-16 md:min-h-[220px]">
+                <span className="absolute top-4 left-6 md:left-1/2 md:-translate-x-1/2 flex h-9 w-9 items-center justify-center rounded-full border border-primary/50 bg-insiderDark shadow-[0_0_20px_hsl(var(--energy-blue)/0.18)]">
+                  <v.Icon className="h-4 w-4 text-primary" aria-hidden="true" />
+                </span>
+                <h3 className="mt-10 md:mt-0 font-orbitron text-sm lg:text-base uppercase text-white leading-relaxed pb-[0.1em] break-words">
                   {v.title}
                 </h3>
-                <p className="mt-4 text-sm md:text-base text-white/65 leading-relaxed max-w-sm">{v.copy}</p>
+                <p className="mt-3 text-sm text-white/65 leading-relaxed">{v.copy}</p>
               </div>
             </Reveal>
           ))}
@@ -40,7 +43,7 @@ const CommunityDoctrine: React.FC = () => (
       </div>
 
       <Reveal delay={200}>
-        <blockquote className="mt-20 md:mt-24 border-l-2 border-white/20 pl-6 md:pl-10 max-w-3xl">
+        <blockquote className="mt-10 md:mt-12 border-l-2 border-primary/50 pl-6 md:pl-8 max-w-3xl">
           <p className="text-xl md:text-2xl text-white/90 leading-relaxed">
             Your feed should not be the most valuable thing about your network. The people should be.
           </p>
