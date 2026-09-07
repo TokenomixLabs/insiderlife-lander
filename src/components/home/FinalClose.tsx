@@ -7,7 +7,7 @@ import Reveal from './Reveal';
 const FinalClose: React.FC = () => (
   <SectionShell id="enter" className="border-t border-white/10 overflow-hidden py-20 md:py-28">
     <div className="pointer-events-none absolute inset-0 veil" aria-hidden="true" />
-    <div className="relative max-w-4xl">
+    <div className="relative max-w-6xl">
       <Reveal>
         <p className="font-orbitron text-sm md:text-base tracking-[0.24em] uppercase text-white/60 pb-1">
           Who you move with changes how far you go.
