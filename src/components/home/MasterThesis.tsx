@@ -11,7 +11,7 @@ const MasterThesis: React.FC = () => (
       </Reveal>
 
       <Reveal delay={80}>
-        <h1 className="display text-energy text-[2.6rem] leading-[1.12] sm:text-6xl md:text-7xl lg:text-[5.4rem] max-w-5xl">
+        <h1 className="display text-energy text-4xl leading-[1.12] sm:text-6xl md:text-7xl lg:text-[5.4rem] max-w-5xl break-words">
           Upgrade Your Reality.
         </h1>
       </Reveal>
