@@ -13,7 +13,7 @@ const GodModeSection: React.FC = () => (
       <div className="min-w-0 lg:col-span-7">
         <Reveal>
           <Eyebrow>GODMODE</Eyebrow>
-          <h2 className="display text-energy text-3xl sm:text-4xl md:text-5xl lg:text-[3.4rem] leading-[1.14]">
+          <h2 className="display text-energy text-3xl sm:text-4xl md:text-5xl lg:text-[3.4rem]">
             Play the Game of Life at the Highest Possible Level.
           </h2>
         </Reveal>

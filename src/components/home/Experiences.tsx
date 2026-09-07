@@ -11,7 +11,7 @@ const Experiences: React.FC = () => (
       <div className="min-w-0 lg:col-span-6">
         <Reveal>
           <Eyebrow>Experiences</Eyebrow>
-          <h2 className="display text-white text-3xl sm:text-4xl md:text-[2.9rem] leading-[1.2]">
+          <h2 className="display text-white text-3xl sm:text-4xl md:text-[2.9rem]">
             Don't just learn about a better life.
             <span className="text-energy"> Live one.</span>
           </h2>

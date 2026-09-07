@@ -14,7 +14,7 @@ const IntelligentLayer: React.FC = () => (
       <div className="min-w-0 lg:col-span-6">
         <Reveal>
           <Eyebrow>The Intelligent Layer</Eyebrow>
-          <h2 className="display text-white text-2xl sm:text-3xl md:text-[2.6rem] leading-[1.22]">
+          <h2 className="display text-white text-2xl sm:text-3xl md:text-[2.6rem]">
             More people should create more intelligence —
             <span className="text-energy"> not more noise.</span>
           </h2>
