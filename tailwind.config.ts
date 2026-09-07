@@ -78,8 +78,8 @@ export default {
 					dark: '#322F54'
 				},
 				insiderDark: {
-					DEFAULT: '#0A1128',
-					light: '#16213E'
+					DEFAULT: '#05071A',
+					light: '#0B1224'
 				}
 			},
 			borderRadius: {

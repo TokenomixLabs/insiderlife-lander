@@ -3,7 +3,7 @@ import SectionShell, { Eyebrow } from './SectionShell';
 import Reveal from './Reveal';
 
 const MasterThesis: React.FC = () => (
-  <SectionShell id="why" className="pt-28 md:pt-40 pb-24 md:pb-36 overflow-hidden">
+  <SectionShell id="why" className="pt-20 md:pt-28 pb-16 md:pb-24 overflow-hidden">
     <div className="pointer-events-none absolute inset-0 veil" aria-hidden="true" />
     <div className="relative">
       <Reveal>
@@ -11,7 +11,7 @@ const MasterThesis: React.FC = () => (
       </Reveal>
 
       <Reveal delay={80}>
-        <h1 className="display text-energy text-[2.6rem] leading-[1.12] sm:text-6xl md:text-7xl lg:text-[5.4rem] max-w-5xl">
+        <h1 className="display text-energy text-4xl leading-[1.12] sm:text-6xl md:text-7xl lg:text-[5.4rem] max-w-5xl break-words">
           Upgrade Your Reality.
         </h1>
       </Reveal>
@@ -23,7 +23,7 @@ const MasterThesis: React.FC = () => (
       </Reveal>
 
       <Reveal delay={240}>
-        <div className="mt-12 md:mt-16 grid gap-10 md:grid-cols-12 items-start">
+        <div className="mt-10 md:mt-12 grid gap-8 md:grid-cols-12 items-start">
           <div className="md:col-span-1 hidden md:block">
             <div className="rule-energy mt-4" />
           </div>

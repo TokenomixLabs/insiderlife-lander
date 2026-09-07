@@ -11,9 +11,9 @@ interface SectionShellProps {
 const SectionShell: React.FC<SectionShellProps> = ({ id, children, className, innerClassName }) => (
   <section
     id={id}
-    className={cn('relative w-full scroll-mt-24 py-24 md:py-36 px-6 md:px-10', className)}
+    className={cn('relative w-full scroll-mt-20 py-14 md:py-20 px-5 sm:px-6 md:px-10', className)}
   >
-    <div className={cn('mx-auto w-full max-w-6xl', innerClassName)}>{children}</div>
+    <div className={cn('mx-auto w-full max-w-7xl', innerClassName)}>{children}</div>
   </section>
 );
 

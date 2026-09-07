@@ -5,7 +5,7 @@ import SectionShell from './SectionShell';
 import Reveal from './Reveal';
 
 const FinalClose: React.FC = () => (
-  <SectionShell id="enter" className="border-t border-white/5 overflow-hidden py-28 md:py-44">
+  <SectionShell id="enter" className="border-t border-white/10 overflow-hidden py-20 md:py-28">
     <div className="pointer-events-none absolute inset-0 veil" aria-hidden="true" />
     <div className="relative max-w-4xl">
       <Reveal>
@@ -26,7 +26,7 @@ const FinalClose: React.FC = () => (
       <Reveal delay={180}>
         <Link
           to="/circle"
-          className="mt-12 inline-flex items-center gap-3 bg-energy text-white font-orbitron text-sm md:text-base tracking-[0.2em] uppercase px-9 py-5 rounded-md transition-transform duration-300 hover:scale-[1.03]"
+          className="mt-10 inline-flex items-center gap-3 bg-energy text-white font-orbitron text-sm md:text-base tracking-[0.2em] uppercase px-8 py-4 rounded-md transition-transform duration-300 hover:scale-[1.03]"
         >
           Enter InsiderLife
           <ArrowRight className="h-4 w-4" />

@@ -1,15 +1,10 @@
 
-import { Button } from "@/components/ui/button";
-import { Volume2, VolumeX } from "lucide-react";
-import { useState, useRef, useEffect } from "react";
-import { useIsMobile } from "@/hooks/use-mobile";
+import { useRef, useEffect } from "react";
 import ErrorBoundary from "@/components/ErrorBoundary";
 
 const VideoPlayer = () => {
-  const [isMuted, setIsMuted] = useState(true);
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const vimeoPlayerRef = useRef<any>(null);
-  const isMobile = useIsMobile();
 
   useEffect(() => {
     let isLoaded = false;
@@ -22,8 +17,7 @@ const VideoPlayer = () => {
           vimeoPlayerRef.current = new VimeoPlayer(iframeRef.current);
           isLoaded = true;
           
-          // Set initial mute state
-          vimeoPlayerRef.current.setVolume(isMuted ? 0 : 1).catch(err => {
+          vimeoPlayerRef.current.setVolume(0).catch(err => {
             console.error('Error setting volume:', err);
           });
         }
@@ -36,26 +30,14 @@ const VideoPlayer = () => {
 
     return () => {
       if (vimeoPlayerRef.current) {
-        vimeoPlayerRef.current.destroy().catch(err => {
+        try {
+          vimeoPlayerRef.current.destroy();
+        } catch (err) {
           console.error('Error destroying player:', err);
-        });
+        }
       }
     };
   }, []);
-
-  useEffect(() => {
-    if (vimeoPlayerRef.current) {
-      vimeoPlayerRef.current.setVolume(isMuted ? 0 : 1).catch(err => {
-        console.error('Error setting volume:', err);
-      });
-    } else if (iframeRef.current) {
-      // Fallback method using postMessage
-      iframeRef.current.contentWindow?.postMessage({
-        method: 'setVolume',
-        value: isMuted ? 0 : 1
-      }, '*');
-    }
-  }, [isMuted]);
 
   return (
     <div className="relative w-full overflow-hidden bg-black">
@@ -70,24 +52,13 @@ const VideoPlayer = () => {
           title="InsiderLife Hero Video"
         />
       </div>
-
-      {/* Mute Button */}
-      <Button
-        variant="ghost"
-        size="icon"
-        onClick={() => setIsMuted(!isMuted)}
-        className="absolute z-[9999] bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full w-14 h-14 flex items-center justify-center bottom-8 right-8 border-2 border-white/30"
-        aria-label={isMuted ? "Unmute video" : "Mute video"}
-      >
-        {isMuted ? <VolumeX size={28} className="text-white" /> : <Volume2 size={28} className="text-white" />}
-      </Button>
     </div>
   );
 };
 
 const VideoHeroSection = () => (
   <ErrorBoundary>
-    <section className="relative w-full overflow-hidden bg-black pt-[80px]">
+    <section className="relative w-full overflow-hidden bg-black pt-[68px]">
       <VideoPlayer />
     </section>
   </ErrorBoundary>

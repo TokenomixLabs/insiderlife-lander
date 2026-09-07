@@ -7,8 +7,8 @@ const facets = ['Adventure', 'Health & Energy', 'Relationships', 'Freedom', 'Pre
 
 const Experiences: React.FC = () => (
   <SectionShell id="experiences" className="border-t border-white/5">
-    <div className="grid gap-14 lg:grid-cols-12 lg:gap-16 items-center">
-      <div className="lg:col-span-6">
+    <div className="grid gap-10 lg:grid-cols-12 lg:gap-14 items-center">
+      <div className="min-w-0 lg:col-span-6">
         <Reveal>
           <Eyebrow>Experiences</Eyebrow>
           <h2 className="display text-white text-3xl sm:text-4xl md:text-[2.9rem] leading-[1.2]">
@@ -32,7 +32,7 @@ const Experiences: React.FC = () => (
         </Reveal>
       </div>
 
-      <div className="lg:col-span-6">
+      <div className="min-w-0 lg:col-span-6">
         <Reveal delay={160}>
           <div className="relative overflow-hidden rounded-sm border border-white/10">
             <img

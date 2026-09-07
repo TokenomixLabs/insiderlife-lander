@@ -27,7 +27,7 @@ const LifeMasteryBridge: React.FC = () => (
       </p>
     </Reveal>
 
-    <div className="mt-16 md:mt-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+    <div className="mt-12 md:mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
       {dimensions.map((d, i) => (
         <Reveal key={d.n} delay={i * 70}>
           <div className="group relative h-full border-t border-white/10 sm:[&:nth-child(odd)]:border-r lg:[&:nth-child(odd)]:border-r-0 lg:border-r lg:[&:nth-child(3n)]:border-r-0 border-white/10 py-8 pr-6 md:pr-10 pl-0 sm:pl-0">

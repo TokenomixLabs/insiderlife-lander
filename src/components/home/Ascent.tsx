@@ -22,15 +22,15 @@ const Ascent: React.FC = () => (
       </p>
     </Reveal>
 
-    <div className="mt-16 md:mt-24 relative">
-      <div className="hidden md:block absolute left-0 right-0 top-[7px] rule-energy" />
-      <ol className="grid gap-10 md:grid-cols-5 md:gap-6">
+    <div className="mt-10 md:mt-12 relative">
+      <div className="hidden md:block absolute left-[10%] right-[10%] top-[7px] w-auto rule-energy" />
+      <ol className="grid gap-7 md:grid-cols-5 md:gap-5">
         {steps.map((s, i) => (
           <Reveal key={s.label} delay={i * 90}>
-            <li className="relative md:pt-10 pl-6 md:pl-0 border-l md:border-l-0 border-white/10">
-              <span className="absolute md:top-0 top-1 left-[-5px] md:left-0 h-[10px] w-[10px] rounded-full bg-energy" />
+            <li className="relative min-w-0 md:pt-9 pl-6 md:pl-0 border-l md:border-l-0 border-white/10">
+              <span className="absolute md:top-0 top-1 left-[-5px] md:left-1/2 md:-translate-x-1/2 h-[10px] w-[10px] rounded-full bg-energy" />
               <span className="font-orbitron text-[11px] tracking-[0.3em] text-white/35">0{i + 1}</span>
-              <h3 className="mt-3 font-orbitron text-base md:text-lg tracking-[0.18em] uppercase text-white leading-relaxed pb-[0.1em]">
+              <h3 className="mt-3 font-orbitron text-sm lg:text-base uppercase text-white leading-relaxed pb-[0.1em]">
                 {s.label}
               </h3>
               <p className="mt-3 text-sm text-white/60 leading-relaxed">{s.copy}</p>
