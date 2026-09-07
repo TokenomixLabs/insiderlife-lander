@@ -9,8 +9,8 @@ const spans = ['Mind', 'Body', 'Energy', 'Wealth', 'Mission', 'Identity', 'Relat
 const GodModeSection: React.FC = () => (
   <SectionShell id="godmode" className="border-t border-white/10 overflow-hidden py-16 md:py-24">
     <div className="pointer-events-none absolute inset-0 veil opacity-80" aria-hidden="true" />
-      <div className="relative grid gap-12 lg:grid-cols-12 lg:gap-12 xl:gap-16 items-start">
-       <div className="min-w-0 lg:col-span-8">
+      <div className="relative grid gap-12 xl:grid-cols-12 xl:gap-16 items-start">
+       <div className="min-w-0 xl:col-span-8">
         <Reveal>
           <Eyebrow>GODMODE</Eyebrow>
           <h2 className="display text-energy text-3xl sm:text-4xl md:text-5xl lg:text-[3.4rem]">
@@ -41,7 +41,7 @@ const GodModeSection: React.FC = () => (
         </Reveal>
       </div>
 
-       <div className="min-w-0 lg:col-span-4">
+       <div className="min-w-0 xl:col-span-4">
         <Reveal delay={140}>
           <div className="rule-energy" />
           <ul className="mt-8 grid grid-cols-2 gap-x-6">
