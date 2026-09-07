@@ -11,16 +11,16 @@ const points = [
 const IntelligentLayer: React.FC = () => (
   <SectionShell id="intelligent-layer" className="border-t border-white/10 bg-insiderDark-light/25">
     <div className="grid gap-10 lg:grid-cols-12 lg:items-end">
-      <div className="min-w-0 lg:col-span-6">
+      <div className="min-w-0 lg:col-span-8">
         <Reveal>
           <Eyebrow>The Intelligent Layer</Eyebrow>
-          <h2 className="display text-white text-2xl sm:text-3xl md:text-[2.6rem] leading-[1.22]">
+          <h2 className="display text-white text-2xl sm:text-3xl md:text-[2.6rem]">
             More people should create more intelligence —
             <span className="text-energy"> not more noise.</span>
           </h2>
         </Reveal>
       </div>
-      <div className="min-w-0 lg:col-span-6">
+      <div className="min-w-0 lg:col-span-4">
         <Reveal delay={120}>
           <p className="text-base md:text-lg text-white/70 leading-relaxed">
             A community should get sharper as it grows. That is the standard InsiderLife is being

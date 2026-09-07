@@ -103,7 +103,11 @@
   }
 
   .display {
-    @apply font-orbitron font-bold uppercase tracking-tight leading-[1.18] pb-[0.14em];
+    @apply font-orbitron font-bold uppercase pb-[0.14em];
+    letter-spacing: 0.01em;
+    line-height: 1.16 !important;
+    text-wrap: pretty;
+    word-spacing: 0.08em;
   }
 
   .hairline {

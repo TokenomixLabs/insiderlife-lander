@@ -13,7 +13,7 @@ const Ecosystem: React.FC = () => (
   <SectionShell id="ecosystem" className="border-t border-white/5">
     <Reveal>
       <Eyebrow>Ecosystem</Eyebrow>
-      <h2 className="display text-white text-3xl sm:text-4xl md:text-5xl max-w-3xl">
+      <h2 className="display text-white text-3xl sm:text-4xl md:text-5xl max-w-7xl">
         One Community. <span className="text-energy">A Much Larger World.</span>
       </h2>
       <p className="mt-6 max-w-2xl text-base md:text-lg text-white/70 leading-relaxed">

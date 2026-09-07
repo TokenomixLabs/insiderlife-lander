@@ -15,13 +15,13 @@ const LifeMasteryBridge: React.FC = () => (
   <SectionShell id="mastery" className="border-t border-white/5">
     <Reveal>
       <Eyebrow>The Wider Game</Eyebrow>
-      <h2 className="display text-energy text-3xl sm:text-4xl md:text-5xl max-w-3xl">
+      <h2 className="display text-energy text-3xl sm:text-4xl md:text-5xl max-w-5xl xl:max-w-none xl:whitespace-nowrap">
         The Game Is Bigger Than AI.
       </h2>
     </Reveal>
 
     <Reveal delay={100}>
-      <p className="mt-8 max-w-2xl text-base md:text-lg text-white/70 leading-relaxed">
+      <p className="mt-8 max-w-3xl text-base md:text-lg text-white/70 leading-relaxed">
         AI can expand what you can do. The right people can expand what becomes possible.
         But the point is not better tools. The point is a better life.
       </p>

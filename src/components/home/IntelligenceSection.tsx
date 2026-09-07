@@ -8,7 +8,7 @@ const IntelligenceSection: React.FC = () => (
   <SectionShell id="intelligence" className="border-t border-white/5">
     <Reveal>
       <Eyebrow>Intelligence</Eyebrow>
-      <h2 className="display text-white text-2xl sm:text-3xl md:text-[2.75rem] leading-[1.22] max-w-4xl">
+      <h2 className="display text-white text-2xl sm:text-3xl md:text-[2.75rem] max-w-6xl">
         Powerful tools do not create a powerful life.
         <br className="hidden sm:block" />
         <span className="text-energy"> Powerful operators do.</span>

@@ -31,7 +31,7 @@ const ThreeParts: React.FC = () => (
   <SectionShell id="system" className="border-t border-white/10">
     <Reveal>
       <Eyebrow>Inside InsiderLife</Eyebrow>
-      <h2 className="display text-white text-3xl sm:text-4xl md:text-5xl max-w-3xl">
+      <h2 className="display text-white text-3xl sm:text-4xl md:text-5xl max-w-5xl">
         Three Parts. <span className="text-energy">One System.</span>
       </h2>
     </Reveal>
