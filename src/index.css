@@ -72,7 +72,6 @@
 
   body {
     @apply bg-insiderDark text-foreground;
-    overflow-x: clip;
   }
 
   html {

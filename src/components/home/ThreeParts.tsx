@@ -8,19 +8,22 @@ const parts = [
     label: 'The Broadcast',
     line: 'Live signal.',
     copy: 'Conversations, live intelligence, interviews, presentations and developments worth paying attention to — as they happen.',
-    image: '/lovable-uploads/b63abb27-2c0b-418b-bdbf-3e743f079fb4.png',
+    image: ridge,
+    position: 'object-left',
   },
   {
     label: 'The Code',
     line: 'Knowledge you can use.',
     copy: 'Frameworks, playbooks, training and AI Freedom Code: executable intelligence, not theory you file away.',
-    image: '/lovable-uploads/23046376-dfa1-42fa-b4e6-17e8ade6cb2b.png',
+    image: ridge,
+    position: 'object-center',
   },
   {
     label: 'The Circle',
     line: 'People worth knowing.',
     copy: 'Smaller groups, deeper relationships, collaboration and higher-trust rooms where real moves get made.',
     image: ridge,
+    position: 'object-right',
   },
 ];
 
@@ -37,7 +40,7 @@ const ThreeParts: React.FC = () => (
       {parts.map((p, i) => (
         <Reveal key={p.label} delay={i * 110} className="h-full">
           <article className="group h-full min-h-[340px] relative overflow-hidden border border-white/10 bg-insiderDark-light">
-            <img src={p.image} alt="" loading="lazy" className="absolute inset-0 h-full w-full object-cover opacity-35 saturate-75 transition-transform duration-700 group-hover:scale-[1.03]" />
+            <img src={p.image} alt="" loading="lazy" className={`absolute inset-0 h-full w-full object-cover ${p.position} opacity-35 saturate-75 transition-transform duration-700 group-hover:scale-[1.03]`} />
             <div className="panel-atmosphere absolute inset-0" />
             <div className="absolute inset-x-0 top-0 h-px bg-energy opacity-70" />
             <div className="relative flex h-full min-h-[340px] flex-col justify-end p-6 lg:p-8">
