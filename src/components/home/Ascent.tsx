@@ -23,7 +23,7 @@ const Ascent: React.FC = () => (
     </Reveal>
 
     <div className="mt-10 md:mt-12 relative">
-      <div className="hidden md:block absolute left-[10%] right-[10%] top-[7px] rule-energy" />
+      <div className="hidden md:block absolute left-[10%] right-[10%] top-[7px] w-auto rule-energy" />
       <ol className="grid gap-7 md:grid-cols-5 md:gap-5">
         {steps.map((s, i) => (
           <Reveal key={s.label} delay={i * 90}>

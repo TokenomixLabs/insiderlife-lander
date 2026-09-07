@@ -24,7 +24,7 @@ const CommunityDoctrine: React.FC = () => (
       </Reveal>
 
       <div className="mt-10 md:mt-12 relative">
-        <div className="hidden md:block absolute top-5 left-[16.666%] right-[16.666%] rule-energy" />
+        <div className="hidden md:block absolute top-5 left-[16.666%] right-[16.666%] w-auto rule-energy" />
         <div className="grid gap-7 md:grid-cols-3 md:gap-8">
           {values.map((v, i) => (
             <Reveal key={v.title} delay={i * 110} className="min-w-0">
