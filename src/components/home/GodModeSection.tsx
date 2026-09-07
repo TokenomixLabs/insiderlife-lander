@@ -7,10 +7,10 @@ import Reveal from './Reveal';
 const spans = ['Mind', 'Body', 'Energy', 'Wealth', 'Mission', 'Identity', 'Relationships', 'Time'];
 
 const GodModeSection: React.FC = () => (
-  <SectionShell id="godmode" className="border-t border-white/5 overflow-hidden">
+  <SectionShell id="godmode" className="border-t border-white/10 overflow-hidden py-16 md:py-24">
     <div className="pointer-events-none absolute inset-0 veil opacity-80" aria-hidden="true" />
-    <div className="relative grid gap-14 lg:grid-cols-12 lg:gap-16 items-start">
-      <div className="lg:col-span-7">
+    <div className="relative grid gap-12 lg:grid-cols-12 lg:gap-16 items-start">
+      <div className="min-w-0 lg:col-span-7">
         <Reveal>
           <Eyebrow>GODMODE</Eyebrow>
           <h2 className="display text-energy text-3xl sm:text-4xl md:text-5xl lg:text-[3.4rem] leading-[1.14]">
@@ -41,7 +41,7 @@ const GodModeSection: React.FC = () => (
         </Reveal>
       </div>
 
-      <div className="lg:col-span-5">
+      <div className="min-w-0 lg:col-span-5">
         <Reveal delay={140}>
           <div className="rule-energy" />
           <ul className="mt-8 grid grid-cols-2 gap-x-6">

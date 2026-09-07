@@ -22,7 +22,7 @@ const Ecosystem: React.FC = () => (
       </p>
     </Reveal>
 
-    <div className="mt-16 grid gap-0 md:grid-cols-3 border-t border-white/10">
+    <div className="mt-12 grid gap-0 md:grid-cols-3 border-t border-white/10">
       {surfaces.map((s, i) => (
         <Reveal key={s.name} delay={i * 100} className="h-full">
           <Link

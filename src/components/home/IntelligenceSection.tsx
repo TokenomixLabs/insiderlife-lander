@@ -15,8 +15,8 @@ const IntelligenceSection: React.FC = () => (
       </h2>
     </Reveal>
 
-    <div className="mt-14 md:mt-20 grid gap-12 md:grid-cols-12">
-      <div className="md:col-span-6 lg:col-span-5">
+    <div className="mt-10 md:mt-12 grid gap-10 md:grid-cols-12">
+      <div className="min-w-0 md:col-span-6 lg:col-span-5">
         <Reveal delay={80}>
           <p className="font-orbitron text-lg md:text-xl tracking-wide text-white/90 pb-1">
             AI amplifies the player.
@@ -28,7 +28,7 @@ const IntelligenceSection: React.FC = () => (
         </Reveal>
       </div>
 
-      <div className="md:col-span-6 lg:col-span-6 lg:col-start-7">
+      <div className="min-w-0 md:col-span-6 lg:col-span-6 lg:col-start-7">
         <Reveal delay={160}>
           <div className="rule-energy" />
           <h3 className="mt-8 font-orbitron text-xl md:text-2xl text-white tracking-wide leading-relaxed pb-[0.1em]">
