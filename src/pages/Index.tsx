@@ -27,7 +27,7 @@ const Index: React.FC = () => {
   }, [hash]);
 
   return (
-    <div className="min-h-screen bg-insiderDark flex flex-col overflow-x-hidden">
+    <div className="min-h-screen bg-insiderDark flex flex-col">
       <Navbar />
       <main className="flex-grow flex flex-col">
         <VideoHeroSection />

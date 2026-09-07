@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
-import logoAsset from '@/assets/insiderlife-logo.png.asset.json';
+import logoAsset from '@/assets/insiderlife-lockup.png.asset.json';
 
 type NavItem = { label: string; hash?: string; to?: string };
 
@@ -40,21 +40,25 @@ export function Navbar() {
     el?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
+  const activateItem = (item: NavItem) => {
+    if (item.hash) goToHash(item.hash);
+  };
+
   return (
     <header
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-500',
         scrolled || open
-          ? 'bg-insiderDark/85 backdrop-blur-xl border-b border-white/10'
-          : 'bg-gradient-to-b from-insiderDark/70 to-transparent border-b border-transparent'
+          ? 'bg-insiderDark/90 backdrop-blur-xl border-b border-white/10'
+          : 'bg-gradient-to-b from-insiderDark/75 to-transparent border-b border-transparent'
       )}
     >
-      <div className="mx-auto w-full max-w-7xl px-6 md:px-10 h-[80px] flex items-center justify-between gap-6">
+      <div className="mx-auto w-full max-w-7xl px-5 sm:px-6 md:px-10 h-[68px] flex items-center justify-between gap-5">
         <Link to="/" aria-label="InsiderLife home" className="shrink-0">
-          <img src={logoAsset.url} alt="InsiderLife" className="h-9 md:h-11 w-auto object-contain" />
+          <img src={logoAsset.url} alt="InsiderLife" className="h-8 md:h-9 w-auto max-w-[210px] object-contain" />
         </Link>
 
-        <nav className="hidden lg:flex items-center gap-8">
+        <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
           {navItems.map((item) =>
             item.to ? (
               <Link
@@ -68,7 +72,7 @@ export function Navbar() {
               <button
                 key={item.label}
                 type="button"
-                onClick={() => goToHash(item.hash!)}
+                onClick={() => activateItem(item)}
                 className="font-orbitron text-[11px] tracking-[0.22em] uppercase text-white/70 hover:text-white transition-colors"
               >
                 {item.label}
@@ -113,7 +117,7 @@ export function Navbar() {
                   type="button"
                   onClick={() => {
                     setOpen(false);
-                    goToHash(item.hash!);
+                    activateItem(item);
                   }}
                   className="text-left font-orbitron text-sm tracking-[0.2em] uppercase text-white/80"
                 >

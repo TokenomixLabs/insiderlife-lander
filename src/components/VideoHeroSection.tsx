@@ -36,9 +36,11 @@ const VideoPlayer = () => {
 
     return () => {
       if (vimeoPlayerRef.current) {
-        vimeoPlayerRef.current.destroy().catch(err => {
+        try {
+          vimeoPlayerRef.current.destroy();
+        } catch (err) {
           console.error('Error destroying player:', err);
-        });
+        }
       }
     };
   }, []);
@@ -87,7 +89,7 @@ const VideoPlayer = () => {
 
 const VideoHeroSection = () => (
   <ErrorBoundary>
-    <section className="relative w-full overflow-hidden bg-black pt-[80px]">
+    <section className="relative w-full overflow-hidden bg-black pt-[68px]">
       <VideoPlayer />
     </section>
   </ErrorBoundary>

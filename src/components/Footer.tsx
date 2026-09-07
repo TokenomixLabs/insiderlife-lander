@@ -1,7 +1,7 @@
 import React from 'react';
 import { Mail, Phone, HelpCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import logoAsset from '@/assets/insiderlife-logo.png.asset.json';
+import logoAsset from '@/assets/insiderlife-lockup.png.asset.json';
 
 const Footer: React.FC = () => {
   return (
@@ -10,7 +10,7 @@ const Footer: React.FC = () => {
         <div className="grid gap-12 md:grid-cols-12">
           <div className="md:col-span-5">
             <Link to="/" className="inline-block mb-6" aria-label="InsiderLife home">
-              <img src={logoAsset.url} alt="InsiderLife" className="h-11 w-auto object-contain" />
+              <img src={logoAsset.url} alt="InsiderLife" className="h-11 w-auto max-w-[270px] object-contain" />
             </Link>
             <p className="max-w-sm text-sm md:text-base text-white/60 leading-relaxed">
               A life-mastery ecosystem for people who intend to play at a higher level.

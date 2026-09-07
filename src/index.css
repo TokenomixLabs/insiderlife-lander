@@ -5,13 +5,13 @@
 
 @layer base {
   :root {
-    --background: 223 95% 4%;
+    --background: 235 68% 6%;
     --foreground: 210 40% 98%;
 
-    --card: 223 70% 13%;
+    --card: 222 54% 9%;
     --card-foreground: 210 40% 98%;
 
-    --popover: 223 70% 13%;
+    --popover: 222 54% 9%;
     --popover-foreground: 210 40% 98%;
 
     --primary: 199 90% 62%;
@@ -50,7 +50,7 @@
     );
     --gradient-veil: radial-gradient(
       120% 100% at 50% 0%,
-      hsl(var(--energy-blue) / 0.16),
+      hsl(var(--energy-blue) / 0.1),
       transparent 62%
     );
 
@@ -72,6 +72,7 @@
 
   body {
     @apply bg-insiderDark text-foreground;
+    overflow-x: clip;
   }
 
   html {
@@ -113,5 +114,11 @@
   .rule-energy {
     background-image: var(--gradient-energy);
     @apply h-px w-full opacity-70;
+  }
+
+  .panel-atmosphere {
+    background-image:
+      linear-gradient(180deg, hsl(var(--background) / 0.08), hsl(var(--background) / 0.94)),
+      linear-gradient(105deg, hsl(var(--energy-blue) / 0.08), hsl(var(--energy-violet) / 0.08));
   }
 }
