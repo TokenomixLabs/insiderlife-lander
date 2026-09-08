@@ -55,16 +55,16 @@ export function Navbar() {
     >
       <div className="mx-auto w-full max-w-7xl px-5 sm:px-6 md:px-10 h-[68px] flex items-center justify-between gap-5">
         <Link to="/" aria-label="InsiderLife home" className="shrink-0">
-          <img src={logoAsset.url} alt="InsiderLife" className="h-9 md:h-10 w-auto max-w-[210px] object-contain" />
+          <img src={logoAsset.url} alt="InsiderLife" className="h-auto w-[190px] sm:w-[220px] lg:w-[235px] xl:w-[250px] max-h-[52px] object-contain object-left" />
         </Link>
 
-        <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
+        <nav className="hidden lg:flex items-center gap-3 xl:gap-6">
           {navItems.map((item) =>
             item.to ? (
               <Link
                 key={item.label}
                 to={item.to}
-                className="font-orbitron text-[11px] tracking-[0.22em] uppercase text-white/70 hover:text-white transition-colors"
+                className="font-orbitron text-[10px] xl:text-[11px] tracking-[0.16em] xl:tracking-[0.2em] uppercase text-white/70 hover:text-white transition-colors"
               >
                 {item.label}
               </Link>
@@ -73,7 +73,7 @@ export function Navbar() {
                 key={item.label}
                 type="button"
                 onClick={() => activateItem(item)}
-                className="font-orbitron text-[11px] tracking-[0.22em] uppercase text-white/70 hover:text-white transition-colors"
+                className="font-orbitron text-[10px] xl:text-[11px] tracking-[0.16em] xl:tracking-[0.2em] uppercase text-white/70 hover:text-white transition-colors"
               >
                 {item.label}
               </button>
@@ -84,7 +84,7 @@ export function Navbar() {
         <div className="flex items-center gap-3">
           <Link
             to="/circle"
-            className="hidden sm:inline-flex items-center bg-energy text-white font-orbitron text-[11px] tracking-[0.2em] uppercase px-5 py-3 rounded-md transition-transform duration-300 hover:scale-[1.04]"
+            className="hidden sm:inline-flex items-center bg-energy text-white font-orbitron text-[10px] xl:text-[11px] tracking-[0.16em] xl:tracking-[0.2em] uppercase px-3 xl:px-5 py-3 rounded-md transition-transform duration-300 hover:scale-[1.04]"
           >
             Enter InsiderLife
           </Link>
