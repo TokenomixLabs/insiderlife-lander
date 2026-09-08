@@ -55,7 +55,7 @@ export function Navbar() {
     >
       <div className="mx-auto w-full max-w-7xl px-5 sm:px-6 md:px-10 h-[68px] flex items-center justify-between gap-5">
         <Link to="/" aria-label="InsiderLife home" className="shrink-0">
-          <img src={logoAsset.url} alt="InsiderLife" className="h-auto w-[190px] sm:w-[220px] lg:w-[235px] xl:w-[250px] max-h-[52px] object-contain object-left" />
+          <img src={logoAsset.url} alt="InsiderLife" className="h-auto w-[190px] sm:w-[220px] lg:w-[235px] xl:w-[250px] object-contain object-left" />
         </Link>
 
         <nav className="hidden lg:flex items-center gap-3 xl:gap-6">
