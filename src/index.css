@@ -124,4 +124,62 @@
       linear-gradient(180deg, hsl(var(--background) / 0.08), hsl(var(--background) / 0.94)),
       linear-gradient(105deg, hsl(var(--energy-blue) / 0.08), hsl(var(--energy-violet) / 0.08));
   }
+
+  .thesis-emblem-field {
+    @apply relative flex aspect-square w-[220px] items-center justify-center sm:w-[260px] md:w-[300px] lg:w-[340px] xl:w-[420px] 2xl:w-[460px];
+    background-image: radial-gradient(
+      circle at 50% 48%,
+      hsl(var(--energy-blue) / 0.13) 0%,
+      hsl(var(--energy-violet) / 0.055) 38%,
+      transparent 69%
+    );
+  }
+
+  .thesis-emblem-field::before,
+  .thesis-emblem-field::after {
+    content: '';
+    @apply pointer-events-none absolute;
+  }
+
+  .thesis-emblem-field::before {
+    inset: 7%;
+    border: 1px solid hsl(var(--energy-cyan) / 0.1);
+    border-radius: 50%;
+    mask-image: linear-gradient(to bottom, transparent 2%, black 30%, black 70%, transparent 98%);
+  }
+
+  .thesis-emblem-field::after {
+    left: 50%;
+    top: 4%;
+    bottom: 4%;
+    width: 1px;
+    background: linear-gradient(
+      to bottom,
+      transparent,
+      hsl(var(--energy-violet) / 0.13) 28%,
+      hsl(var(--energy-cyan) / 0.1) 72%,
+      transparent
+    );
+  }
+
+  .thesis-emblem-ring {
+    @apply pointer-events-none absolute rounded-full;
+    inset: 15%;
+    border: 1px solid hsl(var(--energy-violet) / 0.08);
+  }
+
+  .thesis-emblem-axis {
+    @apply pointer-events-none absolute left-[12%] right-[12%] top-1/2 h-px;
+    background: linear-gradient(
+      to right,
+      transparent,
+      hsl(var(--energy-cyan) / 0.1),
+      transparent
+    );
+  }
+
+  .thesis-emblem-image {
+    @apply relative z-10 h-auto w-[82%] object-contain opacity-95;
+    filter: drop-shadow(0 0 30px hsl(var(--energy-blue) / 0.12));
+  }
 }
