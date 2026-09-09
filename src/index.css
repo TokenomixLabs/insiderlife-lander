@@ -179,7 +179,7 @@
   }
 
   .thesis-emblem-image {
-    @apply relative z-10 h-auto w-[82%] object-contain opacity-95;
+    @apply relative z-10 h-auto w-[90%] object-contain opacity-95;
     filter: drop-shadow(0 0 30px hsl(var(--energy-blue) / 0.12));
   }
 }

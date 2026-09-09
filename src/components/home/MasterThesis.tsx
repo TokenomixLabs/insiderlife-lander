@@ -2,6 +2,7 @@ import React from 'react';
 import SectionShell, { Eyebrow } from './SectionShell';
 import Reveal from './Reveal';
 import iconAsset from '@/assets/insiderlife-logo.png.asset.json';
+import iconFallback from '@/assets/insiderlife-logo-local.png';
 
 const MasterThesis: React.FC = () => (
   <SectionShell id="why" className="pt-16 sm:pt-20 lg:pt-24 pb-16 md:pb-24 overflow-hidden">
@@ -33,6 +34,9 @@ const MasterThesis: React.FC = () => (
             src={iconAsset.url}
             alt=""
             className="thesis-emblem-image"
+            onError={(event) => {
+              if (event.currentTarget.src !== iconFallback) event.currentTarget.src = iconFallback;
+            }}
           />
         </div>
       </Reveal>
