@@ -40,7 +40,7 @@ const SovereignCircle: React.FC<{ className?: string }> = ({ className }) => (
           <stop offset="100%" stopColor="hsl(var(--energy-magenta))" stopOpacity="0.5" />
         </linearGradient>
         <path id="sc-arc-top" d="M 200 200 m -156 0 a 156 156 0 0 1 312 0" fill="none" />
-        <path id="sc-arc-bottom" d="M 200 200 m 156 0 a 156 156 0 0 1 -312 0" fill="none" />
+        <path id="sc-arc-bottom" d="M 200 200 m -166 0 a 166 166 0 0 0 332 0" fill="none" />
       </defs>
 
       {/* halo */}
