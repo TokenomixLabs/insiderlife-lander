@@ -1,13 +1,12 @@
 import React from 'react';
 import SectionShell, { Eyebrow } from './SectionShell';
 import Reveal from './Reveal';
-import iconAsset from '@/assets/insiderlife-logo.png.asset.json';
-import iconFallback from '@/assets/insiderlife-logo-local.png';
+import SovereignCircle from './SovereignCircle';
 
 const MasterThesis: React.FC = () => (
   <SectionShell id="why" className="pt-16 sm:pt-20 lg:pt-24 pb-16 md:pb-24 overflow-hidden">
     <div className="pointer-events-none absolute inset-0 veil" aria-hidden="true" />
-    <div className="relative grid items-center gap-x-8 gap-y-10 lg:grid-cols-12 lg:gap-x-10 xl:gap-x-14">
+    <div className="relative grid items-start gap-x-8 gap-y-12 lg:grid-cols-12 lg:gap-x-10 xl:gap-x-14">
       <div className="lg:col-span-7 xl:col-span-8">
         <Reveal>
           <Eyebrow className="mb-5 md:mb-6">InsiderLife</Eyebrow>
@@ -27,19 +26,9 @@ const MasterThesis: React.FC = () => (
       </div>
 
       <Reveal delay={180} className="lg:col-span-5 xl:col-span-4 lg:row-span-2 lg:col-start-8 xl:col-start-9 lg:row-start-1">
-        <div className="thesis-emblem-field mx-auto lg:ml-auto lg:mr-0" aria-hidden="true">
-          <div className="thesis-emblem-ring" />
-          <div className="thesis-emblem-axis" />
-          <img
-            src={iconAsset.url}
-            alt=""
-            className="thesis-emblem-image"
-            onError={(event) => {
-              if (event.currentTarget.src !== iconFallback) event.currentTarget.src = iconFallback;
-            }}
-          />
-        </div>
+        <SovereignCircle className="mx-auto lg:ml-auto lg:mr-0" />
       </Reveal>
+
 
       <Reveal delay={240} className="lg:col-span-7 xl:col-span-8">
         <div className="grid gap-6 md:grid-cols-[minmax(3rem,5rem)_minmax(0,1fr)] md:items-start lg:pr-4 xl:pr-12">
