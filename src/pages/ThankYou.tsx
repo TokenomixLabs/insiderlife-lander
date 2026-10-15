@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft, CheckCircle } from 'lucide-react';
-import logoAsset from '@/assets/insiderlife-logo.png.asset.json';
+import logoSrc from '@/assets/insiderlife-logo.png';
 
 const ThankYou: React.FC = () => {
   return (
@@ -12,7 +12,7 @@ const ThankYou: React.FC = () => {
         <div className="flex flex-col items-center">
           <Link to="/">
             <img 
-              src={logoAsset.url}
+              src={logoSrc}
               alt="InsiderLife Logo" 
               className="h-12 w-auto mb-8"
             />
