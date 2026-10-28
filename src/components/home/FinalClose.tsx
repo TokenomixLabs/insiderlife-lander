@@ -26,7 +26,7 @@ const FinalClose: React.FC = () => (
       <Reveal delay={180}>
         <Link
           to="/circle"
-          className="mt-10 inline-flex items-center gap-3 bg-energy text-white font-orbitron text-sm md:text-base tracking-[0.2em] uppercase px-8 py-4 rounded-md transition-transform duration-300 hover:scale-[1.03]"
+          className="cta-shine mt-10 inline-flex items-center gap-3 bg-energy text-white font-orbitron text-sm md:text-base tracking-[0.2em] uppercase px-8 py-4 rounded-md transition-transform duration-300 hover:scale-[1.03]"
         >
           Enter InsiderLife
           <ArrowRight className="h-4 w-4" />

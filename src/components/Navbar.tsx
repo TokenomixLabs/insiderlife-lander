@@ -84,7 +84,7 @@ export function Navbar() {
         <div className="flex items-center gap-3">
           <Link
             to="/circle"
-            className="hidden sm:inline-flex items-center bg-energy text-white font-orbitron text-[10px] xl:text-[11px] tracking-[0.16em] xl:tracking-[0.2em] uppercase px-3 xl:px-5 py-3 rounded-md transition-transform duration-300 hover:scale-[1.04]"
+            className="cta-shine hidden sm:inline-flex items-center bg-energy text-white font-orbitron text-[10px] xl:text-[11px] tracking-[0.16em] xl:tracking-[0.2em] uppercase px-3 xl:px-5 py-3 rounded-md transition-transform duration-300 hover:scale-[1.04]"
           >
             Enter InsiderLife
           </Link>
@@ -127,7 +127,7 @@ export function Navbar() {
             )}
             <Link
               to="/circle"
-              className="mt-2 inline-flex justify-center bg-energy text-white font-orbitron text-xs tracking-[0.2em] uppercase px-5 py-4 rounded-md"
+              className="cta-shine mt-2 inline-flex justify-center bg-energy text-white font-orbitron text-xs tracking-[0.2em] uppercase px-5 py-4 rounded-md"
             >
               Enter InsiderLife
             </Link>
