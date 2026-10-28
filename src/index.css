@@ -125,4 +125,47 @@
       linear-gradient(105deg, hsl(var(--energy-blue) / 0.08), hsl(var(--energy-violet) / 0.08));
   }
 
+  /* CTA shine sweep — a soft white highlight glides left-to-right, ~600ms every 5s */
+  .cta-shine {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-shine::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 45%;
+    pointer-events: none;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.3),
+      transparent
+    );
+    transform: translateX(-160%) skewX(-18deg);
+    animation: cta-shine 5s ease-in-out infinite;
+    will-change: transform;
+  }
+}
+
+@keyframes cta-shine {
+  0% {
+    transform: translateX(-160%) skewX(-18deg);
+  }
+  12% {
+    transform: translateX(380%) skewX(-18deg);
+  }
+  100% {
+    transform: translateX(380%) skewX(-18deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cta-shine::after {
+    animation: none;
+    opacity: 0;
+  }
 }
